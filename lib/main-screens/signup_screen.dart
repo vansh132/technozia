@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/services/auth_services.dart';
 
 class SignupScreen extends StatefulWidget {
   static const String routeName = '/sign-up-screen';
@@ -9,6 +10,7 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  AuthServices authServices = AuthServices();
   final _signUpKey = GlobalKey<FormState>();
   final TextEditingController _fullName = TextEditingController();
   final TextEditingController _college = TextEditingController();
@@ -29,7 +31,15 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 
   void onSubmit() {
-    print(_fullName.text);
+    authServices.signUpUser(
+      context: context,
+      fullName: _fullName.text,
+      college: _college.text,
+      phoneNo: int.parse(_phoneNumber.text),
+      email: _email.text,
+      password: _password.text,
+    );
+    print("Sign up successfull ");
   }
 
   @override
@@ -107,9 +117,7 @@ class _SignupScreenState extends State<SignupScreen> {
                   hintText: 'confirm password',
                 ),
                 validator: (val) {
-                  if (val == null ||
-                      val.isEmpty ||
-                      val.toString() != _password.text) {
+                  if (val.toString() != _password.text) {
                     return 'Password not matched';
                   }
                   return null;
