@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/main-screens/signup_screen.dart';
+import 'package:technozia/services/auth_services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -9,6 +10,26 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  final signInForm = GlobalKey<FormState>();
+  final AuthServices authServices = AuthServices();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+
+  @override
+  void dispose() {
+    super.dispose();
+    _email.dispose();
+    _password.dispose();
+  }
+
+  void signIn() {
+    authServices.signInUser(
+      context: context,
+      email: _email.text,
+      password: _password.text,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +81,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 24,
               ),
               Form(
+                key: signInForm,
                 child: Column(
                   children: [
                     Container(
@@ -74,6 +96,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: const Color(0xffddd5d8),
                       ),
                       child: TextFormField(
+                        controller: _email,
                         autofocus: false,
                         style: const TextStyle(
                           color: Color(0xff03071e),
@@ -103,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: const Color(0xffddd5d8),
                       ),
                       child: TextFormField(
+                        controller: _password,
                         autofocus: false,
                         obscureText: true,
                         style: const TextStyle(
@@ -131,7 +155,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        signIn();
+                        
+                      },
                       child: const Icon(
                         size: 48,
                         Icons.arrow_circle_right_rounded,
