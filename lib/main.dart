@@ -1,14 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:technozia/main-screens/home_screen.dart';
+import 'package:provider/provider.dart';
 import 'package:technozia/main-screens/login_screen.dart';
+import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/routes.dart';
+import 'package:technozia/services/auth_services.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => UserProvider(),
+        )
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  AuthServices authServices = AuthServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

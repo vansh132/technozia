@@ -12,6 +12,7 @@ import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/participant-screens/home_screen.dart';
 
 class AuthServices {
   void signUpUser({
@@ -76,12 +77,28 @@ class AuthServices {
         context: context,
         onSuccess: () async {
           SharedPreferences pref = await SharedPreferences.getInstance();
-          Provider.of<UserProvider>(context, listen: false).setUser(res.body) ;
+          Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await pref.setString("x-auth-token", jsonDecode(res.body)['token']);
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            ParticipantHome.routeName,
+            (route) => false,
+          );
         },
       );
     } catch (e) {
       showSnackBar(context, e.toString());
     }
+  }
+
+  void getUserData(BuildContext context) async {
+    try {
+      SharedPreferences pref = await SharedPreferences.getInstance();
+      String? token = pref.getString("x-auth-token");
+
+      if (token == null) {
+        pref.setString("x-auth-token", '');
+      }
+    } catch (e) {}
   }
 }
