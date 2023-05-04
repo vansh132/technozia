@@ -5,11 +5,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/user.dart';
+import 'package:technozia/providers/user_provider.dart';
 
 class AuthServices {
   void signUpUser({
@@ -74,6 +76,7 @@ class AuthServices {
         context: context,
         onSuccess: () async {
           SharedPreferences pref = await SharedPreferences.getInstance();
+          Provider.of<UserProvider>(context, listen: false).setUser(res.body) ;
           await pref.setString("x-auth-token", jsonDecode(res.body)['token']);
         },
       );
