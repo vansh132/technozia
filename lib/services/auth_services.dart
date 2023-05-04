@@ -4,6 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
@@ -71,8 +72,9 @@ class AuthServices {
       httpErrorHandle(
         response: res,
         context: context,
-        onSuccess: () {
-          showSnackBar(context, "Sign in successful");
+        onSuccess: () async {
+          SharedPreferences pref = await SharedPreferences.getInstance();
+          await pref.setString("x-auth-token", jsonDecode(res.body)['token']);
         },
       );
     } catch (e) {
