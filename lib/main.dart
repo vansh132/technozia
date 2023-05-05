@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/main-screens/home_screen.dart';
 import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/routes.dart';
@@ -30,8 +31,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+    authServices.getUserData(context);
   }
 
   @override
@@ -49,7 +50,7 @@ class _MyAppState extends State<MyApp> {
         )),
         primaryColor: const Color(0xff03071e),
       ),
-      home: const LoginScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isEmpty ? LoginScreen() : HomeScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }
