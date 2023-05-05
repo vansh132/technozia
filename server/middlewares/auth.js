@@ -13,6 +13,7 @@ const auth = async (req, res, next) => {
 
     req.user = verified.id;
     req.token = token;
+    next();
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

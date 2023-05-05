@@ -78,7 +78,9 @@ class AuthServices {
         onSuccess: () async {
           SharedPreferences pref = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          await pref.setString("x-auth-token", jsonDecode(res.body)['token']);
+          var r = await pref.setString(
+              "x-auth-token", jsonDecode(res.body)['token']);
+          print("$r - vansh132");
           // Navigator.pushNamedAndRemoveUntil(
           //   context,
           //   ParticipantHome.routeName,
@@ -95,7 +97,6 @@ class AuthServices {
     try {
       SharedPreferences pref = await SharedPreferences.getInstance();
       String? token = pref.getString("x-auth-token");
-
       if (token == null) {
         pref.setString("x-auth-token", '');
       }
@@ -117,11 +118,15 @@ class AuthServices {
             'Content-Type': 'application/json; charset=UTF-8',
             'x-auth-token': token,
           },
+
+
         );
 
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userResponse.body);
       }
-    } catch (e) {}
+    } catch (e) {
+      
+    }
   }
 }

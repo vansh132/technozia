@@ -39,8 +39,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    var userData = Provider.of<UserProvider>(context).user.type;
-    print(Provider.of<UserProvider>(context).user.type == 'core-team');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Technozia',
