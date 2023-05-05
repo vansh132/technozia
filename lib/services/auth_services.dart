@@ -79,11 +79,11 @@ class AuthServices {
           SharedPreferences pref = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
           await pref.setString("x-auth-token", jsonDecode(res.body)['token']);
-          Navigator.pushNamedAndRemoveUntil(
-            context,
-            ParticipantHome.routeName,
-            (route) => false,
-          );
+          // Navigator.pushNamedAndRemoveUntil(
+          //   context,
+          //   ParticipantHome.routeName,
+          //   (route) => false,
+          // );
         },
       );
     } catch (e) {

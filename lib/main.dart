@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:technozia/main-screens/home_screen.dart';
 import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/routes.dart';
+import 'package:technozia/screens/admin-screens/home_screen.dart';
+import 'package:technozia/screens/coreteam-screens/home_screen.dart';
+import 'package:technozia/screens/participant-screens/home_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
 void main() {
@@ -37,7 +39,10 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    var userData = Provider.of<UserProvider>(context).user.type;
+    print(Provider.of<UserProvider>(context).user.type == 'core-team');
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Technozia',
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
@@ -50,7 +55,21 @@ class _MyAppState extends State<MyApp> {
         )),
         primaryColor: const Color(0xff03071e),
       ),
-      home: Provider.of<UserProvider>(context).user.token.isEmpty ? LoginScreen() : HomeScreen(),
+      home: Provider.of<UserProvider>(context).user.token.isNotEmpty
+          ? Provider.of<UserProvider>(context).user.type == 'core-team'
+              ? const CoreTeamHome()
+              : Provider.of<UserProvider>(context).user.type == 'participant'
+                  ? const ParticipantHome()
+                  : Provider.of<UserProvider>(context).user.type == 'admin'
+                      ? const AdminHome()
+                      : null
+          : const LoginScreen(),
+      //     : Provider.of<UserProvider>(context).user.type == "core-team"
+      //         ? const CoreTeamHome()
+      //         : Provider.of<UserProvider>(context).user.type == "admin"
+      //             ? const AdminHome()
+      //             : const LoginScreen()
+      // : const LoginScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );
   }

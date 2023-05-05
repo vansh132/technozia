@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CoreTeamHome extends StatelessWidget {
+  static const String routeName = '/core-team-screen';
   const CoreTeamHome({super.key});
 
   @override
@@ -8,7 +9,12 @@ class CoreTeamHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text("Core team home screen"),
+        child: Text(
+          "Core team home screen",
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
     );
   }
