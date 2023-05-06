@@ -9,12 +9,36 @@ class AdminHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: Text(
-          "Admin home screen",
-          style: TextStyle(
-            color: Colors.black,
-          ),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                "Add Achievement",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                "Add post",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                "Call meeting",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text(
+                "Registration Status",
+              ),
+            ),
+          ],
         ),
       ),
     );
