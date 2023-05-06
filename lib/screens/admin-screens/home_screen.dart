@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/screens/admin-screens/add_achievements_screen.dart';
 
 class AdminHome extends StatelessWidget {
   static const String routeName = '/admin-screen';
@@ -15,7 +16,9 @@ class AdminHome extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AddAchievementScreen.routeName);
+              },
               child: const Text(
                 "Add Achievement",
               ),
