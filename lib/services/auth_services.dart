@@ -12,7 +12,6 @@ import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
-import 'package:technozia/screens/participant-screens/home_screen.dart';
 
 class AuthServices {
   void signUpUser({
@@ -81,11 +80,7 @@ class AuthServices {
           var r = await pref.setString(
               "x-auth-token", jsonDecode(res.body)['token']);
           print("$r - vansh132");
-          // Navigator.pushNamedAndRemoveUntil(
-          //   context,
-          //   ParticipantHome.routeName,
-          //   (route) => false,
-          // );
+          
         },
       );
     } catch (e) {
@@ -118,17 +113,11 @@ class AuthServices {
             'Content-Type': 'application/json; charset=UTF-8',
             'x-auth-token': token,
           },
-
-
         );
 
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userResponse.body);
       }
-    } catch (e) {
-      
-
-      
-    }
+    } catch (e) {}
   }
 }
