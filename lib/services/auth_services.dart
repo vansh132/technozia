@@ -1,7 +1,8 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'dart:convert';
-
+import 'dart:io';
+import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
+import 'package:technozia/models/achievement.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
 
@@ -80,7 +82,6 @@ class AuthServices {
           var r = await pref.setString(
               "x-auth-token", jsonDecode(res.body)['token']);
           print("$r - vansh132");
-          
         },
       );
     } catch (e) {
@@ -119,5 +120,72 @@ class AuthServices {
         userProvider.setUser(userResponse.body);
       }
     } catch (e) {}
+  }
+
+  Future<void> addAchievement({
+    required BuildContext context,
+    required String title,
+    required String category,
+    required String description,
+    required int noOfParticipant,
+    required String tag,
+    required List<File> images,
+  }) async {
+    print("vansh132 - running...");
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    try {
+      final cloudinary = CloudinaryPublic("dq1q5mtdo", "fwsfdscu");
+      // final cloudinary = CloudinaryPublic
+      List<String> imageUrl = [];
+      for (var i = 0; i < images.length; i++) {
+        CloudinaryResponse cloudinaryRes = await cloudinary.uploadFile(
+          CloudinaryFile.fromFile(
+            images[i].path,
+            folder: title,
+          ),
+        );
+        imageUrl.add(cloudinaryRes.secureUrl);
+        // Product product = Product(
+        //   name: name,
+        //   description: description,
+        //   quantity: quantity,
+        //   price: price,
+        //   category: category,
+        //   images: imageUrl,
+        // );
+        Achievement achievement = Achievement(
+          title: title,
+          category: category,
+          description: description,
+          noOfParticipant: noOfParticipant,
+          tag: tag,
+          images: imageUrl,
+        );
+        print("vansh132 - running above request...");
+
+        http.Response res = await http.post(
+          Uri.parse('$uri/admin/add-product'),
+          headers: <String, String>{
+            "Content-Type": 'application/json; charset=UTF-8',
+            'x-auth-token': user.token,
+          },
+          body: achievement.toJson(),
+        );
+        print("vansh132 - running below request...");
+        httpErrorHandle(
+          response: res,
+          context: context,
+          onSuccess: () {
+            print("product added successfully...");
+            // showSnackBar(c, "Product Added successfully.");
+            if (!context.mounted) return;
+            Navigator.pop(context);
+          },
+        );
+      }
+    } catch (e) {
+      // showSnackBar(context, e.toString());
+      print(e);
+    }
   }
 }
