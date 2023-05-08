@@ -145,14 +145,7 @@ class AuthServices {
           ),
         );
         imageUrl.add(cloudinaryRes.secureUrl);
-        // Product product = Product(
-        //   name: name,
-        //   description: description,
-        //   quantity: quantity,
-        //   price: price,
-        //   category: category,
-        //   images: imageUrl,
-        // );
+        print("inside add methos" + noOfParticipant.toString());
         Achievement achievement = Achievement(
           title: title,
           category: category,
@@ -164,7 +157,7 @@ class AuthServices {
         print("vansh132 - running above request...");
 
         http.Response res = await http.post(
-          Uri.parse('$uri/admin/add-product'),
+          Uri.parse('$uri/admin/add-achievement'),
           headers: <String, String>{
             "Content-Type": 'application/json; charset=UTF-8',
             'x-auth-token': user.token,

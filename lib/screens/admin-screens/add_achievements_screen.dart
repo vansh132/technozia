@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:technozia/constants/utils.dart';
+import 'package:technozia/services/auth_services.dart';
 
 class AddAchievementScreen extends StatefulWidget {
   static const String routeName = '/add-achievement-screen';
@@ -15,6 +15,7 @@ class AddAchievementScreen extends StatefulWidget {
 }
 
 class _AddAchievementScreenState extends State<AddAchievementScreen> {
+  AuthServices authServices = AuthServices();
   final _addAchievementFormKey = GlobalKey<FormState>();
   final TextEditingController _title = TextEditingController();
   final TextEditingController _category = TextEditingController();
@@ -35,7 +36,16 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
   }
 
   void onSubmit() {
-    print("achievement added...");
+    authServices.addAchievement(
+      context: context,
+      title: _title.text,
+      category: _category.text,
+      description: _description.text,
+      noOfParticipant: int.parse(_noOfParticipants.text),
+      tag: _tag.text,
+      images: images,
+    );
+    print("added achievement..." + _noOfParticipants.text);
   }
 
   void selectImages() async {
