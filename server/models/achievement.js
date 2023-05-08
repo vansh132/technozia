@@ -15,7 +15,6 @@ const achievementSchema = mongoose.Schema({
     required: true,
     type: String,
   },
-
   noOfParticipant: {
     required: true,
     type: Number,
@@ -34,5 +33,5 @@ const achievementSchema = mongoose.Schema({
   //cart
 });
 
-const Achievement = mongoose.model("achievement", achievementSchema);
+const Achievement = mongoose.model("Achievement", achievementSchema);
 module.exports = Achievement;

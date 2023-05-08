@@ -46,7 +46,7 @@ class AuthServices {
 
       httpErrorHandle(
         response: res,
-        context: context,
+        errContext: context,
         onSuccess: () {
           showSnackBar(context, "Account created...");
         },
@@ -75,7 +75,7 @@ class AuthServices {
 
       httpErrorHandle(
         response: res,
-        context: context,
+        errContext: context,
         onSuccess: () async {
           SharedPreferences pref = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
@@ -123,7 +123,7 @@ class AuthServices {
   }
 
   Future<void> addAchievement({
-    required BuildContext context,
+    // required BuildContext context,
     required String title,
     required String category,
     required String description,
@@ -132,7 +132,7 @@ class AuthServices {
     required List<File> images,
   }) async {
     print("vansh132 - running...");
-    final user = Provider.of<UserProvider>(context, listen: false).user;
+    // final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
       final cloudinary = CloudinaryPublic("dq1q5mtdo", "fwsfdscu");
       // final cloudinary = CloudinaryPublic
@@ -144,41 +144,50 @@ class AuthServices {
             folder: title,
           ),
         );
-        imageUrl.add(cloudinaryRes.secureUrl);
-        print("inside add methos" + noOfParticipant.toString());
-        Achievement achievement = Achievement(
-          title: title,
-          category: category,
-          description: description,
-          noOfParticipant: noOfParticipant,
-          tag: tag,
-          images: imageUrl,
-        );
+        var iamge = imageUrl.add(cloudinaryRes.secureUrl);
+
         print("vansh132 - running above request...");
 
-        http.Response res = await http.post(
-          Uri.parse('$uri/admin/add-achievement'),
-          headers: <String, String>{
-            "Content-Type": 'application/json; charset=UTF-8',
-            'x-auth-token': user.token,
-          },
-          body: achievement.toJson(),
-        );
         print("vansh132 - running below request...");
-        httpErrorHandle(
-          response: res,
-          context: context,
-          onSuccess: () {
-            print("product added successfully...");
-            // showSnackBar(c, "Product Added successfully.");
-            if (!context.mounted) return;
-            Navigator.pop(context);
-          },
-        );
+        // Navigator.pop(context);
+        // showSnackBar(context, "Achievement added...");
+
+        // httpErrorHandle(
+        //   response: res,
+        //   errContext: context,
+        //   onSuccess: () {
+        //     // print("product added successfully...");
+        //     // showSnackBar(c, "Product Added successfully.");
+        //     // if (!context.mounted) return;
+        //     showSnackBar(context, 'Product Added Successfully!');
+        //     // Navigator.pop(context, rootNavigator: true);
+        //     Navigator.of(context, rootNavigator: true).pop();
+        //     // Navigator.pop(context);
+        //   },
+        // );
       }
+
+      print("inside add methos" + noOfParticipant.toString());
+      Achievement achievement = Achievement(
+        title: title,
+        category: category,
+        description: description,
+        noOfParticipant: noOfParticipant,
+        tag: tag,
+        images: imageUrl,
+      );
+
+      await http.post(
+        Uri.parse('$uri/admin/add-achievement'),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+          // 'x-auth-token': user.token,
+        },
+        body: achievement.toJson(),
+      );
     } catch (e) {
       // showSnackBar(context, e.toString());
-      print(e);
+      print("vansh132" + e.toString());
     }
   }
 }

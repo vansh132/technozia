@@ -6,7 +6,7 @@ import 'package:technozia/constants/utils.dart';
 
 void httpErrorHandle({
   required http.Response response,
-  required BuildContext context,
+  required BuildContext errContext,
   required VoidCallback onSuccess,
 }) {
   switch (response.statusCode) {
@@ -14,12 +14,12 @@ void httpErrorHandle({
       onSuccess();
       break;
     case 400:
-      showSnackBar(context, jsonDecode(response.body)['msg']);
+      showSnackBar(errContext, jsonDecode(response.body)['msg']);
       break;
     case 500:
-      showSnackBar(context, jsonDecode(response.body)['error']);
+      showSnackBar(errContext, jsonDecode(response.body)['error']);
       break;
     default:
-      showSnackBar(context, response.body);
+      showSnackBar(errContext, response.body);
   }
 }

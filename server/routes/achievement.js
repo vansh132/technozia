@@ -6,6 +6,7 @@ const achievementRouter = express.Router();
 
 achievementRouter.post("/admin/add-achievement", async (req, res) => {
   try {
+    console.log("vansh...");
     const { title, category, description, noOfParticipant, tag, images } =
       req.body;
     let achievement = new Achievement({
