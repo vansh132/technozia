@@ -1,5 +1,4 @@
 const express = require("express");
-const admin = require("../middlewares/admin");
 const Achievement = require("../models/achievement");
 
 const achievementRouter = express.Router();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/services/auth_services.dart';
 
 class AddPostScreen extends StatefulWidget {
   static const String routeName = '/add-post-screen';
@@ -12,10 +13,21 @@ class AddPostScreen extends StatefulWidget {
 
 class _AddPostScreenState extends State<AddPostScreen> {
   final _addPostFormKey = GlobalKey<FormState>();
+  AuthServices authServices = AuthServices();
   final TextEditingController _title = TextEditingController();
   final TextEditingController _description = TextEditingController();
 
-  void onSubmit() {
+  void onSubmit(BuildContext context) {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+
+    authServices.addpost(
+      usedId: user.id,
+      title: _title.text,
+      description: _description.text,
+      date: DateTime.now(),
+    );
+
+    Navigator.pop(context);
     print("Post added...");
   }
 
@@ -63,7 +75,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_addPostFormKey.currentState!.validate()) {
-                      onSubmit();
+                      onSubmit(context);
                     }
                   },
                   child: const Text(

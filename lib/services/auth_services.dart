@@ -12,6 +12,7 @@ import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/achievement.dart';
+import 'package:technozia/models/post.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
 
@@ -218,5 +219,34 @@ class AuthServices {
     }
     print("vansh132" + achievementList.toString());
     return achievementList;
+  }
+
+  Future<void> addpost({
+    // required BuildContext context,
+    required String usedId,
+    required String title,
+    required String description,
+    required DateTime date,
+  }) async {
+    print("vansh132 - running...");
+    // final user = Provider.of<UserProvider>(context, listen: false).user;
+    try {
+      Post post = Post(
+        userId: usedId,
+        title: title,
+        description: description,
+        date: date,
+      );
+
+      await http.post(
+        Uri.parse('$uri/admin/add-post'),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+        },
+        body: post.toJson(),
+      );
+    } catch (e) {
+      print("vansh132" + e.toString());
+    }
   }
 }
