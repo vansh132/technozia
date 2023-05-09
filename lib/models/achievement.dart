@@ -31,13 +31,13 @@ class Achievement {
 
   factory Achievement.fromMap(Map<String, dynamic> map) {
     return Achievement(
-      title: map['title'] as String,
-      category: map['category'] as String,
-      description: map['description'] as String,
-      noOfParticipant: map['noOfParticipant'] as int,
-      tag: map['tag'] as String,
+      title: map['title'] ?? "",
+      category: map['category'] ?? "",
+      description: map['description'] ?? "",
+      noOfParticipant: map['noOfParticipant'] ?? 0,
+      tag: map['tag'] ?? "",
       images: List<String>.from(
-        (map['images'] as List<String>),
+        (map['images']),
       ),
     );
   }
@@ -46,5 +46,4 @@ class Achievement {
 
   factory Achievement.fromJson(String source) =>
       Achievement.fromMap(json.decode(source) as Map<String, dynamic>);
-      
 }

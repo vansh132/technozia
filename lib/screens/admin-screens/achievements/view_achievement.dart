@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/models/achievement.dart';
+import 'package:technozia/services/auth_services.dart';
 
 class ViewAchievementScreen extends StatefulWidget {
   static const String routeName = "/view-achievement-screen";
@@ -9,13 +11,27 @@ class ViewAchievementScreen extends StatefulWidget {
 }
 
 class _ViewAchievementScreenState extends State<ViewAchievementScreen> {
+  AuthServices authServices = AuthServices();
+  List<Achievement>? achievements;
+  @override
+  void initState() {
+    super.initState();
+    getAllAchievement();
+  }
+
+  void getAllAchievement() async {
+    achievements = await authServices.fetchAllProducts(context);
+    print(achievements);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
         child: Text(
-          "view achievements",
+          achievements![0].title,
           style: TextStyle(
             color: Colors.black,
           ),

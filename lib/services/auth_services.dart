@@ -46,7 +46,7 @@ class AuthServices {
 
       httpErrorHandle(
         response: res,
-        errContext: context,
+        context: context,
         onSuccess: () {
           showSnackBar(context, "Account created...");
         },
@@ -75,7 +75,7 @@ class AuthServices {
 
       httpErrorHandle(
         response: res,
-        errContext: context,
+        context: context,
         onSuccess: () async {
           SharedPreferences pref = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
@@ -189,5 +189,36 @@ class AuthServices {
       // showSnackBar(context, e.toString());
       print("vansh132" + e.toString());
     }
+  }
+
+  Future<List<Achievement>> fetchAllProducts(BuildContext context) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<Achievement> achievementList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/achievement"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+          'x-auth-token': userProvider.user.token,
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            achievementList.add(
+              Achievement.fromJson(
+                jsonEncode(jsonDecode(res.body)[i]),
+              ),
+            );
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    print("vansh132" + achievementList.toString());
+    return achievementList;
   }
 }

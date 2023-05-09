@@ -24,4 +24,13 @@ achievementRouter.post("/admin/add-achievement", async (req, res) => {
   }
 });
 
+achievementRouter.get("/api/achievement", async (req, res) => {
+  try {
+    const achievement = await Achievement.find({});
+    res.json(achievement);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = achievementRouter;
