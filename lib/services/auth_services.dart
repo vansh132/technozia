@@ -181,17 +181,15 @@ class AuthServices {
         Uri.parse('$uri/admin/add-achievement'),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8',
-          // 'x-auth-token': user.token,
         },
         body: achievement.toJson(),
       );
     } catch (e) {
-      // showSnackBar(context, e.toString());
       print("vansh132" + e.toString());
     }
   }
 
-  Future<List<Achievement>> fetchAllProducts(BuildContext context) async {
+  Future<List<Achievement>> fetchAllAchievements(BuildContext context) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Achievement> achievementList = [];
     try {

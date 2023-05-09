@@ -20,7 +20,7 @@ class _ViewAchievementScreenState extends State<ViewAchievementScreen> {
   }
 
   void getAllAchievement() async {
-    achievements = await authServices.fetchAllProducts(context);
+    achievements = await authServices.fetchAllAchievements(context);
     print(achievements);
     setState(() {});
   }
@@ -28,15 +28,32 @@ class _ViewAchievementScreenState extends State<ViewAchievementScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Text(
-          achievements![0].title,
-          style: TextStyle(
-            color: Colors.black,
-          ),
-        ),
-      ),
-    );
+        appBar: AppBar(),
+        body: ListView.builder(
+          itemBuilder: (context, index) {
+            return Row(
+              children: [
+                Text(
+                  achievements![index].title,
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(
+                  width: 24,
+                  // height: 100,
+                  // child: Image.network(achievements![index].images[0]),
+                ),
+                Text(
+                  achievements![index].description,
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            );
+          },
+          itemCount: achievements!.length,
+        ));
   }
 }
