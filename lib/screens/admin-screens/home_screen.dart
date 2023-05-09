@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:technozia/screens/admin-screens/add_achievements_screen.dart';
+import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
+import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 
 class AdminHome extends StatelessWidget {
   static const String routeName = '/admin-screen';
@@ -39,6 +40,14 @@ class AdminHome extends StatelessWidget {
               onPressed: () {},
               child: const Text(
                 "Registration Status",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ViewAchievementScreen.routeName);
+              },
+              child: const Text(
+                "View Achievements",
               ),
             ),
           ],
