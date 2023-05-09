@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
+import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 
 class AdminHome extends StatelessWidget {
   static const String routeName = '/admin-screen';
@@ -25,7 +26,9 @@ class AdminHome extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AddPostScreen.routeName);
+              },
               child: const Text(
                 "Add post",
               ),
