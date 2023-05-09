@@ -221,6 +221,40 @@ class AuthServices {
     return achievementList;
   }
 
+  Future<List<Post>> fetchAllPost(BuildContext context) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<Post> postList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/post"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+          'x-auth-token': userProvider.user.token,
+        },
+      );
+      print("running above error handle...");
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            print("running inside loop...");
+
+            postList.add(
+              Post.fromJson(
+                jsonEncode(jsonDecode(res.body)[i]),
+              ),
+            );
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    print("vansh132" + postList.toString());
+    return postList;
+  }
+
   Future<void> addpost({
     // required BuildContext context,
     required String usedId,
@@ -235,7 +269,7 @@ class AuthServices {
         userId: usedId,
         title: title,
         description: description,
-        date: date,
+        date: date.toString(),
       );
 
       await http.post(

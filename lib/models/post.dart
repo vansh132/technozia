@@ -5,7 +5,7 @@ class Post {
   final String userId;
   final String title;
   final String description;
-  final DateTime date;
+  final String date;
   Post({
     required this.userId,
     required this.title,
@@ -18,16 +18,16 @@ class Post {
       'userId': userId,
       'title': title,
       'description': description,
-      'date': date.millisecondsSinceEpoch,
+      'date': date,
     };
   }
 
   factory Post.fromMap(Map<String, dynamic> map) {
     return Post(
-      userId: map['userId'] as String,
-      title: map['title'] as String,
-      description: map['description'] as String,
-      date: DateTime.fromMillisecondsSinceEpoch(map['date'] as int),
+      userId: map['userId'] ?? "",
+      title: map['title'] ?? "",
+      description: map['description'] ?? "",
+      date: map['date'] ?? "",
     );
   }
 
