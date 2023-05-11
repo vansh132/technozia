@@ -124,7 +124,7 @@ class AuthServices {
   }
 
   Future<void> addAchievement({
-    // required BuildContext context,
+    required BuildContext context,
     required String title,
     required String category,
     required String description,
@@ -136,7 +136,6 @@ class AuthServices {
     // final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
       final cloudinary = CloudinaryPublic("dq1q5mtdo", "fwsfdscu");
-      // final cloudinary = CloudinaryPublic
       List<String> imageUrl = [];
       for (var i = 0; i < images.length; i++) {
         CloudinaryResponse cloudinaryRes = await cloudinary.uploadFile(
@@ -145,30 +144,9 @@ class AuthServices {
             folder: title,
           ),
         );
-        var iamge = imageUrl.add(cloudinaryRes.secureUrl);
-
-        print("vansh132 - running above request...");
-
-        print("vansh132 - running below request...");
-        // Navigator.pop(context);
-        // showSnackBar(context, "Achievement added...");
-
-        // httpErrorHandle(
-        //   response: res,
-        //   errContext: context,
-        //   onSuccess: () {
-        //     // print("product added successfully...");
-        //     // showSnackBar(c, "Product Added successfully.");
-        //     // if (!context.mounted) return;
-        //     showSnackBar(context, 'Product Added Successfully!');
-        //     // Navigator.pop(context, rootNavigator: true);
-        //     Navigator.of(context, rootNavigator: true).pop();
-        //     // Navigator.pop(context);
-        //   },
-        // );
+        var image = imageUrl.add(cloudinaryRes.secureUrl);
       }
 
-      print("inside add methos" + noOfParticipant.toString());
       Achievement achievement = Achievement(
         title: title,
         category: category,
@@ -178,12 +156,26 @@ class AuthServices {
         images: imageUrl,
       );
 
-      await http.post(
+      http.Response res = await http.post(
         Uri.parse('$uri/admin/add-achievement'),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8',
         },
         body: achievement.toJson(),
+      );
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          // print("product added successfully...");
+          // showSnackBar(c, "Product Added successfully.");
+          // if (!context.mounted) return;
+          showSnackBar(context, 'Product Added Successfully!');
+          // Navigator.pop(context, rootNavigator: true);
+          Navigator.of(context, rootNavigator: true).pop();
+          // Navigator.pop(context);
+        },
       );
     } catch (e) {
       print("vansh132" + e.toString());
@@ -282,5 +274,36 @@ class AuthServices {
     } catch (e) {
       print("vansh132" + e.toString());
     }
+  }
+
+  Future<List<User>> fetchAllUsers(BuildContext context) async {
+    // final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<User> userList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/users"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+          // 'x-auth-token': userProvider.user.token,
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            userList.add(
+              User.fromJson(
+                jsonEncode(jsonDecode(res.body)[i]),
+              ),
+            );
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    print("vansh132" + userList.toString());
+    return userList;
   }
 }

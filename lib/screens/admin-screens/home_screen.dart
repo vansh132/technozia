@@ -3,6 +3,7 @@ import 'package:technozia/screens/admin-screens/achievements/add_achievements_sc
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
+import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 
 class AdminHome extends StatelessWidget {
   static const String routeName = '/admin-screen';
@@ -60,6 +61,14 @@ class AdminHome extends StatelessWidget {
               },
               child: const Text(
                 "View post",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ViewUserScreen.routeName);
+              },
+              child: const Text(
+                "View user",
               ),
             ),
           ],

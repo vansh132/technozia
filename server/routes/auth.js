@@ -34,6 +34,15 @@ authRouter.post("/api/signup", async (req, res) => {
   }
 });
 
+authRouter.get("/api/users", async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 authRouter.post("/api/signin", async (req, res) => {
   try {
     const { email, password } = req.body;

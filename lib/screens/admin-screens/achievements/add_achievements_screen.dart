@@ -37,7 +37,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
 
   void onSubmit() {
     authServices.addAchievement(
-      // context: context,
+      context: context,
       title: _title.text,
       category: _category.text,
       description: _description.text,
@@ -46,7 +46,6 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
       images: images,
     );
     print("added achievement..." + _noOfParticipants.text);
-    Navigator.pop(context);
   }
 
   void selectImages() async {
