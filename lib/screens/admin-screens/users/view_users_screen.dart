@@ -33,12 +33,18 @@ class _ViewUserScreenState extends State<ViewUserScreen> {
           itemCount: userList?.length,
           itemBuilder: (context, index) {
             return userList == null
-                ? CircularProgressIndicator()
+                ? const CircularProgressIndicator()
                 : Row(
                     children: [
                       Text(
                         userList![index].email,
-                        style: TextStyle(
+                        style: const TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      Text(
+                        userList![index].college,
+                        style: const TextStyle(
                           color: Colors.black,
                         ),
                       ),
