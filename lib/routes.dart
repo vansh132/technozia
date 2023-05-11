@@ -7,6 +7,14 @@ import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/screens/coreteam-screens/home_screen.dart';
+import 'package:technozia/screens/participant-screens/events/coding_screen.dart';
+import 'package:technozia/screens/participant-screens/events/fast_typing.dart';
+import 'package:technozia/screens/participant-screens/events/gaming_screen.dart';
+import 'package:technozia/screens/participant-screens/events/it_manager_screen.dart';
+import 'package:technozia/screens/participant-screens/events/it_quiz_screen.dart';
+import 'package:technozia/screens/participant-screens/events/treasurehunt_screen.dart';
+import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
+import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -55,6 +63,46 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ViewUserScreen(),
+      );
+    case EventScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const EventScreen(),
+      );
+    case ItQuizScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ItQuizScreen(),
+      );
+    case ItManagerScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ItManagerScreen(),
+      );
+    case CodingScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const CodingScreen(),
+      );
+    case WebDesignScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const WebDesignScreen(),
+      );
+    case GamingScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const GamingScreen(),
+      );
+    case FastTyping.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const FastTyping(),
+      );
+    case TreasureHuntScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const TreasureHuntScreen(),
       );
     default:
       return MaterialPageRoute(
