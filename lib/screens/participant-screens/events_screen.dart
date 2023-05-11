@@ -68,12 +68,6 @@ class _EventScreenState extends State<EventScreen> {
     );
   }
 
-  /*
-    event name
-    bg image src
-    navigation 
-   */
-
   Widget event(String name, String url, String routeName) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
