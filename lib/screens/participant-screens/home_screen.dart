@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class ParticipantHome extends StatefulWidget {
   static const String routeName = '/participant-homescreen';
@@ -16,19 +18,41 @@ class _ParticipantHomeState extends State<ParticipantHome> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-      appBar: AppBar(),
-      body: Column(
-        children: [
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pushNamed(context, EventScreen.routeName);
-            },
-            child: Text("Events"),
-          ),
-        ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            topBar(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, EventScreen.routeName);
+              },
+              child: Text("Events"),
+            ),
+          ],
+        ),
       ),
     );
   }
 
- 
+  Widget topBar() {
+    return Container(
+      color: Colors.red,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // DateTime.now().hour.toInt() > 18
+            // ? Text("Good Morning")
+            Text("Good Morning"),
+            CircleAvatar(
+              backgroundImage: NetworkImage(
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
 }

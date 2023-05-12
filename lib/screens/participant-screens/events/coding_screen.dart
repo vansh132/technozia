@@ -18,10 +18,10 @@ class _CodingScreenState extends State<CodingScreen> {
           Image.network(
             "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813560/events/icifzlplvqbyhuyvcokm.webp",
           ),
-          SizedBox(
+          const SizedBox(
             height: 8,
           ),
-          Text(
+          const Text(
             "\" Make it work, make it right, make it fast \"",
             style: TextStyle(
               color: Colors.black54,
@@ -29,7 +29,7 @@ class _CodingScreenState extends State<CodingScreen> {
           ),
           TextButton(
             onPressed: () {},
-            child: Text(
+            child: const Text(
               "Register Now",
             ),
           )
