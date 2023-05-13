@@ -21,4 +21,15 @@ teamMemberRouter.post("/api/add-teamMember", async (req, res) => {
   }
 });
 
+teamMemberRouter.get("/api/teamMembers", async (req, res) => {
+  try {
+    const leader = req.header("leader");
+
+    const teamMembers = await TeamMember.find({ leader });
+    res.json(teamMembers);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = teamMemberRouter;

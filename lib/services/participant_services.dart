@@ -1,4 +1,4 @@
-// ignore_for_file: use_build_context_synchronously
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -46,5 +46,36 @@ class ParticipantServices {
     } catch (e) {
       print("vansh132" + e.toString());
     }
+  }
+
+  Future<List<TeamMember>> fetchAllTeamMembers(BuildContext context) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<TeamMember> teamMembersList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/teamMembers"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+          'leader': userProvider.user.id,
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            teamMembersList.add(
+              TeamMember.fromJson(
+                jsonEncode(jsonDecode(res.body)[i]),
+              ),
+            );
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    print("vansh132" + teamMembersList.toString());
+    return teamMembersList;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/models/team_member.dart';
 import 'package:technozia/services/participant_services.dart';
 
 class TeamProfileScreen extends StatefulWidget {
@@ -14,6 +15,13 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
   final TextEditingController _name = TextEditingController();
   final TextEditingController _phoneNo = TextEditingController();
   final TextEditingController _email = TextEditingController();
+  List<TeamMember>? teamMembersList;
+
+  @override
+  void initState() {
+    super.initState();
+    getAllTeamMembers(context);
+  }
 
   @override
   void dispose() {
@@ -35,14 +43,38 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
     );
   }
 
+  void getAllTeamMembers(BuildContext context) async {
+    teamMembersList = await participantServices.fetchAllTeamMembers(context);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: Colors. black,
-      appBar: AppBar(),
-      body: ElevatedButton(
-        onPressed: null,
-        child: Text("data"),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                getAllTeamMembers(context);
+              },
+              icon: Icon(Icons.refresh_rounded))
+        ],
+      ),
+      body: Container(
+        child: teamMembersList == null
+            ? CircularProgressIndicator()
+            : ListView.builder(
+                itemBuilder: (context, index) {
+                  return Text(
+                    teamMembersList![index].fullName,
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  );
+                },
+                itemCount: teamMembersList?.length,
+              ),
       ),
       floatingActionButton: IconButton(
           onPressed: () {
