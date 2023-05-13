@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/main-screens/signup_screen.dart';
+import 'package:technozia/models/events.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/home_screen.dart';
@@ -16,6 +17,7 @@ import 'package:technozia/screens/participant-screens/events/treasurehunt_screen
 import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
+import 'package:technozia/screens/participant-screens/registration/registration.dart';
 import 'package:technozia/screens/participant-screens/team-profile/team_profile_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -109,6 +111,14 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const TeamProfileScreen(),
+      );
+    case RegistrationScreen.routeName:
+      var event = routeSettings.arguments as Event;
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => RegistrationScreen(
+          event: event,
+        ),
       );
     default:
       return MaterialPageRoute(

@@ -16,6 +16,44 @@ class EventScreen extends StatefulWidget {
 }
 
 class _EventScreenState extends State<EventScreen> {
+  /* List<Event> eventList = [
+    Event(
+        name: "IT Quiz",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+    Event(
+        name: "IT Manager",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+    Event(
+        name: "Coding & Debugging",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+    Event(
+        name: "Web Design",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+    Event(
+        name: "Treasure Hunt",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+    Event(
+        name: "Valorant",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+    Event(
+        name: "Fast Typing",
+        url:
+            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+        price: 100),
+  ]; */
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +63,7 @@ class _EventScreenState extends State<EventScreen> {
           children: [
             TextButton(
               onPressed: () {},
-              child: const Text("Gaming event"),
+              child: const Text("OverAll Registration"),
             ),
             event(
               "IT Quiz",
@@ -65,7 +103,6 @@ class _EventScreenState extends State<EventScreen> {
           ],
         ),
       ),
-     
     );
   }
 
@@ -74,59 +111,57 @@ class _EventScreenState extends State<EventScreen> {
       padding: const EdgeInsets.all(8.0),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(24),
-        child: Container(
-          width: double.infinity,
-          height: 240,
-          decoration: BoxDecoration(
+        child: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, routeName);
+          },
+          child: Container(
+            width: double.infinity,
+            height: 240,
+            decoration: BoxDecoration(
               image: DecorationImage(
-            fit: BoxFit.cover,
-            image: NetworkImage(
-              url,
+                fit: BoxFit.cover,
+                image: NetworkImage(
+                  url,
+                ),
+              ),
             ),
-          )),
-          // color: Colors.red,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                color: Colors.black87,
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text(
-                        name,
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
+            // color: Colors.red,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  color: Colors.black87,
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          name,
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(
-                            context,
-                            routeName,
-                          );
-                        },
-                        child: const Icon(
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        const Icon(
                           Icons.arrow_right_alt_sharp,
                           color: Colors.white,
                           size: 36,
                           weight: 12,
                         ),
-                      ),
-                      const SizedBox(
-                        width: 16,
-                      ),
-                    ],
+                        const SizedBox(
+                          width: 16,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
