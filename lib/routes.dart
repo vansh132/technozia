@@ -16,6 +16,7 @@ import 'package:technozia/screens/participant-screens/events/treasurehunt_screen
 import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
+import 'package:technozia/screens/participant-screens/team-profile/team_profile_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
@@ -103,6 +104,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const TreasureHuntScreen(),
+      );
+    case TeamProfileScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const TeamProfileScreen(),
       );
     default:
       return MaterialPageRoute(
