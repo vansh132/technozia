@@ -4,16 +4,31 @@ import 'package:technozia/screens/admin-screens/achievements/view_achievement.da
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
+import 'package:technozia/services/auth_services.dart';
 
-class AdminHome extends StatelessWidget {
+class AdminHome extends StatefulWidget {
   static const String routeName = '/admin-screen';
 
   const AdminHome({super.key});
 
   @override
+  State<AdminHome> createState() => _AdminHomeState();
+}
+
+class _AdminHomeState extends State<AdminHome> {
+  AuthServices authServices = AuthServices();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          TextButton(
+              onPressed: () {
+                authServices.logOut(context);
+              },
+              child: Text("Log out"))
+        ],
+      ),
       body: SizedBox(
         width: double.infinity,
         child: Column(

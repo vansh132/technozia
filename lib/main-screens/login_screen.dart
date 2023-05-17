@@ -3,6 +3,7 @@ import 'package:technozia/main-screens/signup_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const String routeName = '/login-screen';
   const LoginScreen({super.key});
 
   @override
@@ -28,6 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
       email: _email.text,
       password: _password.text,
     );
+    setState(() {});
   }
 
   @override
@@ -157,7 +159,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     GestureDetector(
                       onTap: () {
                         signIn();
-                        
                       },
                       child: const Icon(
                         size: 48,

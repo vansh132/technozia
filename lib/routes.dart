@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/main-screens/signup_screen.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
@@ -24,6 +25,11 @@ import 'package:technozia/screens/participant-screens/team-profile/team_profile_
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
   switch (routeSettings.name) {
+    case LoginScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const LoginScreen(),
+      );
     case SignupScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,

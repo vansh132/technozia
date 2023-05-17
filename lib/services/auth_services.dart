@@ -11,10 +11,12 @@ import 'package:provider/provider.dart';
 import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
+import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/models/achievement.dart';
 import 'package:technozia/models/post.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/participant-screens/home_screen.dart';
 
 class AuthServices {
   void signUpUser({
@@ -85,6 +87,7 @@ class AuthServices {
           print("$r - vansh132");
         },
       );
+      Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
     } catch (e) {
       showSnackBar(context, e.toString());
     }
@@ -305,5 +308,17 @@ class AuthServices {
     }
     print("vansh132" + userList.toString());
     return userList;
+  }
+
+  void logOut(BuildContext context) async {
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.setString("x-auth-token", "");
+      Navigator.pushNamedAndRemoveUntil(
+          context, LoginScreen.routeName, (route) => false);
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
   }
 }
