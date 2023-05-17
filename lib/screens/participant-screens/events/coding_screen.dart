@@ -50,7 +50,7 @@ class _CodingScreenState extends State<CodingScreen> {
             child: const Text(
               "Register Now",
             ),
-          )
+          ),
         ],
       ),
     );

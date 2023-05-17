@@ -23,6 +23,8 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
   Future<List<DuoRegistration>?> getRegistrations() async {
     duoRegistrationsList =
         await registrationServices.fetchAllRegistrations(context);
+    print(duoRegistrationsList);
+    setState(() {});
     return duoRegistrationsList;
   }
 
@@ -34,11 +36,30 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
           ? CircularProgressIndicator()
           : ListView.builder(
               itemBuilder: (context, index) {
-                return Text(
-                  duoRegistrationsList![index].participantOne,
-                  style: TextStyle(
-                    color: Colors.black,
-                  ),
+                return Row(
+                  children: [
+                    Text(
+                      duoRegistrationsList![index].participantOne,
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    Text(
+                      duoRegistrationsList![index].email,
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      duoRegistrationsList![index].eventName,
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                  ],
                 );
               },
               itemCount: duoRegistrationsList?.length,

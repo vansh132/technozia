@@ -38,6 +38,11 @@ const duoRegistrationSchema = mongoose.Schema({
     type: String,
     trim: true,
   },
+  amount: {
+    required: true,
+    type: Number,
+    trim: true,
+  },
   paymentMode: {
     required: true,
     type: String,

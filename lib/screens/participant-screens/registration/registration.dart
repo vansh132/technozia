@@ -44,6 +44,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       phoneNo: int.parse(_phoneNo.text),
       email: _email.text,
       eventName: widget.event.name,
+      amount: widget.event.price,
       paymentMode: _character.toString(),
       paymentId: _paymentId.text,
       date: DateTime.now().toString(),
