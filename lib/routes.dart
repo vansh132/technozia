@@ -17,6 +17,7 @@ import 'package:technozia/screens/participant-screens/events/treasurehunt_screen
 import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
+import 'package:technozia/screens/participant-screens/profile/user_profile.dart';
 import 'package:technozia/screens/participant-screens/registration/registration.dart';
 import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
 import 'package:technozia/screens/participant-screens/team-profile/team_profile_screen.dart';
@@ -125,6 +126,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ViewRegisterScreen(),
+      );
+    case UserProfile.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const UserProfile(),
       );
     default:
       return MaterialPageRoute(
