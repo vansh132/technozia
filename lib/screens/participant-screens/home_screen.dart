@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
 import 'package:technozia/screens/participant-screens/team-profile/team_profile_screen.dart';
 
 class ParticipantHome extends StatefulWidget {
@@ -34,6 +35,12 @@ class _ParticipantHomeState extends State<ParticipantHome> {
                 Navigator.pushNamed(context, TeamProfileScreen.routeName);
               },
               child: Text("Team - Profile"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ViewRegisterScreen.routeName);
+              },
+              child: Text("Registrations"),
             ),
           ],
         ),

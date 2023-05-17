@@ -18,6 +18,7 @@ import 'package:technozia/screens/participant-screens/events/web_design_screen.d
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
 import 'package:technozia/screens/participant-screens/registration/registration.dart';
+import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
 import 'package:technozia/screens/participant-screens/team-profile/team_profile_screen.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -119,6 +120,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         builder: (_) => RegistrationScreen(
           event: event,
         ),
+      );
+    case ViewRegisterScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ViewRegisterScreen(),
       );
     default:
       return MaterialPageRoute(
