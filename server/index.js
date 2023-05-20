@@ -5,6 +5,7 @@ const achievementRouter = require("./routes/achievement");
 const postRoute = require("./routes/post");
 const teamMemberRouter = require("./routes/team_member");
 const duoRegistrationRouter = require("./routes/duo_registartion");
+const userRouter = require("./routes/user");
 const app = express();
 
 const PORT = 3000;
@@ -16,6 +17,7 @@ app.use(achievementRouter);
 app.use(postRoute);
 app.use(teamMemberRouter);
 app.use(duoRegistrationRouter);
+app.use(userRouter);
 
 mongoose
   .connect(DB)

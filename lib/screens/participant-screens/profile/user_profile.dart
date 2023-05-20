@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/services/auth_services.dart';
 
 class UserProfile extends StatefulWidget {
   static const String routeName = "/user-profile-screen";
@@ -10,16 +12,18 @@ class UserProfile extends StatefulWidget {
   State<UserProfile> createState() => _LeaderProfileState();
 }
 
-/*
-  full name, phone, email, password
- */
-
 class _LeaderProfileState extends State<UserProfile> {
   final _updateUserFormKey = GlobalKey<FormState>();
+  AuthServices authServices = AuthServices();
   final TextEditingController _fullName = TextEditingController();
   final TextEditingController _phoneNumber = TextEditingController();
   final TextEditingController _email = TextEditingController();
-  final TextEditingController _password = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    authServices.getUserData(context);
+  }
 
   @override
   void dispose() {
@@ -27,11 +31,15 @@ class _LeaderProfileState extends State<UserProfile> {
     _fullName.dispose();
     _phoneNumber.dispose();
     _email.dispose();
-    _password.dispose();
   }
 
   void onSubmit() {
-    print(_fullName.text);
+    authServices.updateUserProfile(
+      context: context,
+      fullName: _fullName.text,
+      phoneNo: int.parse(_phoneNumber.text),
+      email: _email.text,
+    );
   }
 
   @override
