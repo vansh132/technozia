@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -39,104 +42,366 @@ class _SignupScreenState extends State<SignupScreen> {
       email: _email.text,
       password: _password.text,
     );
-    print("Sign up successfull ");
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _signUpKey,
-          child: Column(
-            children: [
-              TextFormField(
-                controller: _fullName,
-                decoration: const InputDecoration(
-                  hintText: 'full name',
+      // backgroundColor: Color(0xFF03071E),
+      // appBar: AppBar(
+      //   title: Text('Sign Up'),
+      //   // backgroundColor: Colors.transparent,
+      //   elevation: 0,
+      // ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Form(
+            key: _signUpKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                topBar(),
+                const SizedBox(
+                  height: 36,
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Enter your name';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _college,
-                decoration: const InputDecoration(
-                  hintText: 'college',
+                Container(
+                  margin: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Create an account",
+                        style: TextStyle(
+                          color: Color(0xFF03071E),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Enter your college';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _phoneNumber,
-                decoration: const InputDecoration(
-                  hintText: 'phone number',
+                const SizedBox(
+                  height: 6,
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty || val.length != 10) {
-                    return 'Enter valid phone number';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _email,
-                decoration: const InputDecoration(
-                  hintText: 'email',
+                Container(
+                  margin: const EdgeInsets.only(left: 17),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Text(
+                        "Get ready to embark on an extraordinary journey",
+                        style: TextStyle(
+                          color: Color(0xFF03071E),
+                          fontSize: 12,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Enter your email';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _password,
-                decoration: const InputDecoration(
-                  hintText: 'password',
+                const SizedBox(
+                  height: 16,
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty || val.length > 6) {
-                    return 'Minimum six character of password';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                controller: _confirmPassword,
-                decoration: const InputDecoration(
-                  hintText: 'confirm password',
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+                  child: TextFormField(
+                    controller: _fullName,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.contacts_rounded),
+                      prefixIconColor: Color(0xFF03071E),
+                      hintText: "Full Name",
+                      hintStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                        fontSize: 14,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Enter your name';
+                      }
+                      return null;
+                    },
+                  ),
                 ),
-                validator: (val) {
-                  if (val.toString() != _password.text) {
-                    return 'Password not matched';
-                  }
-                  return null;
-                },
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  if (_signUpKey.currentState!.validate()) {
-                    onSubmit();
-                  }
-                },
-                child: const Text(
-                  "Sign up",
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+                  child: TextFormField(
+                    controller: _college,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.school_rounded),
+                      prefixIconColor: Color(0xFF03071E),
+                      hintText: "College",
+                      hintStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                        fontSize: 14,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Enter your college';
+                      }
+                      return null;
+                    },
+                  ),
                 ),
-              )
-            ],
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+                  child: TextFormField(
+                    controller: _phoneNumber,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.contact_emergency),
+                      prefixIconColor: Color(0xFF03071E),
+                      hintText: "Whatsapp Number",
+                      hintStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                        fontSize: 14,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty || val.length != 10) {
+                        return 'Enter valid phone number';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+                  child: TextFormField(
+                    controller: _email,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.email_rounded),
+                      prefixIconColor: Color(0xFF03071E),
+                      hintText: "Email",
+                      hintStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                        fontSize: 14,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Enter your email';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+                  child: TextFormField(
+                    obscureText: true,
+                    controller: _password,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.password_outlined),
+                      prefixIconColor: Color(0xFF03071E),
+                      hintText: "Password",
+                      hintStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                        fontSize: 14,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val == null || val.isEmpty || val.length < 6) {
+                        return 'Minimum six character of password';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsets.only(left: 8.0, right: 8.0, top: 4.0),
+                  child: TextFormField(
+                    obscureText: true,
+                    controller: _confirmPassword,
+                    decoration: const InputDecoration(
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.password_rounded),
+                      prefixIconColor: Color(0xFF03071E),
+                      hintText: "Confirm Password",
+                      hintStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                        fontSize: 14,
+                      ),
+                      labelStyle: TextStyle(
+                        color: Color(0xFF03071E),
+                      ),
+                    ),
+                    validator: (val) {
+                      if (val.toString() != _password.text) {
+                        return 'Password not matched';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                SizedBox(
+                  width: 140,
+                  height: 40,
+                  child: ElevatedButton(
+                    style: modernElevatedButtonStyle,
+                    onPressed: () {
+                      if (_signUpKey.currentState!.validate()) {
+                        onSubmit();
+                      }
+                    },
+                    child: const Text(
+                      "Sign up",
+                      style: TextStyle(
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Already have an account? ",
+                            style: TextStyle(
+                              color: Color(0xFF03071E),
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 108,
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushNamedAndRemoveUntil(context,
+                                  LoginScreen.routeName, (route) => false);
+                            },
+                            child: const Text(
+                              "Login ",
+                              style: TextStyle(
+                                color: Color(0xFF03071E),
+                              ),
+                            ),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
     );
   }
+
+  Widget topBar() {
+    return Container(
+      height: 250,
+      decoration: const BoxDecoration(
+          color: Color(0xff03071e),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(96),
+            bottomRight: Radius.circular(96),
+          )),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(
+            height: 72,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              SizedBox(
+                height: 54,
+                width: 54,
+                child: Image(
+                  image: AssetImage("assets/technozia_logo.png"),
+                ),
+              ),
+              SizedBox(
+                width: 16,
+              ),
+              Text(
+                "Technozia",
+                style: TextStyle(
+                  fontSize: 28.0,
+                  fontWeight: FontWeight.bold,
+                  // color: Colors.black87,
+                  letterSpacing: 1.2,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 48,
+          ),
+          Container(
+            margin: const EdgeInsets.only(
+              left: 10,
+            ),
+            child: const Text(
+              "Welcome to a world of endless opportunities",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.5,
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(
+              left: 10,
+            ),
+            child: const Text(
+              "your adventure begins here!",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                letterSpacing: 0.5,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  final ButtonStyle modernElevatedButtonStyle = ElevatedButton.styleFrom(
+    foregroundColor: Colors.white,
+    backgroundColor: const Color(0xFF03071E),
+    elevation: 2,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(8.0),
+    ),
+  );
 }

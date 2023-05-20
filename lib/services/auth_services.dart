@@ -51,7 +51,8 @@ class AuthServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "Account created...");
+          Navigator.pushNamedAndRemoveUntil(
+              context, LoginScreen.routeName, (route) => false);
         },
       );
     } catch (e) {

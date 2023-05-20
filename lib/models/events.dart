@@ -6,3 +6,11 @@ class Event {
     required this.price,
   });
 }
+
+/*
+  event:
+    - name
+    - description
+    - rules
+    - amount
+ */
