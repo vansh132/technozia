@@ -1,0 +1,101 @@
+Date : 2023-05-21 10:47:04
+Directory : d:\Flutter_projects\technozia
+Total : 48 files,  2450 codes, 116 comments, 195 blanks, all 2761 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Dart       |         33 |      2,067 |        115 |        143 |      2,325 |
+| JavaScript |         13 |        377 |          1 |         52 |        430 |
+| YAML       |          1 |          4 |          0 |          0 |          4 |
+| Swift      |          1 |          2 |          0 |          0 |          2 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                   |         48 |      2,450 |        116 |        195 |      2,761 |
+| . (Files)                                                                                           |          1 |          4 |          0 |          0 |          4 |
+| lib                                                                                                 |         33 |      2,067 |        115 |        143 |      2,325 |
+| lib (Files)                                                                                         |          2 |        106 |         -6 |          0 |        100 |
+| lib\main-screens                                                                                    |          2 |        256 |          7 |          3 |        266 |
+| lib\models                                                                                          |          5 |        131 |          9 |         19 |        159 |
+| lib\screens                                                                                         |         21 |      1,202 |         99 |        102 |      1,403 |
+| lib\screens\admin-screens                                                                           |          7 |        293 |          5 |         28 |        326 |
+| lib\screens\admin-screens (Files)                                                                   |          2 |       -128 |          0 |         -9 |       -137 |
+| lib\screens\admin-screens\achievements                                                              |          2 |        236 |          2 |         16 |        254 |
+| lib\screens\admin-screens\posts                                                                     |          2 |        135 |          3 |         14 |        152 |
+| lib\screens\admin-screens\users                                                                     |          1 |         50 |          0 |          7 |         57 |
+| lib\screens\coreteam-screens                                                                        |          1 |         14 |          0 |          1 |         15 |
+| lib\screens\participant-screens                                                                     |         13 |        895 |         94 |         73 |      1,062 |
+| lib\screens\participant-screens (Files)                                                             |          2 |        188 |         40 |          8 |        236 |
+| lib\screens\participant-screens\events                                                              |          7 |        225 |          0 |         29 |        254 |
+| lib\screens\participant-screens\profile                                                             |          1 |        103 |          0 |          8 |        111 |
+| lib\screens\participant-screens\registration                                                        |          2 |        255 |          9 |         19 |        283 |
+| lib\screens\participant-screens\team-profile                                                        |          1 |        124 |         45 |          9 |        178 |
+| lib\services                                                                                        |          3 |        372 |          6 |         19 |        397 |
+| macos                                                                                               |          1 |          2 |          0 |          0 |          2 |
+| macos\Flutter                                                                                       |          1 |          2 |          0 |          0 |          2 |
+| server                                                                                              |         13 |        377 |          1 |         52 |        430 |
+| server (Files)                                                                                      |          1 |         10 |          0 |          0 |         10 |
+| server\middlewares                                                                                  |          2 |         56 |          0 |         10 |         66 |
+| server\models                                                                                       |          4 |        155 |          1 |         13 |        169 |
+| server\routes                                                                                       |          6 |        156 |          0 |         29 |        185 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                            | language   | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\Flutter_projects\technozia\lib\main-screens\login_screen.dart                                    | Dart       |          2 |          0 |         -1 |          1 |
+| d:\Flutter_projects\technozia\lib\main-screens\signup_screen.dart                                   | Dart       |        254 |          7 |          4 |        265 |
+| d:\Flutter_projects\technozia\lib\main.dart                                                         | Dart       |          0 |         -6 |          0 |         -6 |
+| d:\Flutter_projects\technozia\lib\models\achievement.dart                                           | Dart       |          0 |          0 |         -1 |         -1 |
+| d:\Flutter_projects\technozia\lib\models\duoRegistration.dart                                       | Dart       |         55 |          1 |          7 |         63 |
+| d:\Flutter_projects\technozia\lib\models\events.dart                                                | Dart       |          8 |          7 |          1 |         16 |
+| d:\Flutter_projects\technozia\lib\models\post.dart                                                  | Dart       |         32 |          1 |          6 |         39 |
+| d:\Flutter_projects\technozia\lib\models\team_member.dart                                           | Dart       |         36 |          0 |          6 |         42 |
+| d:\Flutter_projects\technozia\lib\routes.dart                                                       | Dart       |        106 |          0 |          0 |        106 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\achievements\add_achievements_screen.dart   | Dart       |        182 |          0 |         10 |        192 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\achievements\view_achievement.dart          | Dart       |         54 |          2 |          6 |         62 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\add_achievements_screen.dart                | Dart       |       -172 |          0 |        -10 |       -182 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\home_screen.dart                            | Dart       |         44 |          0 |          1 |         45 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\posts\add_post_screen.dart                  | Dart       |         82 |          1 |          8 |         91 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\posts\view_post_screen.dart                 | Dart       |         53 |          2 |          6 |         61 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\users\view_users_screen.dart                | Dart       |         50 |          0 |          7 |         57 |
+| d:\Flutter_projects\technozia\lib\screens\coreteam-screens\home_screen.dart                         | Dart       |         14 |          0 |          1 |         15 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\coding_screen.dart             | Dart       |         55 |          0 |          4 |         59 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\fast_typing.dart               | Dart       |         55 |          0 |          5 |         60 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\gaming_screen.dart             | Dart       |         23 |          0 |          4 |         27 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\it_manager_screen.dart         | Dart       |         23 |          0 |          4 |         27 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\it_quiz_screen.dart            | Dart       |         23 |          0 |          4 |         27 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\treasurehunt_screen.dart       | Dart       |         23 |          0 |          4 |         27 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events\web_design_screen.dart         | Dart       |         23 |          0 |          4 |         27 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\events_screen.dart                    | Dart       |        127 |         38 |          6 |        171 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\home_screen.dart                      | Dart       |         61 |          2 |          2 |         65 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\profile\user_profile.dart             | Dart       |        103 |          0 |          8 |        111 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\registration\registration.dart        | Dart       |        192 |          9 |         12 |        213 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\registration\view_registration.dart   | Dart       |         63 |          0 |          7 |         70 |
+| d:\Flutter_projects\technozia\lib\screens\participant-screens\team-profile\team_profile_screen.dart | Dart       |        124 |         45 |          9 |        178 |
+| d:\Flutter_projects\technozia\lib\services\auth_services.dart                                       | Dart       |        211 |          6 |          6 |        223 |
+| d:\Flutter_projects\technozia\lib\services\participant_services.dart                                | Dart       |         75 |          0 |          7 |         82 |
+| d:\Flutter_projects\technozia\lib\services\registration_services.dart                               | Dart       |         86 |          0 |          6 |         92 |
+| d:\Flutter_projects\technozia\macos\Flutter\GeneratedPluginRegistrant.swift                         | Swift      |          2 |          0 |          0 |          2 |
+| d:\Flutter_projects\technozia\pubspec.yaml                                                          | YAML       |          4 |          0 |          0 |          4 |
+| d:\Flutter_projects\technozia\server\index.js                                                       | JavaScript |         10 |          0 |          0 |         10 |
+| d:\Flutter_projects\technozia\server\middlewares\admin.js                                           | JavaScript |         28 |          0 |          5 |         33 |
+| d:\Flutter_projects\technozia\server\middlewares\core_team.js                                       | JavaScript |         28 |          0 |          5 |         33 |
+| d:\Flutter_projects\technozia\server\models\achievement.js                                          | JavaScript |         33 |          1 |          4 |         38 |
+| d:\Flutter_projects\technozia\server\models\duo_registrations.js                                    | JavaScript |         63 |          0 |          3 |         66 |
+| d:\Flutter_projects\technozia\server\models\post.js                                                 | JavaScript |         23 |          0 |          3 |         26 |
+| d:\Flutter_projects\technozia\server\models\team_members.js                                         | JavaScript |         36 |          0 |          3 |         39 |
+| d:\Flutter_projects\technozia\server\routes\achievement.js                                          | JavaScript |         31 |          0 |          5 |         36 |
+| d:\Flutter_projects\technozia\server\routes\auth.js                                                 | JavaScript |          8 |          0 |          3 |         11 |
+| d:\Flutter_projects\technozia\server\routes\duo_registartion.js                                     | JavaScript |         47 |          0 |          6 |         53 |
+| d:\Flutter_projects\technozia\server\routes\post.js                                                 | JavaScript |         27 |          0 |          5 |         32 |
+| d:\Flutter_projects\technozia\server\routes\team_member.js                                          | JavaScript |         30 |          0 |          6 |         36 |
+| d:\Flutter_projects\technozia\server\routes\user.js                                                 | JavaScript |         13 |          0 |          4 |         17 |
+| Total                                                                                               |            |      2,450 |        116 |        195 |      2,761 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

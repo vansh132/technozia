@@ -18,6 +18,7 @@ import 'package:technozia/screens/participant-screens/events/treasurehunt_screen
 import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
+import 'package:technozia/screens/participant-screens/original_home.dart';
 import 'package:technozia/screens/participant-screens/profile/user_profile.dart';
 import 'package:technozia/screens/participant-screens/registration/registration.dart';
 import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
@@ -39,6 +40,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ParticipantHome(),
+      );
+    case OriginalHomeScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const OriginalHomeScreen(),
       );
     case CoreTeamHome.routeName:
       return MaterialPageRoute(

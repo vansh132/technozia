@@ -7,7 +7,9 @@ import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:technozia/screens/participant-screens/original_home.dart';
 import 'package:technozia/screens/participant-screens/profile/user_profile.dart';
+import 'package:technozia/screens/participant-screens/registration/registration.dart';
 import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
 import 'package:technozia/screens/participant-screens/team-profile/team_profile_screen.dart';
 import 'package:technozia/services/auth_services.dart';
@@ -23,23 +25,53 @@ class ParticipantHome extends StatefulWidget {
 class _ParticipantHomeState extends State<ParticipantHome> {
   AuthServices authServices = AuthServices();
 
+  int _selectedIndex = 0;
+
+  static List<Widget> _screens = [
+    OriginalHomeScreen(),
+    EventScreen(),
+    TeamProfileScreen(),
+    UserProfile(),
+  ];
+
+  void _onTabSelected(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          TextButton(
-              onPressed: () {
-                authServices.logOut(context);
-              },
-              child: Text("Log out"))
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.shifting,
+        currentIndex: _selectedIndex,
+        onTap: _onTabSelected,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+            backgroundColor: Color(0xff03071e),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.explore),
+            label: 'Explore',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Test',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Profile',
+          ),
         ],
       ),
       body: SafeArea(
-        child: Column(
+        /* child: Column(
           children: [
-            topBar(),
+            // topBar(),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, EventScreen.routeName);
@@ -64,8 +96,8 @@ class _ParticipantHomeState extends State<ParticipantHome> {
               },
               child: Text("Profile"),
             ),
-          ],
-        ),
+          ], */
+        child: _screens[_selectedIndex],
       ),
     );
   }
