@@ -16,91 +16,105 @@ class EventScreen extends StatefulWidget {
 }
 
 class _EventScreenState extends State<EventScreen> {
-  /* List<Event> eventList = [
-    Event(
-        name: "IT Quiz",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-    Event(
-        name: "IT Manager",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-    Event(
-        name: "Coding & Debugging",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-    Event(
-        name: "Web Design",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-    Event(
-        name: "Treasure Hunt",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-    Event(
-        name: "Valorant",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-    Event(
-        name: "Fast Typing",
-        url:
-            "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-        price: 100),
-  ]; */
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: const Color(0xff03071e),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: Text(
+      //     "Events",
+      //   ),
+      // ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            TextButton(
-              onPressed: () {},
-              child: const Text("OverAll Registration"),
-            ),
-            event(
-              "IT Quiz",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-              ItQuizScreen.routeName,
-            ),
-            event(
-              "IT Manager",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683812722/events/ags2hqbvf6xs6dbo6ty7.webp",
-              ItManagerScreen.routeName,
-            ),
-            event(
-              "Coding",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813560/events/icifzlplvqbyhuyvcokm.webp",
-              CodingScreen.routeName,
-            ),
-            event(
-              "Web Design",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
-              WebDesignScreen.routeName,
-            ),
-            event(
-              "Gaming",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813746/events/i8lojrttff6g74cmq0rc.jpg",
-              GamingScreen.routeName,
-            ),
-            event(
-              "Fast Typing",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813798/events/cyovm80a17vplxphrwpm.jpg",
-              FastTyping.routeName,
-            ),
-            event(
-              "Treasure Hunt",
-              "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813865/events/iasdu1fe2judf4toqrux.jpg",
-              TreasureHuntScreen.routeName,
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 16,
+              ),
+              Container(
+                // color: Colors.red,
+                child: const Text(
+                  "\" Register for Our Events Today \"",
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 6,
+              ),
+              const Divider(
+                color: Colors.white60,
+              ),
+              // OutlinedButton(
+              //   clipBehavior: Clip.hardEdge,
+              //   onPressed: () {},
+              //   child: const Text(
+              //     "OverAll Registration",
+              //     style: TextStyle(
+              //       color: Colors.white,
+              //     ),
+              //   ),
+              // ),
+              event(
+                "IT Quiz",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+                ItQuizScreen.routeName,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              event(
+                "IT Manager",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683812722/events/ags2hqbvf6xs6dbo6ty7.webp",
+                ItManagerScreen.routeName,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              event(
+                "Coding",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813560/events/icifzlplvqbyhuyvcokm.webp",
+                CodingScreen.routeName,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              event(
+                "Web Design",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
+                WebDesignScreen.routeName,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              event(
+                "Gaming",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813746/events/i8lojrttff6g74cmq0rc.jpg",
+                GamingScreen.routeName,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              event(
+                "Fast Typing",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813798/events/cyovm80a17vplxphrwpm.jpg",
+                FastTyping.routeName,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              event(
+                "Treasure Hunt",
+                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813865/events/iasdu1fe2judf4toqrux.jpg",
+                TreasureHuntScreen.routeName,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -118,6 +132,7 @@ class _EventScreenState extends State<EventScreen> {
           child: Container(
             width: double.infinity,
             height: 240,
+
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
@@ -137,25 +152,29 @@ class _EventScreenState extends State<EventScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Text(
-                          name,
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold,
+                        Expanded(
+                          child: Center(
+                            child: Text(
+                              name,
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        const Icon(
-                          Icons.arrow_right_alt_sharp,
-                          color: Colors.white,
-                          size: 36,
-                          weight: 12,
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
+                        // const SizedBox(
+                        //   width: 16,
+                        // ),
+                        // const Icon(
+                        //   Icons.arrow_right_alt_sharp,
+                        //   color: Colors.white,
+                        //   size: 36,
+                        //   weight: 12,
+                        // ),
+                        // const SizedBox(
+                        //   width: 16,
+                        // ),
                       ],
                     ),
                   ),

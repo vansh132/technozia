@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:technozia/models/team_member.dart';
+import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/participant-screens/items/team_member_item.dart';
 import 'package:technozia/services/participant_services.dart';
 
 class TeamProfileScreen extends StatefulWidget {
@@ -50,30 +53,68 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context, listen: true).user;
     return Scaffold(
       // backgroundColor: Colors. black,
+      backgroundColor: const Color(0xff03071e),
+
       appBar: AppBar(
         actions: [
           IconButton(
               onPressed: () {
                 getAllTeamMembers(context);
               },
-              icon: Icon(Icons.refresh_rounded))
+              icon: const Icon(Icons.refresh_rounded))
         ],
       ),
       body: Container(
         child: teamMembersList == null
-            ? CircularProgressIndicator()
-            : ListView.builder(
-                itemBuilder: (context, index) {
-                  return Text(
-                    teamMembersList![index].fullName,
+            ? const Center(
+                child: CircularProgressIndicator(
+                color: Colors.white,
+              ))
+            : Column(
+                children: [
+                  Text(
+                    user.fullName,
                     style: TextStyle(
-                      color: Colors.black,
+                      fontSize: 24,
                     ),
-                  );
-                },
-                itemCount: teamMembersList?.length,
+                  ),
+                  Text(
+                    user.college,
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 16,
+                  ),
+                  Divider(
+                    height: 2,
+                    color: Colors.grey,
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  Text(
+                    "Team Members",
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
+                  ),
+                  Container(
+                    width: double.infinity,
+                    height: 500,
+                    child: ListView.builder(
+                      itemBuilder: (context, index) => TeamMemberItem(
+                        teamMember: teamMembersList![index],
+                      ),
+                      itemCount: teamMembersList?.length,
+                      padding: const EdgeInsets.all(8),
+                    ),
+                  ),
+                ],
               ),
       ),
       floatingActionButton: IconButton(
@@ -83,7 +124,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                 builder: (BuildContext context) {
                   return AlertDialog(
                     scrollable: true,
-                    title: Text('Add Team Member'),
+                    title: const Center(child: Text('Add Team Member')),
                     content: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Form(
@@ -91,14 +132,14 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                           children: <Widget>[
                             TextFormField(
                               controller: _name,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Name',
                                 icon: Icon(Icons.label),
                               ),
                             ),
                             TextFormField(
                               controller: _email,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Email',
                                 icon: Icon(Icons.email),
                               ),
@@ -106,7 +147,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                             TextFormField(
                               controller: _phoneNo,
                               keyboardType: TextInputType.phone,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Phone Number',
                                 icon: Icon(Icons.perm_contact_cal),
                               ),
@@ -161,7 +202,12 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                     ),
                     actions: [
                       ElevatedButton(
-                          child: Text("Add"),
+                          style: const ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll(
+                              Color(0xff03071e),
+                            ),
+                          ),
+                          child: const Text("Add"),
                           onPressed: () {
                             addTeamMember();
                           })
@@ -169,8 +215,10 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                   );
                 });
           },
-          icon: Icon(
+          color: Colors.white,
+          icon: const Icon(
             Icons.add,
+            // color: Colors.white,
           )),
     );
   }

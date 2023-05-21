@@ -28,10 +28,10 @@ class _ParticipantHomeState extends State<ParticipantHome> {
   int _selectedIndex = 0;
 
   static List<Widget> _screens = [
-    OriginalHomeScreen(),
-    EventScreen(),
-    TeamProfileScreen(),
-    UserProfile(),
+    const OriginalHomeScreen(),
+    const EventScreen(),
+    const TeamProfileScreen(),
+    const UserProfile(),
   ];
 
   void _onTabSelected(int index) {
@@ -48,23 +48,29 @@ class _ParticipantHomeState extends State<ParticipantHome> {
         type: BottomNavigationBarType.shifting,
         currentIndex: _selectedIndex,
         onTap: _onTabSelected,
-        items: [
+        iconSize: 24,
+        enableFeedback: true,
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: 'Explore',
+            icon: Icon(Icons.event),
+            tooltip: "Events",
+            backgroundColor: Color(0xff03071e),
+            label: 'Events',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Test',
+            icon: Icon(Icons.group),
+            label: 'Team Members',
+            backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
             label: 'Profile',
+            backgroundColor: Color(0xff03071e),
           ),
         ],
       ),
@@ -112,8 +118,8 @@ class _ParticipantHomeState extends State<ParticipantHome> {
           children: [
             // DateTime.now().hour.toInt() > 18
             // ? Text("Good Morning")
-            Text("Good Morning"),
-            CircleAvatar(
+            const Text("Good Morning"),
+            const CircleAvatar(
               backgroundImage: NetworkImage(
                 "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
               ),
