@@ -13,24 +13,34 @@ fullname, email, phone
   Widget build(BuildContext context) {
     return Column(
       children: [
-        ListTile(
-          title: Text(
-            teamMember.fullName,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          tileColor: Colors.black26,
-          subtitle: Text(
-            teamMember.phoneNo.toString(),
-            style: TextStyle(
-              color: Colors.white,
-            ),
-          ),
-          trailing: Text(
-            teamMember.email,
+        Container(
+          child: Row(
+            children: [
+              Column(
+                children: [
+                  Text(
+                    teamMember.fullName,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    teamMember.phoneNo.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                teamMember.email,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
         ),
         SizedBox(

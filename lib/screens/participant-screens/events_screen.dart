@@ -19,7 +19,7 @@ class _EventScreenState extends State<EventScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff03071e),
+      backgroundColor: const Color(0xffcce3de),
       // appBar: AppBar(
       //   centerTitle: true,
       //   title: Text(
@@ -39,8 +39,9 @@ class _EventScreenState extends State<EventScreen> {
                 child: const Text(
                   "\" Register for Our Events Today \"",
                   style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.blue,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xff03071e),
                   ),
                 ),
               ),
@@ -48,7 +49,7 @@ class _EventScreenState extends State<EventScreen> {
                 height: 6,
               ),
               const Divider(
-                color: Colors.white60,
+                color: Color(0xff03071e),
               ),
               // OutlinedButton(
               //   clipBehavior: Clip.hardEdge,

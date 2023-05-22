@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/models/team_member.dart';
 import 'package:technozia/providers/user_provider.dart';
@@ -53,10 +54,14 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+          statusBarColor: Color(0xff03071e)), // Set your desired color here
+    );
     final user = Provider.of<UserProvider>(context, listen: true).user;
     return Scaffold(
       // backgroundColor: Colors. black,
-      backgroundColor: const Color(0xff03071e),
+      backgroundColor: const Color(0xffcce3de),
 
       appBar: AppBar(
         actions: [

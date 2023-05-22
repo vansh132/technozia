@@ -27,7 +27,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-          statusBarColor: Color(0xff03071e)), // Set your desired color here
+          statusBarColor: Color(0xffcce3de)), // Set your desired color here
     );
     return Scaffold(
       appBar: AppBar(
