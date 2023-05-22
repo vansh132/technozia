@@ -55,13 +55,13 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
+      const SystemUiOverlayStyle(
           statusBarColor: Color(0xff03071e)), // Set your desired color here
     );
     final user = Provider.of<UserProvider>(context, listen: true).user;
     return Scaffold(
       // backgroundColor: Colors. black,
-      backgroundColor: const Color(0xffcce3de),
+      backgroundColor: const Color(0xfff8f8f8),
 
       appBar: AppBar(
         actions: [
@@ -80,37 +80,49 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
               ))
             : Column(
                 children: [
+                  SizedBox(
+                    height: 16,
+                  ),
                   Text(
                     user.fullName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 24,
+                      color: Color(0xff03071e),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     user.college,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20,
+                      color: Color(0xff03071e),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
-                  Divider(
+                  const Divider(
                     height: 2,
-                    color: Colors.grey,
+                    color: Colors.black,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
-                  Text(
+                  const Text(
                     "Team Members",
                     style: TextStyle(
                       fontSize: 20,
+                      color: Color(0xff03071e),
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+                  const SizedBox(
+                    height: 8,
                   ),
                   Container(
                     width: double.infinity,
-                    height: 500,
+                    height: 570,
                     child: ListView.builder(
                       itemBuilder: (context, index) => TeamMemberItem(
                         teamMember: teamMembersList![index],
