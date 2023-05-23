@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -77,5 +79,37 @@ class ParticipantServices {
     }
     print("vansh132" + teamMembersList.toString());
     return teamMembersList;
+  }
+
+   void updateTeamMember({
+    required BuildContext context,
+    required String fullName,
+    required int phoneNo,
+    required String email,
+  }) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    final userData = {
+      "leader": user.id,
+      "fullName": fullName,
+      "phoneNo": phoneNo,
+      "email": email
+    };
+    try {
+      http.Response res = await http.post(Uri.parse("$uri/update/user"),
+          headers: <String, String>{
+            "Content-Type": 'application/json; charset=UTF-8',
+            // 'x-auth-token': userProvider.user.token,
+          },
+          body: jsonEncode(userData));
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "user updated...");
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
   }
 }

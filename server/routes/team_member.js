@@ -32,4 +32,17 @@ teamMemberRouter.get("/api/teamMembers", async (req, res) => {
   }
 });
 
+teamMemberRouter.post("/update/team-member", async (req, res) => {
+  const { _id, leader, fullName, phoneNo, email } = req.body;
+  const teamMember = await TeamMember.find({
+    _id: _id,
+    leader: leader,
+  });
+  const update = {
+    $set: { fullName: fullName, phoneNo: phoneNo, email: email },
+  };
+  const updatedUser = await User.updateOne(user, update);
+  res.json({ updatedUser });
+});
+
 module.exports = teamMemberRouter;

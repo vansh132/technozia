@@ -72,67 +72,69 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
               icon: const Icon(Icons.refresh_rounded))
         ],
       ),
-      body: Container(
-        child: teamMembersList == null
-            ? const Center(
-                child: CircularProgressIndicator(
-                color: Colors.white,
-              ))
-            : Column(
-                children: [
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    user.fullName,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      color: Color(0xff03071e),
-                      fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Container(
+          child: teamMembersList == null
+              ? const Center(
+                  child: CircularProgressIndicator(
+                  color: Colors.white,
+                ))
+              : Column(
+                  children: [
+                    SizedBox(
+                      height: 16,
                     ),
-                  ),
-                  Text(
-                    user.college,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      color: Color(0xff03071e),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const Divider(
-                    height: 2,
-                    color: Colors.black,
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  const Text(
-                    "Team Members",
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Color(0xff03071e),
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  Container(
-                    width: double.infinity,
-                    height: 570,
-                    child: ListView.builder(
-                      itemBuilder: (context, index) => TeamMemberItem(
-                        teamMember: teamMembersList![index],
+                    Text(
+                      user.fullName,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        color: Color(0xff03071e),
+                        fontWeight: FontWeight.bold,
                       ),
-                      itemCount: teamMembersList?.length,
-                      padding: const EdgeInsets.all(8),
                     ),
-                  ),
-                ],
-              ),
+                    Text(
+                      user.college,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        color: Color(0xff03071e),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    const Divider(
+                      height: 2,
+                      color: Colors.black,
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    const Text(
+                      "Team Members",
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Color(0xff03071e),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      height: 570,
+                      child: ListView.builder(
+                        itemBuilder: (context, index) => TeamMemberItem(
+                          teamMember: teamMembersList![index],
+                        ),
+                        itemCount: teamMembersList?.length,
+                        padding: const EdgeInsets.all(8),
+                      ),
+                    ),
+                  ],
+                ),
+        ),
       ),
       floatingActionButton: IconButton(
           onPressed: () {
