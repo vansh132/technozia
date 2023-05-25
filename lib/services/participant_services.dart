@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
@@ -9,6 +10,8 @@ import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/team_member.dart';
+import 'package:technozia/models/user.dart';
+import 'package:technozia/providers/team_members_provider.dart';
 
 import '../providers/user_provider.dart';
 
@@ -22,6 +25,7 @@ class ParticipantServices {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
       TeamMember teamMember = TeamMember(
+        id: "",
         leader: user.id,
         fullName: fullName,
         college: user.college,
@@ -81,21 +85,24 @@ class ParticipantServices {
     return teamMembersList;
   }
 
-   void updateTeamMember({
+  void updateTeamMember({
     required BuildContext context,
+    required String id,
     required String fullName,
     required int phoneNo,
     required String email,
   }) async {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     final userData = {
+      "_id": id,
       "leader": user.id,
       "fullName": fullName,
       "phoneNo": phoneNo,
       "email": email
     };
+    
     try {
-      http.Response res = await http.post(Uri.parse("$uri/update/user"),
+      http.Response res = await http.post(Uri.parse("$uri/update/team-member"),
           headers: <String, String>{
             "Content-Type": 'application/json; charset=UTF-8',
             // 'x-auth-token': userProvider.user.token,
@@ -106,6 +113,8 @@ class ParticipantServices {
         context: context,
         onSuccess: () {
           showSnackBar(context, "user updated...");
+          print(res.body);
+          Navigator.pop(context);
         },
       );
     } catch (e) {

@@ -33,16 +33,52 @@ teamMemberRouter.get("/api/teamMembers", async (req, res) => {
 });
 
 teamMemberRouter.post("/update/team-member", async (req, res) => {
-  const { _id, leader, fullName, phoneNo, email } = req.body;
-  const teamMember = await TeamMember.find({
-    _id: _id,
-    leader: leader,
-  });
-  const update = {
-    $set: { fullName: fullName, phoneNo: phoneNo, email: email },
-  };
-  const updatedUser = await User.updateOne(user, update);
-  res.json({ updatedUser });
+  try {
+    // const { id, leader, fullName, phoneNo, email } = req.body;
+    // console.log(id);
+    // const teamMember = await TeamMember.findOne({
+    //   _id: id,
+    //   leader: leader,
+    // });
+    // const update = {
+    //   $set: { fullName: fullName, phoneNo: phoneNo, email: email },
+    // };
+    // const updatedTeamMember = await TeamMember.updateOne(teamMember, update);
+    // if (_id.match(/^[0-9a-fA-F]{24}$/)) {
+    // }
+    // const updatedTeamMember = await TeamMember.findByIdAndUpdate(
+    //   _id,
+    //   update,
+    //   {
+    //     new: true,
+    //     runValidators: true,
+    //   }
+    // );
+
+    // console.log(updatedTeamMember);
+
+    const teamMember = await TeamMember.findById(req.body._id);
+
+    if (!teamMember) {
+      res.status(400).json({
+        success: false,
+        message: "Team member not found",
+      });
+    }
+
+    const updatedTeamMember = await TeamMember.findByIdAndUpdate(
+      req.body._id,
+      req.body,
+      {
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    res.json({ updatedTeamMember });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = teamMemberRouter;

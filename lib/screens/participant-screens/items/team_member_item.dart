@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/models/team_member.dart';
+import 'package:technozia/services/participant_services.dart';
 
 class TeamMemberItem extends StatefulWidget {
   TeamMember teamMember;
@@ -10,12 +11,20 @@ class TeamMemberItem extends StatefulWidget {
 }
 
 class _TeamMemberItemState extends State<TeamMemberItem> {
+  ParticipantServices participantServices = ParticipantServices();
   final TextEditingController _name = TextEditingController();
   final TextEditingController _phoneNo = TextEditingController();
   final TextEditingController _email = TextEditingController();
 
   void updateTeamMember() {
-    print(_name.text);
+    participantServices.updateTeamMember(
+      context: context,
+      id: widget.teamMember.id,
+      fullName: _name.text,
+      phoneNo: int.parse(_phoneNo.text),
+      email: _email.text,
+    );
+    setState(() {});
   }
 
   @override
@@ -58,7 +67,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                       ),
                     ],
                   ),
-                ),  
+                ),
               ),
               Expanded(
                 flex: 4,

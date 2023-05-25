@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/main-screens/login_screen.dart';
+import 'package:technozia/providers/team_members_provider.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/routes.dart';
 import 'package:technozia/screens/admin-screens/home_screen.dart';
@@ -14,7 +15,10 @@ void main() {
       providers: [
         ChangeNotifierProvider(
           create: (context) => UserProvider(),
-        )
+        ),
+        ChangeNotifierProvider(
+          create: (context) => TeamMemberProvider(),
+        ),
       ],
       child: const MyApp(),
     ),
