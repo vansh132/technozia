@@ -9,6 +9,7 @@ import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/screens/coreteam-screens/home_screen.dart';
+import 'package:technozia/screens/member-screens/home_screen.dart';
 import 'package:technozia/screens/participant-screens/events/coding_screen.dart';
 import 'package:technozia/screens/participant-screens/events/fast_typing.dart';
 import 'package:technozia/screens/participant-screens/events/gaming_screen.dart';
@@ -40,6 +41,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ParticipantHome(),
+      );
+    case MemberHomeScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const MemberHomeScreen(),
       );
     case OriginalHomeScreen.routeName:
       return MaterialPageRoute(

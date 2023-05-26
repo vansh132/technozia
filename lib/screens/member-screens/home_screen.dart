@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/services/auth_services.dart';
 
-class CoreTeamHome extends StatefulWidget {
-  static const String routeName = '/core-team-screen';
-  const CoreTeamHome({super.key});
+class MemberHomeScreen extends StatefulWidget {
+  static const String routeName = '/member-screen';
+  const MemberHomeScreen({super.key});
 
   @override
-  State<CoreTeamHome> createState() => _CoreTeamHomeState();
+  State<MemberHomeScreen> createState() => _MemberHomeScreenState();
 }
 
-class _CoreTeamHomeState extends State<CoreTeamHome> {
+class _MemberHomeScreenState extends State<MemberHomeScreen> {
   AuthServices authServices = AuthServices();
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
       ),
       body: Center(
         child: Text(
-          "Core team home screen, yet to be build",
+          "Member screen yet to be developed",
           style: TextStyle(
             color: Colors.black,
           ),

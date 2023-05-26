@@ -6,6 +6,7 @@ import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/routes.dart';
 import 'package:technozia/screens/admin-screens/home_screen.dart';
 import 'package:technozia/screens/coreteam-screens/home_screen.dart';
+import 'package:technozia/screens/member-screens/home_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -64,7 +65,9 @@ class _MyAppState extends State<MyApp> {
                   ? const ParticipantHome()
                   : Provider.of<UserProvider>(context).user.type == 'admin'
                       ? const AdminHome()
-                      : null
+                      : Provider.of<UserProvider>(context).user.type == 'member'
+                          ? MemberHomeScreen()
+                          : null
           : const LoginScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
     );

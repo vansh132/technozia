@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
 import 'package:technozia/services/auth_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -88,7 +89,16 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
         child: Column(
           children: [
             topBar(user),
-            ElevatedButton(onPressed: _launchUrl, child: const Text("Brochure"))
+            ElevatedButton(
+              onPressed: _launchUrl,
+              child: const Text("Brochure"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, ViewRegisterScreen.routeName);
+              },
+              child: Text("View Registrations"),
+            )
           ],
         ),
       )),
