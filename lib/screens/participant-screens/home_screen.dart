@@ -29,7 +29,7 @@ class _ParticipantHomeState extends State<ParticipantHome> {
 
   static List<Widget> _screens = [
     const OriginalHomeScreen(),
-    const EventScreen(),
+    const ViewRegisterScreen(),
     const TeamProfileScreen(),
     const UserProfile(),
   ];
@@ -57,10 +57,10 @@ class _ParticipantHomeState extends State<ParticipantHome> {
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            tooltip: "Events",
+            icon: Icon(Icons.app_registration),
+            tooltip: "Registrations",
             backgroundColor: Color(0xff03071e),
-            label: 'Events',
+            label: 'Registrations',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.group),

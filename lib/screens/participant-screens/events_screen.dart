@@ -61,59 +61,31 @@ class _EventScreenState extends State<EventScreen> {
               //     ),
               //   ),
               // ),
-              event(
-                "IT Quiz",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
-                ItQuizScreen.routeName,
-              ),
+              
               const SizedBox(
                 height: 16,
               ),
-              event(
-                "IT Manager",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683812722/events/ags2hqbvf6xs6dbo6ty7.webp",
-                ItManagerScreen.routeName,
-              ),
+              
               const SizedBox(
                 height: 16,
               ),
-              event(
-                "Coding",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813560/events/icifzlplvqbyhuyvcokm.webp",
-                CodingScreen.routeName,
-              ),
+              
               const SizedBox(
                 height: 16,
               ),
-              event(
-                "Web Design",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
-                WebDesignScreen.routeName,
-              ),
+              
               const SizedBox(
                 height: 16,
               ),
-              event(
-                "Gaming",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813746/events/i8lojrttff6g74cmq0rc.jpg",
-                GamingScreen.routeName,
-              ),
+              
               const SizedBox(
                 height: 16,
               ),
-              event(
-                "Fast Typing",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813798/events/cyovm80a17vplxphrwpm.jpg",
-                FastTyping.routeName,
-              ),
+              
               const SizedBox(
                 height: 16,
               ),
-              event(
-                "Treasure Hunt",
-                "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813865/events/iasdu1fe2judf4toqrux.jpg",
-                TreasureHuntScreen.routeName,
-              ),
+              
             ],
           ),
         ),

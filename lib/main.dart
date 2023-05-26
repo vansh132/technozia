@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
                   : Provider.of<UserProvider>(context).user.type == 'admin'
                       ? const AdminHome()
                       : Provider.of<UserProvider>(context).user.type == 'member'
-                          ? MemberHomeScreen()
+                          ? const MemberHomeScreen()
                           : null
           : const LoginScreen(),
       onGenerateRoute: (settings) => generateRoute(settings),
