@@ -50,6 +50,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                     children: [
                       Text(
                         widget.teamMember.fullName,
+                        overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18.0,

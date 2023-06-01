@@ -95,20 +95,21 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
             children: [
               topBar(user),
               Container(
-                height: MediaQuery.of(context).size.height * .30,
+                height: MediaQuery.of(context).size.height * .50,
                 width: MediaQuery.of(context).size.width,
                 child: CarouselSlider(
                   items: carouselImages,
                   options: CarouselOptions(
                     viewportFraction: 1,
-                    height: 224,
+                    height: 372,
                     autoPlay: true,
                   ),
                 ),
               ),
-              const Divider(
-                color: Colors.transparent,
-              ),
+
+              // const Divider(
+              //   color: Colors.transparent,
+              // ),
               const Text(
                 "Events",
                 style: TextStyle(

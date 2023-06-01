@@ -48,13 +48,16 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                       width: 16,
                     ),
                     Text(
-                      duoRegistrationsList![index].email,
+                      duoRegistrationsList![index].eventName,
                       style: TextStyle(
                         color: Colors.black,
                       ),
                     ),
+                    SizedBox(
+                      width: 16,
+                    ),
                     Text(
-                      duoRegistrationsList![index].eventName,
+                      duoRegistrationsList![index].email,
                       style: TextStyle(
                         color: Colors.black,
                       ),
