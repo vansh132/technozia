@@ -198,7 +198,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                 height: 8,
               ),
               Container(
-                color: Colors.black,
+                // color: Colors.black,
                 height: 300,
                 width: double.infinity,
                 child: excitingPrizes(),
@@ -411,9 +411,30 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
 
   Widget excitingPrizes() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Text("Cash Prizes"),
+        Container(
+          height: 250,
+          width: MediaQuery.of(context).size.width * 0.5,
+          decoration: BoxDecoration(
+            // image: DecorationImage(
+            //   image: AssetImage(
+            //     "assets/overall_trophy.png",
+            //   ),
+            // ),
+            // color: Colors.red,
+            borderRadius: BorderRadius.circular(72),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(124),
+            child: Image(
+              image: AssetImage(
+                "assets/overall_trophy.png",
+              ),
+              fit: BoxFit.contain,
+            ),
+          ),
+        ),
         Text("Certificates"),
       ],
     );

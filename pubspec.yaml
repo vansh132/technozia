@@ -71,6 +71,7 @@ flutter:
   assets:
     - assets/technozia_logo.png
     - assets/login_image.png
+    - assets/overall_trophy.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
