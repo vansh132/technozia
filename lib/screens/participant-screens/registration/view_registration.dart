@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:technozia/models/duoRegistration.dart';
+import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/registration_services.dart';
 
 class ViewRegisterScreen extends StatefulWidget {
@@ -30,15 +32,60 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          backgroundColor: Colors.white, //0xffe9ecef
+          // leading: ,
+          // centerTitle: true,
+          title: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Image(
+                    image: AssetImage(
+                      "assets/technozia_logo.png",
+                    ),
+                    fit: BoxFit.cover,
+                    height: 38,
+                    filterQuality: FilterQuality.high,
+                    semanticLabel: "Technozia",
+                    color: Color(0xff03071e),
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                Text(
+                  "Technozia",
+                  style: TextStyle(
+                    color: Color(0xff03071e),
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
         body: duoRegistrationsList == null
-            ? const CircularProgressIndicator()
+            ? const Center(
+                child: CircularProgressIndicator(
+                  color: Color(0xff03071e),
+                ),
+              )
             : Column(
                 children: [
+                  const SizedBox(
+                    height: 16,
+                  ),
                   const Text(
-                    "Registrations",
+                    "Confirmed Registrations",
                     style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
@@ -105,6 +152,19 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                   ),
                                 ),
                               ),
+                              TableCell(
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Event',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                           ...duoRegistrationsList!
@@ -151,6 +211,18 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                           ),
                                         ),
                                       ),
+                                      TableCell(
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            registration.eventName,
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
                                     ],
                                   )),
                         ],
@@ -161,4 +233,3 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
               ));
   }
 }
-
