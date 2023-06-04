@@ -33,10 +33,10 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
     return Scaffold(
         appBar: AppBar(),
         body: duoRegistrationsList == null
-            ? CircularProgressIndicator()
+            ? const CircularProgressIndicator()
             : Column(
                 children: [
-                  Text(
+                  const Text(
                     "Registrations",
                     style: TextStyle(
                       color: Colors.black,
@@ -44,46 +44,64 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                   ),
                   Container(
                     // color: Colors.black,
-                    height: MediaQuery.of(context).size.height * 0.8,
+
+                    margin: const EdgeInsets.all(16.0),
+                    height: MediaQuery.of(context).size.height * 0.7,
                     width: double.infinity,
-                    padding: EdgeInsets.all(8),
                     child: SingleChildScrollView(
                       child: Table(
-                        border: TableBorder.all(),
-                        defaultColumnWidth: IntrinsicColumnWidth(),
+                        border: TableBorder.all(
+                          color: Colors.grey[300]!,
+                          width: 1.0,
+                        ),
+                        defaultColumnWidth: const IntrinsicColumnWidth(),
+                        columnWidths: const {
+                          0: FlexColumnWidth(2),
+                          1: FlexColumnWidth(3),
+                          2: FlexColumnWidth(2),
+                        },
                         children: [
                           TableRow(
                             decoration: BoxDecoration(
-                                // color: Colors.black,
-
-                                ),
-                            children: [
+                              // color: Colors.black,
+                              color: Colors.grey[200],
+                            ),
+                            children: const [
                               TableCell(
-                                child: Text(
-                                  'Name',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Name',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
                               TableCell(
-                                child: Text(
-                                  'Email',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black),
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Email',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black),
+                                  ),
                                 ),
                               ),
                               TableCell(
-                                child: Text(
-                                  'Phone',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                child: Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'Phone',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -91,31 +109,45 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                           ),
                           ...duoRegistrationsList!
                               .map((registration) => TableRow(
+                                    decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                    ),
                                     children: [
                                       TableCell(
-                                        child: Text(
-                                          registration.participantOne,
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Colors.black,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            registration.participantOne,
+                                            textAlign: TextAlign.center,
+                                            softWrap: true,
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
                                           ),
                                         ),
                                       ),
                                       TableCell(
-                                        child: Text(
-                                          registration.email,
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Colors.black,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            registration.email,
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                            ),
                                           ),
                                         ),
                                       ),
                                       TableCell(
-                                        child: Text(
-                                          registration.phoneNo.toString(),
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            color: Colors.black,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            registration.phoneNo.toString(),
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              color: Colors.black,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -130,7 +162,3 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
   }
 }
 
-
-/*
-
- */
