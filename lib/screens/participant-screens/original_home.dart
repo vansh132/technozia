@@ -1,9 +1,5 @@
-import 'dart:io';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
@@ -14,7 +10,6 @@ import 'package:technozia/screens/participant-screens/events/it_manager_screen.d
 import 'package:technozia/screens/participant-screens/events/it_quiz_screen.dart';
 import 'package:technozia/screens/participant-screens/events/treasurehunt_screen.dart';
 import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
-import 'package:technozia/screens/participant-screens/registration/view_registration.dart';
 import 'package:technozia/services/auth_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -51,7 +46,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xffe9ecef),
+        backgroundColor: const Color(0xffe9ecef), //0xffe9ecef
         // leading: ,
         // centerTitle: true,
         title: Padding(
@@ -86,7 +81,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
           ),
         ),
       ),
-      backgroundColor: const Color(0xffe9ecef), //0xffa8dadc // 0xffe8eddf
+      backgroundColor: const Color(0xffe9ecef), //0xffa8dadc // 0xffe8eddf //
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
@@ -118,7 +113,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
@@ -191,15 +186,13 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                   ],
                 ),
               ),
-              const Divider(
-                color: Colors.transparent,
-              ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Container(
                 // color: Colors.black,
-                height: 300,
+                padding: const EdgeInsets.all(8),
+                height: 216,
                 width: double.infinity,
                 child: excitingPrizes(),
               ),
@@ -415,27 +408,42 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
       children: [
         Container(
           height: 250,
-          width: MediaQuery.of(context).size.width * 0.5,
-          decoration: BoxDecoration(
-            // image: DecorationImage(
-            //   image: AssetImage(
-            //     "assets/overall_trophy.png",
-            //   ),
-            // ),
-            // color: Colors.red,
-            borderRadius: BorderRadius.circular(72),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(124),
-            child: Image(
-              image: AssetImage(
-                "assets/overall_trophy.png",
-              ),
-              fit: BoxFit.contain,
+          width: MediaQuery.of(context).size.width * 0.4,
+          child: const Image(
+            image: AssetImage(
+              "assets/overall_trophy.png",
             ),
+            fit: BoxFit.contain,
           ),
         ),
-        Text("Certificates"),
+        Container(
+          height: 250,
+          width: MediaQuery.of(context).size.width * 0.4,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                "Conquer Competition ", //Competition Claim Victory!
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Text(
+                "Get Overall Home",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
