@@ -208,14 +208,14 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
       width: double.infinity,
       height: 48,
       decoration: BoxDecoration(
-        color: Colors.black54,
+        color: Color(0xff03071e),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            margin: const EdgeInsets.only(left: 16, top: 2),
+            margin: const EdgeInsets.only(left: 24, top: 2),
             child: Text(
               user.fullName,
               style: const TextStyle(
@@ -225,7 +225,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 16),
+            margin: const EdgeInsets.only(right: 20),
             child: GestureDetector(
               onTap: () {
                 authServices.logOut(context);
