@@ -35,7 +35,8 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white, //0xffe9ecef
+          backgroundColor: Colors.white,
+          elevation: 2, //0xffe9ecef
           // leading: ,
           // centerTitle: true,
           title: Padding(
@@ -90,8 +91,6 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                     ),
                   ),
                   Container(
-                    // color: Colors.black,
-
                     margin: const EdgeInsets.all(16.0),
                     height: MediaQuery.of(context).size.height * 0.7,
                     width: double.infinity,

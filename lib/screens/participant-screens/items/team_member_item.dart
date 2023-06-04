@@ -17,11 +17,12 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
   final TextEditingController _email = TextEditingController();
 
   void updateTeamMember() {
+    print(_phoneNo.text);
     participantServices.updateTeamMember(
       context: context,
       id: widget.teamMember.id,
       fullName: _name.text,
-      phoneNo: int.parse(_phoneNo.text),
+      phoneNo: 9898989889,
       email: _email.text,
     );
     setState(() {});
@@ -29,7 +30,132 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      child: Theme(
+        data: ThemeData(
+          primaryColor: Color(0xff03071e),
+          unselectedWidgetColor: Colors.grey,
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: const Color(0xff03071e)),
+        ),
+        child: ExpansionTile(
+          childrenPadding: EdgeInsets.all(8),
+          expandedCrossAxisAlignment: CrossAxisAlignment.center,
+          title: Text(
+            widget.teamMember.fullName,
+            style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 16.0,
+            ),
+          ),
+          children: [
+            Text(
+              widget.teamMember.college,
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Text(
+              widget.teamMember.email,
+              style: const TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            Text(
+              widget.teamMember.phoneNo.toString(),
+              style: const TextStyle(
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          scrollable: true,
+                          // title: const Center(
+                          //     child: Text('Add Team Member')),
+                          content: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Form(
+                              child: Column(
+                                children: <Widget>[
+                                  TextFormField(
+                                    controller: _name,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Name',
+                                      icon: Icon(Icons.label),
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    controller: _email,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Email',
+                                      icon: Icon(Icons.email),
+                                    ),
+                                  ),
+                                  TextFormField(
+                                    controller: _phoneNo,
+                                    keyboardType: TextInputType.phone,
+                                    decoration: const InputDecoration(
+                                      labelText: 'Phone Number',
+                                      icon: Icon(Icons.perm_contact_cal),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          actions: [
+                            ElevatedButton(
+                                style: const ButtonStyle(
+                                  backgroundColor: MaterialStatePropertyAll(
+                                    Color(0xff03071e),
+                                  ),
+                                ),
+                                child: const Text("Update"),
+                                onPressed: () {
+                                  updateTeamMember();
+                                })
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  icon: Icon(
+                    Icons.edit,
+                  ),
+                ),
+                Icon(Icons.delete_forever_rounded),
+                SizedBox(
+                  width: 8,
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+/*
+Column(
       children: [
         Container(
           decoration: BoxDecoration(
@@ -158,6 +284,5 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
           height: 16,
         ),
       ],
-    );
-  }
-}
+    ); 
+ */

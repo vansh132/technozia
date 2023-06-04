@@ -46,7 +46,8 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xffe9ecef), //0xffe9ecef
+        backgroundColor: Colors.white,
+        elevation: 2, //0xffe9ecef
         // leading: ,
         // centerTitle: true,
         title: Padding(
@@ -81,13 +82,16 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
           ),
         ),
       ),
-      backgroundColor: const Color(0xffe9ecef), //0xffa8dadc // 0xffe8eddf //
+      backgroundColor: Colors.white, //0xffa8dadc // 0xffe8eddf //
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
+              const SizedBox(
+                height: 12,
+              ),
               topBar(user),
               Container(
                 height: MediaQuery.of(context).size.height * .50,
@@ -101,10 +105,6 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                   ),
                 ),
               ),
-
-              // const Divider(
-              //   color: Colors.transparent,
-              // ),
               const Text(
                 "Events",
                 style: TextStyle(
@@ -176,6 +176,16 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                 height: 2,
               ),
               Container(
+                // color: Colors.black,
+                padding: const EdgeInsets.all(8),
+                height: 216,
+                width: double.infinity,
+                child: excitingPrizes(),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Container(
                 // color: Colors.yellow,
                 width: double.infinity,
                 child: Row(
@@ -185,16 +195,6 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                     achievement(),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 8,
-              ),
-              Container(
-                // color: Colors.black,
-                padding: const EdgeInsets.all(8),
-                height: 216,
-                width: double.infinity,
-                child: excitingPrizes(),
               ),
             ],
           ),
@@ -336,7 +336,13 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
         padding: const EdgeInsets.all(8),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            opacity: 0.80,
+            opacity: 0.8,
+            colorFilter: ColorFilter.matrix([
+              0.3, 0, 0, 0, 0, // Red channel
+              0, 0.6, 0, 0, 0, // Green channel
+              0, 0, 0.9, 0, 0, // Blue channel
+              0, 0, 0, 1, 0, // Alpha channel
+            ]),
             image: NetworkImage(
               "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1685104908/banners/ftnoe0d1lalavnxik2ir.jpg",
             ),
@@ -375,6 +381,12 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
           image: DecorationImage(
             opacity: 0.9,
             filterQuality: FilterQuality.high,
+            colorFilter: ColorFilter.matrix([
+              0.9, 0, 0, 0, 0, // Red channel
+              0, 0.9, 0, 0, 0, // Green channel
+              0, 0, 0.6, 0, 0, // Blue channel
+              0, 0, 0, 0.9, 0, // Alpha channel
+            ]),
             image: NetworkImage(
               "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1685106739/banners/bkmthx7zwykxddcqlta3.jpg",
             ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/models/team_member.dart';
 import 'package:technozia/providers/user_provider.dart';
@@ -54,72 +53,108 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
+    /* SystemChrome.setSystemUIOverlayStyle(
       const SystemUiOverlayStyle(
           statusBarColor: Color(0xff03071e)), // Set your desired color here
-    );
+    ); */
     final user = Provider.of<UserProvider>(context, listen: true).user;
     return Scaffold(
       // backgroundColor: Colors. black,
       backgroundColor: const Color(0xfff8f8f8),
 
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        leadingWidth: 172,
+        elevation: 2,
+        leading: Container(
+          // color: Colors.red,
+          alignment: Alignment.center,
+          child: Text(
+            "Team Members",
+            style: TextStyle(
+              fontSize: 20,
+              color: Color(0xff03071e),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
         actions: [
+          Container(
+            alignment: Alignment.center,
+            child: const Text(
+              "Refresh",
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
           IconButton(
-              onPressed: () {
-                getAllTeamMembers(context);
-              },
-              icon: const Icon(Icons.refresh_rounded))
+            onPressed: () {
+              getAllTeamMembers(context);
+            },
+            icon: const Icon(Icons.refresh_rounded),
+            color: Colors.black,
+          )
         ],
       ),
       body: SingleChildScrollView(
         child: Container(
           child: teamMembersList == null
-              ? const Center(
-                  child: CircularProgressIndicator(
-                  color: Colors.white,
-                ))
+              ? const Center(child: CircularProgressIndicator())
               : Column(
                   children: [
-                    SizedBox(
-                      height: 16,
-                    ),
-                    Text(
-                      user.fullName,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        color: Color(0xff03071e),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text(
-                      user.college,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        color: Color(0xff03071e),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 16,
-                    ),
-                    const Divider(
-                      height: 2,
-                      color: Colors.black,
-                    ),
-                    const SizedBox(
-                      height: 24,
-                    ),
-                    const Text(
-                      "Team Members",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Color(0xff03071e),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
                     const SizedBox(
                       height: 8,
+                    ),
+                    Container(
+                      // color: Colors.black,
+                      width: double.infinity,
+                      height: 108,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            // color: Colors.red,
+                            height: 66,
+                            width: 66,
+                            child: Image.asset('assets/leader_icon.png'),
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                user.fullName,
+                                style: const TextStyle(
+                                  fontSize: 24,
+                                  color: Color(0xff03071e),
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 0.5,
+                                ),
+                              ),
+                              const Text(
+                                "Leader",
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color(0xff03071e),
+                                  fontWeight: FontWeight.bold,
+                                  letterSpacing: 0.6,
+                                ),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 4,
                     ),
                     Container(
                       width: double.infinity,
@@ -136,7 +171,21 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                 ),
         ),
       ),
-      floatingActionButton: IconButton(
+      floatingActionButton: Container(
+        padding: EdgeInsets.all(4),
+        decoration: BoxDecoration(
+          color: Color(0xff03071e),
+          borderRadius: BorderRadius.circular(
+            24,
+          ),
+        ),
+        child: TextButton(
+          child: Text(
+            "Add Member",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
           onPressed: () {
             showDialog(
                 context: context,
@@ -173,48 +222,48 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                             ),
                             //Modern Textform field by Chatgpt
                             /* TextFormField(
-                              obscureText: true,
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                color: Colors.black,
-                              ),
-                              decoration: InputDecoration(
-                                labelText: "labelText",
-                                hintText: "hintText",
-                                prefixIcon:
-                                    Icon(Icons.production_quantity_limits),
-                                filled: true,
-                                fillColor: Colors.grey[200],
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.grey[300]!,
-                                    width: 1.5,
+                                obscureText: true,
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  color: Colors.black,
+                                ),
+                                decoration: InputDecoration(
+                                  labelText: "labelText",
+                                  hintText: "hintText",
+                                  prefixIcon:
+                                      Icon(Icons.production_quantity_limits),
+                                  filled: true,
+                                  fillColor: Colors.grey[200],
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.grey[300]!,
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Theme.of(context).primaryColor,
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.red,
+                                      width: 1.5,
+                                    ),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    borderSide: BorderSide(
+                                      color: Colors.red,
+                                      width: 1.5,
+                                    ),
                                   ),
                                 ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Theme.of(context).primaryColor,
-                                    width: 1.5,
-                                  ),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 1.5,
-                                  ),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                  borderSide: BorderSide(
-                                    color: Colors.red,
-                                    width: 1.5,
-                                  ),
-                                ),
-                              ),
-                            ), */
+                              ), */
                           ],
                         ),
                       ),
@@ -234,11 +283,13 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                   );
                 });
           },
-          color: Colors.white,
-          icon: const Icon(
-            Icons.add,
-            // color: Colors.white,
-          )),
+          // color: Colors.white,
+          // icon: const Icon(
+          //   Icons.add,
+          //   // color: Colors.white,
+          // ),
+        ),
+      ),
     );
   }
 }
