@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -49,56 +48,155 @@ class _LeaderProfileState extends State<UserProfile> {
     _email.text = user.email;
     _phoneNumber.text = user.phoneNo.toString();
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2, //0xffe9ecef
+        // leading: ,
+        // centerTitle: true,
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Image(
+                  image: AssetImage(
+                    "assets/technozia_logo.png",
+                  ),
+                  fit: BoxFit.cover,
+                  height: 38,
+                  filterQuality: FilterQuality.high,
+                  semanticLabel: "Technozia",
+                  color: Color(0xff03071e),
+                ),
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                "Technozia",
+                style: TextStyle(
+                  color: Color(0xff03071e),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Form(
           key: _updateUserFormKey,
           child: Column(
             children: [
-              TextFormField(
-                controller: _fullName,
-                decoration: const InputDecoration(
-                  hintText: 'full name',
+              Container(
+                height: 148,
+                width: 148,
+                padding: EdgeInsets.all(8),
+                margin: EdgeInsets.all(16),
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                    image: AssetImage(
+                      "assets/profile_icon.jpg",
+                    ),
+                    filterQuality: FilterQuality.high,
+                    // opacity: 0.9,
+                  ),
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Enter your name';
-                  }
-                  return null;
-                },
               ),
-              TextFormField(
-                controller: _phoneNumber,
-                decoration: const InputDecoration(
-                  hintText: 'phone number',
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _fullName,
+                  decoration: const InputDecoration(
+                    labelText: 'Full Name',
+                    prefixIcon: Icon(Icons.person), // Set the prefix icon
+                    prefixIconColor: Color(0xff03071e),
+                    labelStyle: TextStyle(
+                      color: Color(0xff03071e),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    border: InputBorder.none,
+                  ),
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Enter your name';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty || val.length != 10) {
-                    return 'Enter valid phone number';
-                  }
-                  return null;
-                },
               ),
-              TextFormField(
-                controller: _email,
-                decoration: const InputDecoration(
-                  hintText: 'email',
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _phoneNumber,
+                  decoration: const InputDecoration(
+                    labelText: 'Phone Number',
+                    prefixIcon: Icon(Icons.call_rounded), // Set the prefix icon
+                    prefixIconColor: Color(0xff03071e),
+                    labelStyle: TextStyle(
+                      color: Color(0xff03071e),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    border: InputBorder.none,
+                  ),
+                  validator: (val) {
+                    if (val == null || val.isEmpty || val.length != 10) {
+                      return 'Enter valid phone number';
+                    }
+                    return null;
+                  },
                 ),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Enter your email';
-                  }
-                  return null;
-                },
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextFormField(
+                  controller: _email,
+                  decoration: const InputDecoration(
+                    labelText: 'Email',
+                    prefixIcon: Icon(Icons.mail_rounded), // Set the prefix icon
+                    prefixIconColor: Color(0xff03071e),
+                    labelStyle: TextStyle(
+                      color: Color(0xff03071e),
+                      fontWeight: FontWeight.w500,
+                    ),
+                    border: InputBorder.none,
+                  ),
+                  validator: (val) {
+                    if (val == null || val.isEmpty) {
+                      return 'Enter your email';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               ElevatedButton(
+                style: ButtonStyle(
+                    backgroundColor: const MaterialStatePropertyAll(
+                      Color(0xff03071e),
+                    ),
+                    minimumSize: MaterialStateProperty.all(const Size(150, 36)),
+                    textStyle: const MaterialStatePropertyAll(
+                      TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18,
+                      ),
+                    )),
                 onPressed: () {
                   if (_updateUserFormKey.currentState!.validate()) {
                     onSubmit();
                   }
                 },
-                child: const Text(
-                  "save",
+                child: const Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text(
+                    "Save",
+                  ),
                 ),
               )
             ],
