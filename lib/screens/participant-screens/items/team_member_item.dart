@@ -28,6 +28,15 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
     setState(() {});
   }
 
+  void deleteMember() {
+    participantServices.deleteTeamMember(
+        context: context,
+        teamMember: widget.teamMember,
+        onSuccess: () {
+          showAboutDialog(context: context);
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -141,7 +150,11 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                     Icons.edit,
                   ),
                 ),
-                Icon(Icons.delete_forever_rounded),
+                GestureDetector(
+                    onTap: () {
+                      deleteMember();
+                    },
+                    child: Icon(Icons.delete_forever_rounded)),
                 SizedBox(
                   width: 8,
                 ),

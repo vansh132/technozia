@@ -34,29 +34,6 @@ teamMemberRouter.get("/api/teamMembers", async (req, res) => {
 
 teamMemberRouter.post("/update/team-member", async (req, res) => {
   try {
-    // const { id, leader, fullName, phoneNo, email } = req.body;
-    // console.log(id);
-    // const teamMember = await TeamMember.findOne({
-    //   _id: id,
-    //   leader: leader,
-    // });
-    // const update = {
-    //   $set: { fullName: fullName, phoneNo: phoneNo, email: email },
-    // };
-    // const updatedTeamMember = await TeamMember.updateOne(teamMember, update);
-    // if (_id.match(/^[0-9a-fA-F]{24}$/)) {
-    // }
-    // const updatedTeamMember = await TeamMember.findByIdAndUpdate(
-    //   _id,
-    //   update,
-    //   {
-    //     new: true,
-    //     runValidators: true,
-    //   }
-    // );
-
-    // console.log(updatedTeamMember);
-
     const teamMember = await TeamMember.findById(req.body._id);
 
     if (!teamMember) {
@@ -78,6 +55,16 @@ teamMemberRouter.post("/update/team-member", async (req, res) => {
     res.json({ updatedTeamMember });
   } catch (error) {
     console.log(error);
+  }
+});
+
+teamMemberRouter.post("/delete-team-member", async (req, res) => {
+  try {
+    const { id } = req.body;
+    let teamMember = await TeamMember.findByIdAndDelete(id);
+    res.json(teamMember);
+  } catch (e) {
+    res.status(500).json({ error: e.message });
   }
 });
 

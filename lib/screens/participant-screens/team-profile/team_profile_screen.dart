@@ -103,72 +103,87 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
         child: Container(
           child: teamMembersList == null
               ? const Center(child: CircularProgressIndicator())
-              : Column(
-                  children: [
-                    const SizedBox(
-                      height: 8,
-                    ),
-                    Container(
-                      // color: Colors.black,
-                      width: double.infinity,
-                      height: 108,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            // color: Colors.red,
-                            height: 66,
-                            width: 66,
-                            child: Image.asset('assets/leader_icon.png'),
+              : teamMembersList!.length == 0
+                  ? Container(
+                      // color: Colors.red,
+                      height: MediaQuery.of(context).size.height * 0.8,
+                      child: Center(
+                        child: Text(
+                          "Team members aren't added yet",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
-                          const SizedBox(
-                            width: 16,
-                          ),
-                          Column(
+                        ),
+                      ),
+                    )
+                  : Column(
+                      children: [
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        Container(
+                          // color: Colors.black,
+                          width: double.infinity,
+                          height: 108,
+                          child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
+                              Container(
+                                // color: Colors.red,
+                                height: 66,
+                                width: 66,
+                                child: Image.asset('assets/leader_icon.png'),
+                              ),
                               const SizedBox(
-                                height: 8,
+                                width: 16,
                               ),
-                              Text(
-                                user.fullName,
-                                style: const TextStyle(
-                                  fontSize: 24,
-                                  color: Color(0xff03071e),
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 0.5,
-                                ),
-                              ),
-                              const Text(
-                                "Leader",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Color(0xff03071e),
-                                  fontWeight: FontWeight.bold,
-                                  letterSpacing: 0.6,
-                                ),
-                              ),
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const SizedBox(
+                                    height: 8,
+                                  ),
+                                  Text(
+                                    user.fullName,
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      color: Color(0xff03071e),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 0.5,
+                                    ),
+                                  ),
+                                  const Text(
+                                    "Leader",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xff03071e),
+                                      fontWeight: FontWeight.bold,
+                                      letterSpacing: 0.6,
+                                    ),
+                                  ),
+                                ],
+                              )
                             ],
-                          )
-                        ],
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 4,
-                    ),
-                    Container(
-                      width: double.infinity,
-                      height: 570,
-                      child: ListView.builder(
-                        itemBuilder: (context, index) => TeamMemberItem(
-                          teamMember: teamMembersList![index],
+                          ),
                         ),
-                        itemCount: teamMembersList?.length,
-                        padding: const EdgeInsets.all(8),
-                      ),
+                        const SizedBox(
+                          height: 4,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 570,
+                          child: ListView.builder(
+                            itemBuilder: (context, index) => TeamMemberItem(
+                              teamMember: teamMembersList![index],
+                            ),
+                            itemCount: teamMembersList?.length,
+                            padding: const EdgeInsets.all(8),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
         ),
       ),
       floatingActionButton: Container(
