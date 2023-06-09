@@ -98,9 +98,7 @@ class _LeaderProfileState extends State<UserProfile> {
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                    image: AssetImage(
-                      "assets/profile_icon.jpg",
-                    ),
+                    image: AssetImage("assets/profile_icon.jpg"),
                     filterQuality: FilterQuality.high,
                     // opacity: 0.9,
                   ),

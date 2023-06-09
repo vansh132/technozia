@@ -27,7 +27,7 @@ class _ParticipantHomeState extends State<ParticipantHome> {
 
   int _selectedIndex = 0;
 
-  static List<Widget> _screens = [
+  static final List<Widget> _screens = [
     const OriginalHomeScreen(),
     const ViewRegisterScreen(),
     const TeamProfileScreen(),
