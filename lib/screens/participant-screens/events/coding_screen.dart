@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/screens/participant-screens/registration/registration.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CodingScreen extends StatefulWidget {
   static const String routeName = '/coding-screen';
@@ -12,6 +13,15 @@ class CodingScreen extends StatefulWidget {
 
 class _CodingScreenState extends State<CodingScreen> {
   Event event = Event(name: "Coding", price: 100);
+
+  void _launchPhone(String phoneNumber) async {
+    final url = 'tel:$phoneNumber';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +126,7 @@ class _CodingScreenState extends State<CodingScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     height: 6,
                     thickness: 2,
                   ),
@@ -220,7 +230,7 @@ class _CodingScreenState extends State<CodingScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     height: 6,
                     thickness: 2,
                   ),
@@ -334,54 +344,112 @@ class _CodingScreenState extends State<CodingScreen> {
                   const Text(
                     "Event Co - Ordinators",
                     style: TextStyle(
-                      color: Colors.black54,
+                      color: Color(0xffFFFFFF),
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
+                  const Divider(
+                    height: 6,
+                    thickness: 2,
+                  ),
                   Table(
-                    children: const [
+                    defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                    children: [
+                      const TableRow(children: [
+                        TableCell(child: Text("")),
+                        TableCell(
+                            child: SizedBox(
+                          width: 0,
+                        )),
+                      ]),
                       TableRow(
                         children: [
-                          TableCell(
+                          const TableCell(
                             child: Center(
                               child: Text(
-                                'Vansh',
+                                'Anurag',
                                 style: TextStyle(
-                                  color: Colors.black54,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
-                            child: Center(
-                              child: Text(
-                                '9099897859',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                ),
+                            verticalAlignment:
+                                TableCellVerticalAlignment.middle,
+                            child: GestureDetector(
+                              onTap: () {
+                                _launchPhone("+91 7676924838");
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  const Text(
+                                    '+91 7676924838',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
                         ],
                       ),
+                      const TableRow(children: [
+                        TableCell(child: Text("")),
+                        TableCell(child: Text("")),
+                      ]),
                       TableRow(
                         children: [
-                          TableCell(
+                          const TableCell(
+                            verticalAlignment:
+                                TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
-                                'Vansh',
+                                'Prem Sagar',
                                 style: TextStyle(
-                                  color: Colors.black54,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
                                 ),
                               ),
                             ),
                           ),
                           TableCell(
-                            child: Center(
-                              child: Text(
-                                '9099897859',
-                                style: TextStyle(
-                                  color: Colors.black54,
-                                ),
+                            verticalAlignment:
+                                TableCellVerticalAlignment.middle,
+                            child: GestureDetector(
+                              onTap: () {
+                                _launchPhone("+91 6296431485");
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
+                                    width: 4,
+                                  ),
+                                  const Text(
+                                    '+91 6296431485',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
