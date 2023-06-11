@@ -117,8 +117,7 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
               : Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: Text(
-                    "Total Registrations: " +
-                        duoRegistrationsList!.length.toString(),
+                    "Total Registrations: ${duoRegistrationsList!.length}",
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
