@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/duoRegistration.dart';
 import 'package:technozia/services/registration_services.dart';
 
@@ -20,6 +21,7 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
   }
 
   List<DuoRegistration>? duoRegistrationsList;
+  List<DuoRegistration>? data;
   RegistrationServices registrationServices = RegistrationServices();
   List<DataRow> _tableRows = [];
   TextEditingController _filterController = TextEditingController();
@@ -27,23 +29,43 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
   Future<List<DuoRegistration>?> getRegistrations() async {
     duoRegistrationsList =
         await registrationServices.fetchAllRegistrations_admin(context);
+    print(duoRegistrationsList);
     setState(() {});
     return duoRegistrationsList;
   }
 
   List<DataRow> _generateRows() {
-    // Replace with your own data source or fetch data from an API
     List<Map<String, dynamic>> data = [
-      {'Name': 'loading...', 'Event': "'loading...'"},
-      {'Name': 'loading...', 'Event': "'loading...'"},
-      {'Name': 'loading...', 'Event': "'loading...'"},
+      {
+        'Name': 'loading...',
+        'Event': "loading...",
+        'Event2': "loading...",
+        'Event3': "loading..."
+      },
+      {
+        'Name': 'loading...',
+        'Event': "loading...",
+        'Event2': "loading...",
+        'Event3': "loading..."
+      },
+      {
+        'Name': 'loading...',
+        'Event': "loading...",
+        'Event2': "loading...",
+        'Event3': "loading..."
+      },
     ];
-
     return duoRegistrationsList == null
         ? data.map((item) {
             return DataRow(
               cells: [
                 DataCell(Text(item['Name'])),
+                DataCell(Text(item['Event'].toString())),
+                DataCell(Text(item['Event'].toString())),
+                DataCell(Text(item['Event'].toString())),
+                DataCell(Text(item['Event'].toString())),
+                DataCell(Text(item['Event'].toString())),
+                DataCell(Text(item['Event'].toString())),
                 DataCell(Text(item['Event'].toString())),
               ],
             );
@@ -52,7 +74,13 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
             return DataRow(
               cells: [
                 DataCell(Text(item.participantOne)),
+                DataCell(Text(item.participantTwo)),
+                DataCell(Text(item.email)),
+                DataCell(Text(item.phoneNo.toString())),
                 DataCell(Text(item.eventName)),
+                DataCell(Text(item.paymentMode.substring(12))),
+                DataCell(Text(item.paymentId == '' ? " - " : item.paymentId)),
+                DataCell(Text(item.date.substring(0, 10))),
               ],
             );
           }).toList();
@@ -78,27 +106,53 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyanAccent,
       appBar: AppBar(
-        title: Text('Table with Filter'),
-        actions: [
-          IconButton(
-              onPressed: () {
-                setState(() {});
-              },
-              icon: Icon(Icons.refresh_rounded))
-        ],
+        title: const Text('Registrations'),
+        centerTitle: true,
       ),
       body: Column(
         children: [
+          duoRegistrationsList == null
+              ? CircularProgressIndicator()
+              : Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: Text(
+                    "Total Registrations: " +
+                        duoRegistrationsList!.length.toString(),
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20,
+                    ),
+                  ),
+                ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: _filterController,
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black,
+              ),
               decoration: InputDecoration(
                 labelText: 'Filter',
+                labelStyle: TextStyle(
+                  fontSize: 16,
+                  color: Colors.grey,
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: GlobalVariables.primaryColor),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                filled: true,
+                fillColor: Colors.grey.shade200,
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
                 suffixIcon: IconButton(
-                  icon: Icon(Icons.clear),
+                  icon: const Icon(Icons.clear),
                   onPressed: () {
                     _filterController.clear();
                     _filterTable('');
@@ -110,13 +164,41 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
           ),
           Expanded(
             child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
+              scrollDirection: Axis.horizontal,
               child: DataTable(
+                headingTextStyle: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: Colors.black,
+                ),
+                dataTextStyle: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
+                columnSpacing: 24,
                 columns: [
-                  DataColumn(label: Text('Name')),
-                  DataColumn(label: Text('Event')),
+                  const DataColumn(label: Text('Participant 1')),
+                  const DataColumn(label: Text('Participant 2')),
+                  const DataColumn(label: Text('Email')),
+                  const DataColumn(label: Text('Phone No')),
+                  const DataColumn(label: Text('Event')),
+                  const DataColumn(label: Text('Payment Mode')),
+                  const DataColumn(label: Text('Payment ID')),
+                  const DataColumn(label: Text('Date')),
                 ],
                 rows: _tableRows,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.3),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
