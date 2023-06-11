@@ -113,13 +113,13 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
       body: Column(
         children: [
           duoRegistrationsList == null
-              ? CircularProgressIndicator()
+              ? const CircularProgressIndicator()
               : Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: Text(
                     "Total Registrations: " +
                         duoRegistrationsList!.length.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
                       fontSize: 20,
@@ -130,13 +130,13 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
             padding: const EdgeInsets.all(16.0),
             child: TextField(
               controller: _filterController,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
               ),
               decoration: InputDecoration(
                 labelText: 'Filter',
-                labelStyle: TextStyle(
+                labelStyle: const TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                 ),
@@ -149,8 +149,8 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
                 ),
                 filled: true,
                 fillColor: Colors.grey.shade200,
-                contentPadding:
-                    EdgeInsets.symmetric(vertical: 14.0, horizontal: 16.0),
+                contentPadding: const EdgeInsets.symmetric(
+                    vertical: 14.0, horizontal: 16.0),
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.clear),
                   onPressed: () {
