@@ -88,4 +88,33 @@ class RegistrationServices {
     }
     return duoRegistrationList;
   }
+
+  Future<List<DuoRegistration>> fetchAllRegistrations_admin(
+      BuildContext context) async {
+    List<DuoRegistration> duoRegistrationList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/all/registrations"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            duoRegistrationList.add(
+              DuoRegistration.fromJson(
+                jsonEncode(jsonDecode(res.body)[i]),
+              ),
+            );
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return duoRegistrationList;
+  }
 }

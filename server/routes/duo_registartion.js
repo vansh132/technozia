@@ -49,4 +49,13 @@ duoRegistrationRouter.get("/api/registrations", async (req, res) => {
   }
 });
 
+duoRegistrationRouter.get("/api/all/registrations", async (req, res) => {
+  try {
+    const duoRegistrations = await duoRegistration.find();
+    res.json(duoRegistrations);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = duoRegistrationRouter;

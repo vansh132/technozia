@@ -7,6 +7,7 @@ import 'package:technozia/screens/admin-screens/achievements/view_achievement.da
 import 'package:technozia/screens/admin-screens/home_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
+import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/screens/coreteam-screens/home_screen.dart';
 import 'package:technozia/screens/member-screens/home_screen.dart';
@@ -86,6 +87,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ViewUserScreen(),
+      );
+    case ViewRegistrations.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ViewRegistrations(),
       );
     case EventScreen.routeName:
       return MaterialPageRoute(

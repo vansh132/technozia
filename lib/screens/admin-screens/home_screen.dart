@@ -3,6 +3,7 @@ import 'package:technozia/screens/admin-screens/achievements/add_achievements_sc
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
+import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -57,7 +58,9 @@ class _AdminHomeState extends State<AdminHome> {
               ),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, ViewRegistrations.routeName);
+              },
               child: const Text(
                 "Registration Status",
               ),
