@@ -2,12 +2,12 @@
 
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:cloudinary_public/cloudinary_public.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:technozia/constants/error_handling.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
@@ -16,7 +16,6 @@ import 'package:technozia/models/achievement.dart';
 import 'package:technozia/models/post.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
-import 'package:technozia/screens/participant-screens/home_screen.dart';
 
 class AuthServices {
   void signUpUser({
@@ -94,6 +93,40 @@ class AuthServices {
     }
   }
 
+  Future<List<User>> getUser(BuildContext context, String userId) async {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    List<User> userList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/user"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+          "userId": userId,
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (int i = 0; i < jsonDecode(res.body).length; i++) {
+            userList.add(
+              User.fromJson(
+                jsonEncode(jsonDecode(res.body)[i]),
+              ),
+            );
+          }
+          // userList.add(User.fromJson(jsonDecode(res.body)));
+          // print(userList);
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    // User user = userList.elementAt(0);
+    print(userList);
+    return userList;
+  }
+
   void getUserData(BuildContext context) async {
     try {
       SharedPreferences pref = await SharedPreferences.getInstance();
@@ -137,7 +170,6 @@ class AuthServices {
     required List<File> images,
   }) async {
     print("vansh132 - running...");
-    // final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
       final cloudinary = CloudinaryPublic("dq1q5mtdo", "fwsfdscu");
       List<String> imageUrl = [];

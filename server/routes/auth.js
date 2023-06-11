@@ -34,6 +34,17 @@ authRouter.post("/api/signup", async (req, res) => {
   }
 });
 
+authRouter.get("/api/user", async (req, res) => {
+  let userId = req.headers["userid"];
+  console.log(userId);
+  try {
+    const user = await User.findOne({ _id: userId });
+    res.json([user]);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 authRouter.get("/api/users", async (req, res) => {
   try {
     const users = await User.find({});
@@ -85,7 +96,5 @@ authRouter.get("/", auth, async (req, res) => {
   const user = await User.findById(req.user);
   res.json({ ...user._doc, token: req.token });
 });
-
-
 
 module.exports = authRouter;
