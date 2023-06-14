@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:technozia/models/post.dart';
-import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/auth_services.dart';
 
 class ViewPostScreen extends StatefulWidget {
@@ -28,67 +26,131 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
         appBar: AppBar(
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.refresh))],
+          title: const Text("Posts"),
+          centerTitle: true,
         ),
         body: post == null
             ? const CircularProgressIndicator()
-            : Column(
-                children: [
-                  Container(
-                    child: Text("data"),
-                  ),
-                  Container(
-                    color: Colors.red,
-                    height: MediaQuery.of(context).size.height * 0.75,
-                    child: ListView.builder(
-                      itemBuilder: (context, index) {
-                        return Row(
-                          children: [
-                            Text(
-                              post![index].title,
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 24,
-                              // height: 100,
-                              // child: Image.network(achievements![index].images[0]),
-                            ),
-                            Text(
-                              post![index].description,
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 24,
-                              // height: 100,
-                              // child: Image.network(achievements![index].images[0]),
-                            ),
-                            Text(
-                              post![index].type,
-                              style: const TextStyle(
-                                color: Colors.black,
-                              ),
-                            ),
-                          ],
-                        );
-                      },
-                      itemCount: post?.length,
-                    ),
-                  ),
-                ],
+            : Container(
+                padding: const EdgeInsets.all(16),
+                // color: Colors.red,
+                height: MediaQuery.of(context).size.height,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return postItem(post![index]);
+                  },
+                  itemCount: post?.length,
+                ),
               ));
   }
 
-  Widget PostItem(Post post) {
+  Widget postItem(Post post) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 24),
+      decoration: BoxDecoration(
+        color: const Color(0xffedf6f9),
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            offset: const Offset(0, 2),
+            blurRadius: 8,
+          ),
+        ],
+      ),
+      padding: const EdgeInsets.all(12),
       child: Column(
-        children: [],
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    child: Row(
+                      children: [
+                        const CircleAvatar(
+                          backgroundImage: AssetImage(
+                            "assets/profile_icon.jpg",
+                          ),
+                          backgroundColor: Colors.blueGrey,
+                        ),
+                        const SizedBox(
+                          width: 16,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              post.username,
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                            Text(
+                              "@${post.type}",
+                              style: const TextStyle(
+                                color: Colors.black,
+                                letterSpacing: 0.5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text(
+                    post.date.substring(0, 10),
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      letterSpacing: 0.5,
+                    ),
+                  )
+                ],
+              )
+            ],
+          ),
+          const SizedBox(
+            height: 6,
+          ),
+          const Divider(
+            color: Colors.black45,
+            indent: 20,
+          ),
+          const SizedBox(
+            height: 6,
+          ),
+          SizedBox(
+            width: double.infinity,
+            child: Text(
+              post.title,
+              style: const TextStyle(
+                fontSize: 24,
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            post.description,
+            style: const TextStyle(
+              fontSize: 16,
+              color: Colors.black,
+              fontWeight: FontWeight.w300,
+            ),
+          ),
+        ],
       ),
     );
   }
