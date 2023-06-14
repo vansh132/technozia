@@ -285,7 +285,8 @@ class AuthServices {
 
   Future<void> addpost({
     // required BuildContext context,
-    required String usedId,
+    required String username,
+    required String type,
     required String title,
     required String description,
     required DateTime date,
@@ -294,7 +295,8 @@ class AuthServices {
     // final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
       Post post = Post(
-        userId: usedId,
+        username: username,
+        type: type,
         title: title,
         description: description,
         date: date.toString(),

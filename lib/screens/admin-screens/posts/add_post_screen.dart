@@ -21,7 +21,8 @@ class _AddPostScreenState extends State<AddPostScreen> {
     final user = Provider.of<UserProvider>(context, listen: false).user;
 
     authServices.addpost(
-      usedId: user.id,
+      username: user.id,
+      type: user.type,
       title: _title.text,
       description: _description.text,
       date: DateTime.now(),

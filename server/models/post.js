@@ -1,7 +1,12 @@
 const mongoose = require("mongoose");
 
 const postSchema = mongoose.Schema({
-  userId: {
+  username: {
+    required: true,
+    type: String,
+    trim: true,
+  },
+  type: {
     required: true,
     type: String,
     trim: true,
@@ -21,5 +26,5 @@ const postSchema = mongoose.Schema({
   },
 });
 
-const Achievement = mongoose.model("post", postSchema);
-module.exports = Achievement;
+const Post = mongoose.model("post", postSchema);
+module.exports = Post;

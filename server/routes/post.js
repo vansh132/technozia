@@ -5,15 +5,16 @@ const postRoute = express.Router();
 
 postRoute.post("/admin/add-post", async (req, res) => {
   try {
-    const { userId, title, description, date } = req.body;
-    let achievement = new Post({
-      userId,
+    const { username, type , title, description, date } = req.body;
+    let post = new Post({
+      username,
+      type,
       title,
       description,
       date,
     });
-    achievement = await achievement.save();
-    res.json(achievement);
+    post = await post.save();
+    res.json(post);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

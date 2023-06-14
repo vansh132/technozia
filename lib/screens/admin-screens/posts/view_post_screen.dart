@@ -64,6 +64,17 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                                 color: Colors.black,
                               ),
                             ),
+                            const SizedBox(
+                              width: 24,
+                              // height: 100,
+                              // child: Image.network(achievements![index].images[0]),
+                            ),
+                            Text(
+                              post![index].type,
+                              style: const TextStyle(
+                                color: Colors.black,
+                              ),
+                            ),
                           ],
                         );
                       },
