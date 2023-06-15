@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/events.dart';
-import 'package:technozia/screens/participant-screens/registration/registration.dart';
+import 'package:technozia/screens/participant-screens/registration/five_registration.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class TreasureHuntScreen extends StatefulWidget {
@@ -549,7 +549,7 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
             onPressed: () {
               Navigator.pushNamed(
                 context,
-                RegistrationScreen.routeName,
+                FiveRegistrationScreen.routeName,
                 arguments: event,
               );
             },
