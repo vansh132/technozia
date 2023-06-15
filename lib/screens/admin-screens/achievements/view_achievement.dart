@@ -31,31 +31,50 @@ class _ViewAchievementScreenState extends State<ViewAchievementScreen> {
         appBar: AppBar(),
         body: achievements == null
             ? const CircularProgressIndicator()
-            : ListView.builder(
-                itemBuilder: (context, index) {
-                  return Row(
-                    children: [
-                      Text(
-                        achievements![index].title,
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 24,
-                        // height: 100,
-                        // child: Image.network(achievements![index].images[0]),
-                      ),
-                      Text(
-                        achievements![index].description,
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ],
-                  );
-                },
-                itemCount: achievements?.length,
+            : Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(16),
+                color: Colors.yellow,
+                height: MediaQuery.of(context).size.height,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    return achievementItem(achievements![index]);
+                  },
+                  itemCount: achievements?.length,
+                ),
               ));
+  }
+
+  Widget achievementItem(Achievement achievement) {
+    return Container(
+      width: double.infinity,
+      margin: EdgeInsets.only(bottom: 13),
+      height: 550,
+      padding: EdgeInsets.all(16),
+      color: Colors.black,
+      child: Column(
+        children: [
+          Column(
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      achievement.title,
+                      textAlign: TextAlign.start,
+                    ),
+                    Text(
+                      achievement.category,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ],
+      ),
+    );
   }
 }

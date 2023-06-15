@@ -32,10 +32,9 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
           centerTitle: true,
         ),
         body: post == null
-            ? const CircularProgressIndicator()
+            ? const Center(child: CircularProgressIndicator())
             : Container(
                 padding: const EdgeInsets.all(16),
-                // color: Colors.red,
                 height: MediaQuery.of(context).size.height,
                 child: ListView.builder(
                   itemBuilder: (context, index) {
