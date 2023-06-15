@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -36,23 +37,69 @@ class _AddPostScreenState extends State<AddPostScreen> {
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-        appBar: AppBar(),
-        body: SingleChildScrollView(
+        appBar: AppBar(
+          title: const Text("Add your Post"),
+          centerTitle: true,
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(16),
           child: Form(
             key: _addPostFormKey,
             child: Column(
               children: [
-                //To-do: user full name - for ui reference
-                Text(
-                  user.fullName,
-                  style: const TextStyle(
-                    color: Colors.black,
+                SizedBox(
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      const Text(
+                        "Author : ",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 22,
+                        ),
+                      ),
+                      Text(
+                        user.fullName,
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
+                        ),
+                      ),
+                      /* Text(
+                        user.type,
+                        style: const TextStyle(
+                          color: Colors.black,
+                        ),
+                      ), */
+                    ],
                   ),
+                ),
+                const SizedBox(
+                  height: 16,
                 ),
                 TextFormField(
                   controller: _title,
-                  decoration: const InputDecoration(
-                    hintText: 'title',
+                  decoration: InputDecoration(
+                    labelText: 'Title',
+                    labelStyle: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: GlobalVariables.primaryColor),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey.withOpacity(0.1),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 16.0, horizontal: 16.0),
                   ),
                   validator: (val) {
                     if (val == null || val.isEmpty) {
@@ -61,10 +108,30 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     return null;
                   },
                 ),
+                const SizedBox(
+                  height: 8,
+                ),
                 TextFormField(
                   controller: _description,
-                  decoration: const InputDecoration(
-                    hintText: 'description',
+                  decoration: InputDecoration(
+                    labelText: 'Description',
+                    labelStyle: const TextStyle(
+                      color: Colors.grey,
+                      fontSize: 16.0,
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(color: Colors.grey),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: GlobalVariables.primaryColor),
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    filled: true,
+                    fillColor: Colors.grey.withOpacity(0.1),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 16.0, horizontal: 16.0),
                   ),
                   validator: (val) {
                     if (val == null || val.isEmpty) {
@@ -73,14 +140,28 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     return null;
                   },
                 ),
+                const SizedBox(
+                  height: 18,
+                ),
                 ElevatedButton(
                   onPressed: () {
                     if (_addPostFormKey.currentState!.validate()) {
                       onSubmit(context);
                     }
                   },
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: GlobalVariables.primaryColor, // Text color
+                    elevation: 8, // Elevation (shadow)
+                    shape: RoundedRectangleBorder(
+                      borderRadius:
+                          BorderRadius.circular(10.0), // Rounded corners
+                    ),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16.0, horizontal: 24.0), // Button padding
+                  ),
                   child: const Text(
-                    "Sign up",
+                    "Add Post",
                   ),
                 ),
               ],
