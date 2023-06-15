@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/screens/participant-screens/registration/registration.dart';
+import 'package:technozia/screens/participant-screens/registration/single_registration.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ItManagerScreen extends StatefulWidget {
@@ -611,7 +612,7 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
             onPressed: () {
               Navigator.pushNamed(
                 context,
-                RegistrationScreen.routeName,
+                SingleRegistrationScreen.routeName,
                 arguments: event,
               );
             },

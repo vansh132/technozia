@@ -5,6 +5,9 @@ class DuoRegistration {
   final String leader;
   final String participantOne;
   final String participantTwo;
+  final String participantThree;
+  final String participantFour;
+  final String participantFive;
   final int phoneNo;
   final String email;
   final String eventName;
@@ -16,6 +19,9 @@ class DuoRegistration {
     required this.leader,
     required this.participantOne,
     required this.participantTwo,
+    required this.participantThree,
+    required this.participantFour,
+    required this.participantFive,
     required this.phoneNo,
     required this.email,
     required this.eventName,
@@ -31,6 +37,9 @@ class DuoRegistration {
       'leader': leader,
       'participantOne': participantOne,
       'participantTwo': participantTwo,
+      'participantThree': participantThree,
+      'participantFour': participantFour,
+      'participantFive': participantFive,
       'phoneNo': phoneNo,
       'email': email,
       'eventName': eventName,
@@ -46,6 +55,9 @@ class DuoRegistration {
       leader: map['leader'] as String,
       participantOne: map['participantOne'] as String,
       participantTwo: map['participantTwo'] as String,
+      participantThree: map['participantThree'] as String,
+      participantFour: map['participantFour'] as String,
+      participantFive: map['participantFive'] as String,
       phoneNo: map['phoneNo'] as int,
       email: map['email'] as String,
       eventName: map['eventName'] as String,

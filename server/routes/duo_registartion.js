@@ -21,7 +21,6 @@ duoRegistrationRouter.post("/api/register", async (req, res) => {
       paymentId,
       date,
     } = req.body;
-    console.log(participantOne);
     let duoRegistration = new DuoRegistration({
       leader,
       participantOne,

@@ -14,6 +14,9 @@ class RegistrationServices {
     required BuildContext context,
     required String participantOne,
     required String participantTwo,
+    required String participantThree,
+    required String participantFour,
+    required String participantFive,
     required int phoneNo,
     required String email,
     required String eventName,
@@ -24,10 +27,14 @@ class RegistrationServices {
   }) async {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
+      print(participantThree);
       DuoRegistration duoRegistration = DuoRegistration(
         leader: user.id,
         participantOne: participantOne,
         participantTwo: participantTwo,
+        participantThree: participantThree,
+        participantFour: participantFour,
+        participantFive: participantFive,
         phoneNo: phoneNo,
         email: email,
         eventName: eventName,

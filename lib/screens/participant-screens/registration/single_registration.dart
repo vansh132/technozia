@@ -7,21 +7,19 @@ import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/participant_services.dart';
 import 'package:technozia/services/registration_services.dart';
 
-class RegistrationScreen extends StatefulWidget {
-  static const String routeName = "/registration-screen";
+class SingleRegistrationScreen extends StatefulWidget {
+  static const String routeName = '/single-registration-screen';
   final Event event;
-  const RegistrationScreen({
-    super.key,
-    required this.event,
-  });
+  const SingleRegistrationScreen({super.key, required this.event});
 
   @override
-  State<RegistrationScreen> createState() => _RegistrationScreenState();
+  State<SingleRegistrationScreen> createState() =>
+      _SingleRegistrationScreenState();
 }
 
 enum PaymentMode { online, offline }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
   ParticipantServices participantServices = ParticipantServices();
   RegistrationServices registrationServices = RegistrationServices();
   final TextEditingController _phoneNo = TextEditingController();
@@ -40,7 +38,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     registrationServices.duoEventregistration(
       context: context,
       participantOne: participant1.toString(),
-      participantTwo: participant2.toString(),
+      participantTwo: "null",
       participantThree: "null",
       participantFour: "null",
       participantFive: "null",
@@ -61,9 +59,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   }
 
   String? selectedValue1 = "";
-  String? selectedValue2 = "";
   String? participant1;
-  String? participant2;
   PaymentMode? _character = PaymentMode.online;
 
   @override
@@ -72,7 +68,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     final user = Provider.of<UserProvider>(context).user;
     final event = ModalRoute.of(context)?.settings.arguments as Event;
     List<String>? dropdownItems = teamMembers?.map((e) => e.fullName).toList();
-
     return Scaffold(
       appBar: AppBar(),
       body: teamMembers == null
@@ -92,23 +87,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     setState(() {
                       selectedValue1 = newValue!;
                       participant1 = selectedValue1;
-                    });
-                  },
-                  items: dropdownItems
-                      ?.map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value.isNotEmpty ? value : null,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                ),
-                DropdownButton<String>(
-                  hint: const Text("Team member 2"),
-                  value: selectedValue2!.isNotEmpty ? selectedValue2 : null,
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      selectedValue2 = newValue!;
-                      participant2 = selectedValue2;
                     });
                   },
                   items: dropdownItems
