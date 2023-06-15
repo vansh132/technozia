@@ -16,6 +16,21 @@ const duoRegistrationSchema = mongoose.Schema({
     type: String,
     trim: true,
   },
+  participantThree: {
+    required: true,
+    type: String,
+    trim: true,
+  },
+  participantFour: {
+    required: true,
+    type: String,
+    trim: true,
+  },
+  participantFive: {
+    required: true,
+    type: String,
+    trim: true,
+  },
   phoneNo: {
     required: true,
     type: Number,
