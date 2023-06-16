@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:technozia/main-screens/login_screen.dart';
@@ -282,14 +281,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                   ),
                 ),
-                Container(
+                SizedBox(
                   width: double.infinity,
                   child: Column(
                     children: [
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             "Already have an account? ",
                             style: TextStyle(
                               color: Color(0xFF03071E),

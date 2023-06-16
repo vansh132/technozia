@@ -93,8 +93,8 @@ class _LeaderProfileState extends State<UserProfile> {
               Container(
                 height: 148,
                 width: 148,
-                padding: EdgeInsets.all(8),
-                margin: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(8),
+                margin: const EdgeInsets.all(16),
                 decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(

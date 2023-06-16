@@ -93,7 +93,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                 height: 12,
               ),
               topBar(user),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * .50,
                 width: MediaQuery.of(context).size.width,
                 child: CarouselSlider(
@@ -116,7 +116,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
               const SizedBox(
                 height: 8,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * .30,
                 width: MediaQuery.of(context).size.width,
                 child: GridView(
@@ -185,7 +185,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
               const SizedBox(
                 height: 8,
               ),
-              Container(
+              SizedBox(
                 // color: Colors.yellow,
                 width: double.infinity,
                 child: Row(
@@ -208,7 +208,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
       width: double.infinity,
       height: 48,
       decoration: BoxDecoration(
-        color: Color(0xff03071e),
+        color: const Color(0xff03071e),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -418,7 +418,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        Container(
+        SizedBox(
           height: 250,
           width: MediaQuery.of(context).size.width * 0.4,
           child: const Image(
@@ -428,7 +428,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
             fit: BoxFit.contain,
           ),
         ),
-        Container(
+        SizedBox(
           height: 250,
           width: MediaQuery.of(context).size.width * 0.4,
           child: Column(

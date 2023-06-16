@@ -27,7 +27,7 @@ class _AdminHomeState extends State<AdminHome> {
               onPressed: () {
                 authServices.logOut(context);
               },
-              child: Text("Log out"))
+              child: const Text("Log out"))
         ],
       ),
       body: SizedBox(

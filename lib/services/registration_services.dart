@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -27,7 +29,6 @@ class RegistrationServices {
   }) async {
     final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
-      print(participantThree);
       DuoRegistration duoRegistration = DuoRegistration(
         leader: user.id,
         participantOne: participantOne,
@@ -61,7 +62,7 @@ class RegistrationServices {
         },
       );
     } catch (e) {
-      print("vansh132" + e.toString());
+      showSnackBar(context, e.toString());
     }
   }
 
@@ -96,7 +97,7 @@ class RegistrationServices {
     return duoRegistrationList;
   }
 
-  Future<List<DuoRegistration>> fetchAllRegistrations_admin(
+  Future<List<DuoRegistration>> fetchAllRegistrationsAdmin(
       BuildContext context) async {
     List<DuoRegistration> duoRegistrationList = [];
     try {

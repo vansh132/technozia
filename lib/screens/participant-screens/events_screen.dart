@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:technozia/screens/participant-screens/events/coding_screen.dart';
-import 'package:technozia/screens/participant-screens/events/fast_typing.dart';
-import 'package:technozia/screens/participant-screens/events/gaming_screen.dart';
-import 'package:technozia/screens/participant-screens/events/it_manager_screen.dart';
-import 'package:technozia/screens/participant-screens/events/it_quiz_screen.dart';
-import 'package:technozia/screens/participant-screens/events/treasurehunt_screen.dart';
-import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
+
 
 class EventScreen extends StatefulWidget {
   static const String routeName = '/events-screen';
@@ -30,25 +24,22 @@ class _EventScreenState extends State<EventScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
-            children: [
-              const SizedBox(
+            children: const [
+              SizedBox(
                 height: 16,
               ),
-              Container(
-                // color: Colors.red,
-                child: const Text(
-                  "\" Register for Our Events Today \"",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xff03071e),
-                  ),
+              Text(
+                "\" Register for Our Events Today \"",
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xff03071e),
                 ),
               ),
-              const SizedBox(
+              SizedBox(
                 height: 6,
               ),
-              const Divider(
+              Divider(
                 color: Color(0xff03071e),
               ),
               // OutlinedButton(
@@ -62,27 +53,27 @@ class _EventScreenState extends State<EventScreen> {
               //   ),
               // ),
               
-              const SizedBox(
+              SizedBox(
                 height: 16,
               ),
               
-              const SizedBox(
+              SizedBox(
                 height: 16,
               ),
               
-              const SizedBox(
+              SizedBox(
                 height: 16,
               ),
               
-              const SizedBox(
+              SizedBox(
                 height: 16,
               ),
               
-              const SizedBox(
+              SizedBox(
                 height: 16,
               ),
               
-              const SizedBox(
+              SizedBox(
                 height: 16,
               ),
               

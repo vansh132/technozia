@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/duoRegistration.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/models/team_member.dart';
-import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/participant_services.dart';
 import 'package:technozia/services/registration_services.dart';
 
@@ -216,6 +214,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               if (val!.length != 10) {
                                 return 'Phone number must be 10 digits';
                               }
+                              return null;
                             },
                           ),
                           const SizedBox(
@@ -342,6 +341,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                         if (val == null || val.isEmpty) {
                                           return 'Enter your payment ID';
                                         }
+                                        return null;
                                       },
                                     ),
                                   ],

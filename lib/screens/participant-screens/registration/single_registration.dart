@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/duoRegistration.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/models/team_member.dart';
-import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/participant_services.dart';
 import 'package:technozia/services/registration_services.dart';
 
@@ -34,7 +32,6 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
 
   void getTeamMembers() async {
     teamMembers = await participantServices.fetchAllTeamMembers(context);
-    print(teamMembers);
     setState(() {});
   }
 
@@ -69,7 +66,6 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     _paymentId.text = "";
-    final user = Provider.of<UserProvider>(context).user;
     final event = ModalRoute.of(context)?.settings.arguments as Event;
     List<String>? dropdownItems = teamMembers?.map((e) => e.fullName).toList();
     return Scaffold(
@@ -177,6 +173,7 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
                               if (val!.length != 10) {
                                 return 'Phone number must be 10 digits';
                               }
+                              return null;
                             },
                           ),
                           const SizedBox(
@@ -303,6 +300,7 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
                                         if (val == null || val.isEmpty) {
                                           return 'Enter your payment ID';
                                         }
+                                        return null;
                                       },
                                     ),
                                   ],

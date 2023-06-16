@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:technozia/models/duoRegistration.dart';
-import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/registration_services.dart';
 
 class ViewRegisterScreen extends StatefulWidget {
@@ -25,14 +23,12 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
   Future<List<DuoRegistration>?> getRegistrations() async {
     duoRegistrationsList =
         await registrationServices.fetchAllRegistrations(context);
-    print(duoRegistrationsList);
     setState(() {});
     return duoRegistrationsList;
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,

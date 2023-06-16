@@ -22,7 +22,6 @@ class _ViewAchievementScreenState extends State<ViewAchievementScreen> {
 
   void getAllAchievement() async {
     achievements = await authServices.fetchAllAchievements(context);
-    print(achievements);
     setState(() {});
   }
 
@@ -141,7 +140,7 @@ class _ViewAchievementScreenState extends State<ViewAchievementScreen> {
                   scrollDirection: Axis.horizontal,
                 ),
                 items: achievement.images.map((url) {
-                  return Container(
+                  return SizedBox(
                     width: double.infinity,
                     child: Image.network(url, fit: BoxFit.cover),
                   );

@@ -20,10 +20,10 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
               onPressed: () {
                 authServices.logOut(context);
               },
-              child: Text("Log out"))
+              child: const Text("Log out"))
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           "Core team home screen, yet to be build",
           style: TextStyle(

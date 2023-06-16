@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/events.dart';

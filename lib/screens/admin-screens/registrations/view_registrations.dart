@@ -28,8 +28,7 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
 
   Future<List<DuoRegistration>?> getRegistrations() async {
     duoRegistrationsList =
-        await registrationServices.fetchAllRegistrations_admin(context);
-    print(duoRegistrationsList);
+        await registrationServices.fetchAllRegistrationsAdmin(context);
     setState(() {});
     return duoRegistrationsList;
   }
@@ -175,15 +174,15 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
                   color: Colors.black,
                 ),
                 columnSpacing: 24,
-                columns: [
-                  const DataColumn(label: Text('Participant 1')),
-                  const DataColumn(label: Text('Participant 2')),
-                  const DataColumn(label: Text('Email')),
-                  const DataColumn(label: Text('Phone No')),
-                  const DataColumn(label: Text('Event')),
-                  const DataColumn(label: Text('Payment Mode')),
-                  const DataColumn(label: Text('Payment ID')),
-                  const DataColumn(label: Text('Date')),
+                columns: const [
+                  DataColumn(label: Text('Participant 1')),
+                  DataColumn(label: Text('Participant 2')),
+                  DataColumn(label: Text('Email')),
+                  DataColumn(label: Text('Phone No')),
+                  DataColumn(label: Text('Event')),
+                  DataColumn(label: Text('Payment Mode')),
+                  DataColumn(label: Text('Payment ID')),
+                  DataColumn(label: Text('Date')),
                 ],
                 rows: _tableRows,
                 decoration: BoxDecoration(

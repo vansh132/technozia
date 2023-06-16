@@ -82,9 +82,7 @@ class AuthServices {
         onSuccess: () async {
           SharedPreferences pref = await SharedPreferences.getInstance();
           Provider.of<UserProvider>(context, listen: false).setUser(res.body);
-          var r = await pref.setString(
-              "x-auth-token", jsonDecode(res.body)['token']);
-          print("$r - vansh132");
+          await pref.setString("x-auth-token", jsonDecode(res.body)['token']);
         },
       );
       Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
@@ -94,7 +92,6 @@ class AuthServices {
   }
 
   Future<List<User>> getUser(BuildContext context, String userId) async {
-    final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<User> userList = [];
     try {
       http.Response res = await http.get(
@@ -122,8 +119,6 @@ class AuthServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
-    // User user = userList.elementAt(0);
-    print(userList);
     return userList;
   }
 
@@ -157,7 +152,9 @@ class AuthServices {
         var userProvider = Provider.of<UserProvider>(context, listen: false);
         userProvider.setUser(userResponse.body);
       }
-    } catch (e) {}
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
   }
 
   Future<void> addAchievement({
@@ -169,7 +166,6 @@ class AuthServices {
     required String tag,
     required List<File> images,
   }) async {
-    print("vansh132 - running...");
     try {
       final cloudinary = CloudinaryPublic("dq1q5mtdo", "fwsfdscu");
       List<String> imageUrl = [];
@@ -180,7 +176,7 @@ class AuthServices {
             folder: title,
           ),
         );
-        var image = imageUrl.add(cloudinaryRes.secureUrl);
+        imageUrl.add(cloudinaryRes.secureUrl);
       }
 
       Achievement achievement = Achievement(
@@ -214,7 +210,7 @@ class AuthServices {
         },
       );
     } catch (e) {
-      print("vansh132" + e.toString());
+      showSnackBar(context, e.toString());
     }
   }
 
@@ -245,7 +241,6 @@ class AuthServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
-    print("vansh132" + achievementList.toString());
     return achievementList;
   }
 
@@ -260,14 +255,11 @@ class AuthServices {
           'x-auth-token': userProvider.user.token,
         },
       );
-      print("running above error handle...");
       httpErrorHandle(
         response: res,
         context: context,
         onSuccess: () {
           for (int i = 0; i < jsonDecode(res.body).length; i++) {
-            print("running inside loop...");
-
             postList.add(
               Post.fromJson(
                 jsonEncode(jsonDecode(res.body)[i]),
@@ -279,20 +271,17 @@ class AuthServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
-    print("vansh132" + postList.toString());
     return postList;
   }
 
   Future<void> addpost({
-    // required BuildContext context,
+    required BuildContext context,
     required String username,
     required String type,
     required String title,
     required String description,
     required DateTime date,
   }) async {
-    print("vansh132 - running...");
-    // final user = Provider.of<UserProvider>(context, listen: false).user;
     try {
       Post post = Post(
         username: username,
@@ -310,7 +299,7 @@ class AuthServices {
         body: post.toJson(),
       );
     } catch (e) {
-      print("vansh132" + e.toString());
+      showSnackBar(context, e.toString());
     }
   }
 
@@ -341,7 +330,6 @@ class AuthServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
-    print("vansh132" + userList.toString());
     return userList;
   }
 

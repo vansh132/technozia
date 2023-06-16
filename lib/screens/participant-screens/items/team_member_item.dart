@@ -3,8 +3,8 @@ import 'package:technozia/models/team_member.dart';
 import 'package:technozia/services/participant_services.dart';
 
 class TeamMemberItem extends StatefulWidget {
-  TeamMember teamMember;
-  TeamMemberItem({super.key, required this.teamMember});
+  final TeamMember teamMember;
+  const TeamMemberItem({super.key, required this.teamMember});
 
   @override
   State<TeamMemberItem> createState() => _TeamMemberItemState();
@@ -17,7 +17,6 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
   final TextEditingController _email = TextEditingController();
 
   void updateTeamMember() {
-    print(_phoneNo.text);
     participantServices.updateTeamMember(
       context: context,
       id: widget.teamMember.id,
@@ -47,13 +46,13 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
       margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Theme(
         data: ThemeData(
-          primaryColor: Color(0xff03071e),
+          primaryColor: const Color(0xff03071e),
           unselectedWidgetColor: Colors.grey,
           colorScheme: ColorScheme.fromSwatch()
               .copyWith(secondary: const Color(0xff03071e)),
         ),
         child: ExpansionTile(
-          childrenPadding: EdgeInsets.all(8),
+          childrenPadding: const EdgeInsets.all(8),
           expandedCrossAxisAlignment: CrossAxisAlignment.center,
           title: Text(
             widget.teamMember.fullName,
@@ -84,7 +83,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                 color: Colors.black,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             Row(
@@ -146,7 +145,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                       },
                     );
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.edit,
                   ),
                 ),
@@ -154,8 +153,8 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                     onTap: () {
                       deleteMember();
                     },
-                    child: Icon(Icons.delete_forever_rounded)),
-                SizedBox(
+                    child: const Icon(Icons.delete_forever_rounded)),
+                const SizedBox(
                   width: 8,
                 ),
               ],

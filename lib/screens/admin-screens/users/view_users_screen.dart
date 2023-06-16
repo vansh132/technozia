@@ -30,7 +30,7 @@ class _ViewUserScreenState extends State<ViewUserScreen> {
     return Scaffold(
       appBar: AppBar(),
       body: userList == null
-          ? Center(
+          ? const Center(
               child: CircularProgressIndicator(),
             )
           : Column(

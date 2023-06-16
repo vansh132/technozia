@@ -20,10 +20,10 @@ class _MemberHomeScreenState extends State<MemberHomeScreen> {
               onPressed: () {
                 authServices.logOut(context);
               },
-              child: Text("Log out"))
+              child: const Text("Log out"))
         ],
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           "Member screen yet to be developed",
           style: TextStyle(

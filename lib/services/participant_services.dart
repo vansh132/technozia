@@ -48,7 +48,7 @@ class ParticipantServices {
         },
       );
     } catch (e) {
-      print("vansh132" + e.toString());
+      showSnackBar(context, e.toString());
     }
   }
 
@@ -110,7 +110,6 @@ class ParticipantServices {
     } catch (e) {
       showSnackBar(context, e.toString());
     }
-    print("vansh132" + teamMembersList.toString());
     return teamMembersList;
   }
 
@@ -142,7 +141,6 @@ class ParticipantServices {
         context: context,
         onSuccess: () {
           showSnackBar(context, "user updated...");
-          print(res.body);
           Navigator.pop(context);
         },
       );

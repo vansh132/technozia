@@ -22,6 +22,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
     final user = Provider.of<UserProvider>(context, listen: false).user;
 
     authServices.addpost(
+      context: context,
       username: user.fullName,
       type: user.type,
       title: _title.text,
@@ -30,7 +31,6 @@ class _AddPostScreenState extends State<AddPostScreen> {
     );
 
     Navigator.pop(context);
-    print("Post added...");
   }
 
   @override

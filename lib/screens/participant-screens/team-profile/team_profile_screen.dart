@@ -35,9 +35,6 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
   }
 
   void addTeamMember() {
-    print(_name.text);
-    print(_email.text);
-    print(_phoneNo.text);
     participantServices.addTeamMember(
       context: context,
       fullName: _name.text,
@@ -69,7 +66,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
         leading: Container(
           // color: Colors.red,
           alignment: Alignment.center,
-          child: Text(
+          child: const Text(
             "Team Members",
             style: TextStyle(
               fontSize: 20,
@@ -103,11 +100,11 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
         child: Container(
           child: teamMembersList == null
               ? const Center(child: CircularProgressIndicator())
-              : teamMembersList!.length == 0
-                  ? Container(
+              : teamMembersList!.isEmpty
+                  ? SizedBox(
                       // color: Colors.red,
                       height: MediaQuery.of(context).size.height * 0.8,
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           "Team members aren't added yet",
                           style: TextStyle(
@@ -123,14 +120,14 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                         const SizedBox(
                           height: 8,
                         ),
-                        Container(
+                        SizedBox(
                           // color: Colors.black,
                           width: double.infinity,
                           height: 108,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Container(
+                              SizedBox(
                                 // color: Colors.red,
                                 height: 66,
                                 width: 66,
@@ -171,7 +168,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                         const SizedBox(
                           height: 4,
                         ),
-                        Container(
+                        SizedBox(
                           width: double.infinity,
                           height: 570,
                           child: ListView.builder(
@@ -187,15 +184,15 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
         ),
       ),
       floatingActionButton: Container(
-        padding: EdgeInsets.all(4),
+        padding: const EdgeInsets.all(4),
         decoration: BoxDecoration(
-          color: Color(0xff03071e),
+          color: const Color(0xff03071e),
           borderRadius: BorderRadius.circular(
             24,
           ),
         ),
         child: TextButton(
-          child: Text(
+          child: const Text(
             "Add Member",
             style: TextStyle(
               color: Colors.white,

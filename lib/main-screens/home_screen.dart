@@ -34,11 +34,11 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
+            const SizedBox(
               
               width: 250,
               height: 250,
-              child: const Image(
+              child: Image(
                 image: AssetImage('assets/technozia_logo.png'),
                 // fit: BoxFit.cover,
                 // height: 36,
