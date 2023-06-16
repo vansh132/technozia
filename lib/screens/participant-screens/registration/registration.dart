@@ -27,7 +27,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   ParticipantServices participantServices = ParticipantServices();
   RegistrationServices registrationServices = RegistrationServices();
   final _registrationFormKey = GlobalKey<FormState>();
-  final _paymentFormKey = GlobalKey<FormState>();
   final TextEditingController _phoneNo = TextEditingController();
   final TextEditingController _email = TextEditingController();
   final TextEditingController _paymentId = TextEditingController();
@@ -72,7 +71,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   @override
   Widget build(BuildContext context) {
     _paymentId.text = "";
-    final user = Provider.of<UserProvider>(context).user;
     final event = ModalRoute.of(context)?.settings.arguments as Event;
     List<String>? dropdownItems = teamMembers?.map((e) => e.fullName).toList();
 
