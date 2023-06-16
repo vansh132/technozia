@@ -6,6 +6,7 @@ const postRoute = require("./routes/post");
 const teamMemberRouter = require("./routes/team_member");
 const duoRegistrationRouter = require("./routes/duo_registartion");
 const userRouter = require("./routes/user");
+const reportsRouter = require("./routes/reports");
 const app = express();
 
 const PORT = 3000;
@@ -18,6 +19,7 @@ app.use(postRoute);
 app.use(teamMemberRouter);
 app.use(duoRegistrationRouter);
 app.use(userRouter);
+app.use(reportsRouter);
 
 mongoose
   .connect(DB)
