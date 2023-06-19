@@ -274,6 +274,30 @@ class AuthServices {
     return postList;
   }
 
+  Future<List<num>> fetchCount(BuildContext context) async {
+    List<num> countList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/report/event-registration-count"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (var i = 0; i < jsonDecode(res.body).length; i++) {
+            countList.add(jsonDecode(res.body)[i]);
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return countList;
+  }
+
   Future<void> addpost({
     required BuildContext context,
     required String username,

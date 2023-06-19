@@ -33,16 +33,16 @@ reportsRouter.get("/api/report/event-registration-count", async (req, res) => {
   const events = await DuoRegistration.find({});
   const eventsCount = events.length;
 
-  res.json({
-    coding: codingCount,
-    web: WebCount,
-    itManager: ITManagerCount,
-    fastTyping: fastTypingCount,
-    itQuiz: ITQuizCount,
-    codm: GamingCount,
-    tresureHunt: TreasureHuntCount,
-    total: eventsCount,
-  });
+  res.json([
+    codingCount,
+    WebCount,
+    ITManagerCount,
+    fastTypingCount,
+    ITQuizCount,
+    GamingCount,
+    TreasureHuntCount,
+    eventsCount,
+  ]);
 });
 
 reportsRouter.get("/api/report/payment-count", async (req, res) => {
