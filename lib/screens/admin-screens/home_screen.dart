@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:technozia/models/options.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
@@ -22,6 +23,24 @@ class _AdminHomeState extends State<AdminHome> {
   List<num> countList = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<num> paymentCount = [0, 0];
   List<num> userCount = [0, 0, 0];
+  List<Option> optionsList = [
+    Option(
+        imageUrl: "imageUrl",
+        title: "Add Achievement",
+        routeName: AddAchievementScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "View Achievement",
+        routeName: ViewAchievementScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "Add Post",
+        routeName: AddPostScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "View Post",
+        routeName: ViewPostScreen.routeName),
+  ];
 
   @override
   void initState() {
@@ -314,6 +333,27 @@ class _AdminHomeState extends State<AdminHome> {
                   ],
                 ),
               ),
+              SizedBox(
+                height: 16,
+              ),
+              Container(
+                height: 425,
+                width: 450,
+                padding: EdgeInsets.all(16),
+                child: GridView.builder(
+                  // scrollDirection: Axis.horizontal,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2, // Number of columns
+                    mainAxisSpacing: 10, // Spacing between rows
+                    crossAxisSpacing: 10, // Spacing between columns
+                  ),
+                  itemCount: optionsList.length, // Number of items in the grid
+                  itemBuilder: (BuildContext context, int index) {
+                    return options(optionsList[index].imageUrl,
+                        optionsList[index].title, optionsList[index].routeName);
+                  },
+                ),
+              ),
               ElevatedButton(
                 onPressed: () {
                   Navigator.pushNamed(context, AddAchievementScreen.routeName);
@@ -370,6 +410,31 @@ class _AdminHomeState extends State<AdminHome> {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget options(String imgUrl, String title, String routeName) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, routeName);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.black12,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        // color: Colors.grey[200],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.ac_unit),
+            SizedBox(
+              height: 24,
+            ),
+            Text(title),
+          ],
         ),
       ),
     );
