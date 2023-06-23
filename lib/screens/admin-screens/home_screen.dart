@@ -40,6 +40,14 @@ class _AdminHomeState extends State<AdminHome> {
         imageUrl: "imageUrl",
         title: "View Post",
         routeName: ViewPostScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "View Users",
+        routeName: ViewUserScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "View Registrations",
+        routeName: ViewRegistrations.routeName),
   ];
 
   @override
@@ -341,7 +349,7 @@ class _AdminHomeState extends State<AdminHome> {
                 width: 450,
                 padding: EdgeInsets.all(16),
                 child: GridView.builder(
-                  // scrollDirection: Axis.horizontal,
+                  scrollDirection: Axis.horizontal,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, // Number of columns
                     mainAxisSpacing: 10, // Spacing between rows
