@@ -55,10 +55,7 @@ reportsRouter.get("/api/report/payment-count", async (req, res) => {
   const onlineCount = online.length;
   const offlineCount = offline.length;
 
-  res.json({
-    online: onlineCount,
-    offline: offlineCount,
-  });
+  res.json([onlineCount, offlineCount]);
 });
 
 reportsRouter.get("/api/report/user-count", async (req, res) => {
@@ -68,11 +65,7 @@ reportsRouter.get("/api/report/user-count", async (req, res) => {
   const achievementCount = achievement.length;
   const posts = await Post.find({});
   const postCount = posts.length;
-  res.json({
-    users: userCount,
-    posts: postCount,
-    achievement: achievementCount,
-  });
+  res.json([userCount, postCount, achievementCount]);
 });
 
 module.exports = reportsRouter;

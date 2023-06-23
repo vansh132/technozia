@@ -298,6 +298,56 @@ class AuthServices {
     return countList;
   }
 
+  Future<List<num>> fetchPaymentCount(BuildContext context) async {
+    List<num> countList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/report/payment-count"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (var i = 0; i < jsonDecode(res.body).length; i++) {
+            countList.add(jsonDecode(res.body)[i]);
+            print(jsonDecode(res.body)[i]);
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return countList;
+  }
+
+  Future<List<num>> fetchUserCount(BuildContext context) async {
+    List<num> countList = [];
+    try {
+      http.Response res = await http.get(
+        Uri.parse("$uri/api/report/user-count"),
+        headers: <String, String>{
+          "Content-Type": 'application/json; charset=UTF-8',
+        },
+      );
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          for (var i = 0; i < jsonDecode(res.body).length; i++) {
+            countList.add(jsonDecode(res.body)[i]);
+            
+          }
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+    return countList;
+  }
+
   Future<void> addpost({
     required BuildContext context,
     required String username,
