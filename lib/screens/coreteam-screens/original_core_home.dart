@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/models/options.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
+import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -17,6 +20,17 @@ class OriginalCoreHome extends StatefulWidget {
 class _OriginalCoreHomeState extends State<OriginalCoreHome> {
   AuthServices authServices = AuthServices();
   List<num> countList = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  List<Option> optionsList = [
+    Option(
+        imageUrl: "imageUrl",
+        title: "Add Achievement",
+        routeName: AddAchievementScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "Add Post",
+        routeName: AddPostScreen.routeName),
+  ];
 
   @override
   void initState() {
@@ -160,6 +174,24 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
                     showChartValuesOutside: false,
                     decimalPlaces: 1,
                   ),
+                ),
+              ),
+              Container(
+                height: 224,
+                width: 450,
+                padding: const EdgeInsets.all(16),
+                child: GridView.builder(
+                  scrollDirection: Axis.horizontal,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 1, // Number of columns
+                    mainAxisSpacing: 10, // Spacing between rows
+                    crossAxisSpacing: 10, // Spacing between columns
+                  ),
+                  itemCount: optionsList.length, // Number of items in the grid
+                  itemBuilder: (BuildContext context, int index) {
+                    return options(optionsList[index].imageUrl,
+                        optionsList[index].title, optionsList[index].routeName);
+                  },
                 ),
               ),
               SizedBox(
@@ -311,6 +343,31 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
             "Championship",
             style: TextStyle(color: Color(0xff03071e)),
           ),
+        ),
+      ),
+    );
+  }
+
+  Widget options(String imgUrl, String title, String routeName) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, routeName);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.black12,
+          borderRadius: BorderRadius.circular(12),
+        ),
+        // color: Colors.grey[200],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.ac_unit),
+            const SizedBox(
+              height: 24,
+            ),
+            Text(title),
+          ],
         ),
       ),
     );
