@@ -1,0 +1,44 @@
+Date : 2023-06-26 18:46:13
+Directory : d:\Flutter_projects\technozia
+Total : 8 files,  757 codes, 41 comments, 31 blanks, all 829 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Dart       |          6 |        762 |         41 |         31 |        834 |
+| YAML       |          1 |          2 |          0 |          0 |          2 |
+| JavaScript |          1 |         -7 |          0 |          0 |         -7 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |          8 |        757 |         41 |         31 |        829 |
+| . (Files)                                                                          |          1 |          2 |          0 |          0 |          2 |
+| lib                                                                                |          6 |        762 |         41 |         31 |        834 |
+| lib (Files)                                                                        |          1 |          6 |          0 |          0 |          6 |
+| lib\models                                                                         |          1 |         10 |          1 |          1 |         12 |
+| lib\screens                                                                        |          3 |        676 |         40 |         27 |        743 |
+| lib\screens\admin-screens                                                          |          1 |        289 |          5 |          8 |        302 |
+| lib\screens\coreteam-screens                                                       |          2 |        387 |         35 |         19 |        441 |
+| lib\services                                                                       |          1 |         70 |          0 |          3 |         73 |
+| server                                                                             |          1 |         -7 |          0 |          0 |         -7 |
+| server\routes                                                                      |          1 |         -7 |          0 |          0 |         -7 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                           | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| d:\Flutter_projects\technozia\lib\models\options.dart                              | Dart       |         10 |          1 |          1 |         12 |
+| d:\Flutter_projects\technozia\lib\routes.dart                                      | Dart       |          6 |          0 |          0 |          6 |
+| d:\Flutter_projects\technozia\lib\screens\admin-screens\home_screen.dart           | Dart       |        289 |          5 |          8 |        302 |
+| d:\Flutter_projects\technozia\lib\screens\coreteam-screens\home_screen.dart        | Dart       |         32 |         29 |          4 |         65 |
+| d:\Flutter_projects\technozia\lib\screens\coreteam-screens\original_core_home.dart | Dart       |        355 |          6 |         15 |        376 |
+| d:\Flutter_projects\technozia\lib\services\auth_services.dart                      | Dart       |         70 |          0 |          3 |         73 |
+| d:\Flutter_projects\technozia\pubspec.yaml                                         | YAML       |          2 |          0 |          0 |          2 |
+| d:\Flutter_projects\technozia\server\routes\reports.js                             | JavaScript |         -7 |          0 |          0 |         -7 |
+| Total                                                                              |            |        757 |         41 |         31 |        829 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
