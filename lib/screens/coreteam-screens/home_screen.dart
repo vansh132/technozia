@@ -31,7 +31,6 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
     });
   }
 
-  // AuthServices authServices = AuthServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,34 +65,7 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
         ],
       ),
       body: SafeArea(
-        /* child: Column(
-          children: [
-            // topBar(),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, EventScreen.routeName);
-              },
-              child: Text("Events"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, TeamProfileScreen.routeName);
-              },
-              child: Text("Team - Profile"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, ViewRegisterScreen.routeName);
-              },
-              child: Text("Registrations"),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, UserProfile.routeName);
-              },
-              child: Text("Profile"),
-            ),
-          ], */
+      
         child: _screens[_selectedIndex],
       ),
     );

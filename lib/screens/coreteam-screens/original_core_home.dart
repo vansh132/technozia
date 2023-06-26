@@ -79,6 +79,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
       Colors.pink,
       Colors.teal,
     ];
+    
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
