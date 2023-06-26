@@ -60,7 +60,6 @@ class _AdminHomeState extends State<AdminHome> {
 
   void getCount(BuildContext context) async {
     countList = await authServices.fetchCount(context);
-    print(countList);
     Future.delayed(
       const Duration(seconds: 10),
       () {},
@@ -70,7 +69,6 @@ class _AdminHomeState extends State<AdminHome> {
 
   void getPaymentCount(BuildContext context) async {
     paymentCount = await authServices.fetchPaymentCount(context);
-    print(paymentCount);
     Future.delayed(
       const Duration(seconds: 10),
       () {},
@@ -80,7 +78,6 @@ class _AdminHomeState extends State<AdminHome> {
 
   void getUserCount(BuildContext context) async {
     userCount = await authServices.fetchUserCount(context);
-    print("userCount - $userCount");
     Future.delayed(
       const Duration(seconds: 10),
       () {},

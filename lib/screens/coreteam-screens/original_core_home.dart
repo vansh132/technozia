@@ -40,7 +40,6 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
 
   void getCount(BuildContext context) async {
     countList = await authServices.fetchCount(context);
-    print(countList);
     Future.delayed(
       const Duration(seconds: 10),
       () {},

@@ -313,7 +313,6 @@ class AuthServices {
         onSuccess: () {
           for (var i = 0; i < jsonDecode(res.body).length; i++) {
             countList.add(jsonDecode(res.body)[i]);
-            print(jsonDecode(res.body)[i]);
           }
         },
       );
