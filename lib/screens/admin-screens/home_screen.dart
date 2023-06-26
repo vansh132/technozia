@@ -112,6 +112,8 @@ class _AdminHomeState extends State<AdminHome> {
     ];
     return Scaffold(
       appBar: AppBar(
+        title: const Text("Admin"),
+        centerTitle: true,
         actions: [
           TextButton(
               onPressed: () {
@@ -341,16 +343,16 @@ class _AdminHomeState extends State<AdminHome> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Container(
                 height: 425,
                 width: 450,
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 child: GridView.builder(
                   scrollDirection: Axis.horizontal,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, // Number of columns
                     mainAxisSpacing: 10, // Spacing between rows
                     crossAxisSpacing: 10, // Spacing between columns
@@ -360,60 +362,6 @@ class _AdminHomeState extends State<AdminHome> {
                     return options(optionsList[index].imageUrl,
                         optionsList[index].title, optionsList[index].routeName);
                   },
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, AddAchievementScreen.routeName);
-                },
-                child: const Text(
-                  "Add Achievement",
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, AddPostScreen.routeName);
-                },
-                child: const Text(
-                  "Add post",
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  "Call meeting",
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, ViewRegistrations.routeName);
-                },
-                child: const Text(
-                  "Registration Status",
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, ViewAchievementScreen.routeName);
-                },
-                child: const Text(
-                  "View Achievements",
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, ViewPostScreen.routeName);
-                },
-                child: const Text(
-                  "View post",
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, ViewUserScreen.routeName);
-                },
-                child: const Text(
-                  "View user",
                 ),
               ),
             ],
@@ -437,8 +385,8 @@ class _AdminHomeState extends State<AdminHome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.ac_unit),
-            SizedBox(
+            const Icon(Icons.ac_unit),
+            const SizedBox(
               height: 24,
             ),
             Text(title),
