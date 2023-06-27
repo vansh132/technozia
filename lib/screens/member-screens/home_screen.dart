@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
+import 'package:technozia/screens/member-screens/member_proflie_screen.dart';
 import 'package:technozia/screens/member-screens/original_member_home.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -19,8 +20,8 @@ class _MemberHomeScreenState extends State<MemberHomeScreen> {
 
   static final List<Widget> _screens = [
     const OriginalMemberHome(),
-    const ViewPostScreen(),
     const ViewAchievementScreen(),
+    const MemberProfileScreen(),
   ];
 
   void _onTabSelected(int index) {
@@ -45,13 +46,13 @@ class _MemberHomeScreenState extends State<MemberHomeScreen> {
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.podcasts_rounded),
-            label: 'Posts',
+            icon: Icon(Icons.announcement_rounded),
+            label: 'Achievement',
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.announcement_rounded),
-            label: 'Achievement',
+            icon: Icon(Icons.podcasts_rounded),
+            label: 'Profile',
             backgroundColor: Color(0xff03071e),
           ),
         ],
