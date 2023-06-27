@@ -4,6 +4,7 @@ import 'package:technozia/main-screens/signup_screen.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
+import 'package:technozia/screens/admin-screens/achievements/view_update_achievement.dart';
 import 'package:technozia/screens/admin-screens/home_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
@@ -92,6 +93,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const ViewAchievementScreen(),
+      );
+    case ViewUpdateAchievementScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ViewUpdateAchievementScreen(),
       );
     case AddPostScreen.routeName:
       return MaterialPageRoute(

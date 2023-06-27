@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 import 'package:technozia/models/options.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
-import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
+import 'package:technozia/screens/admin-screens/achievements/view_update_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
 import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
@@ -31,7 +31,7 @@ class _AdminHomeState extends State<AdminHome> {
     Option(
         imageUrl: "imageUrl",
         title: "View Achievement",
-        routeName: ViewAchievementScreen.routeName),
+        routeName: ViewUpdateAchievementScreen.routeName),
     Option(
         imageUrl: "imageUrl",
         title: "Add Post",

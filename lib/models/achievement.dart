@@ -2,14 +2,15 @@
 import 'dart:convert';
 
 class Achievement {
+  final String id;
   final String title;
   final String category;
   final String description;
   final int noOfParticipant;
   final String tag;
   final List<String> images;
-
   Achievement({
+    required this.id,
     required this.title,
     required this.category,
     required this.description,
@@ -20,6 +21,7 @@ class Achievement {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      '_id': id,
       'title': title,
       'category': category,
       'description': description,
@@ -31,15 +33,15 @@ class Achievement {
 
   factory Achievement.fromMap(Map<String, dynamic> map) {
     return Achievement(
-      title: map['title'] ?? "",
-      category: map['category'] ?? "",
-      description: map['description'] ?? "",
-      noOfParticipant: map['noOfParticipant'] ?? 0,
-      tag: map['tag'] ?? "",
-      images: List<String>.from(
-        (map['images']),
-      ),
-    );
+        id: map['_id'] ?? "",
+        title: map['title'] ?? "",
+        category: map['category'] ?? "",
+        description: map['description'] ?? "",
+        noOfParticipant: map['noOfParticipant'] ?? 0,
+        tag: map['tag'] ?? "",
+        images: List<String>.from(
+          (map['images']),
+        ));
   }
 
   String toJson() => json.encode(toMap());

@@ -16,6 +16,7 @@ import 'package:technozia/models/achievement.dart';
 import 'package:technozia/models/post.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/admin-screens/achievements/view_update_achievement.dart';
 
 class AuthServices {
   void signUpUser({
@@ -180,6 +181,7 @@ class AuthServices {
       }
 
       Achievement achievement = Achievement(
+        id: '',
         title: title,
         category: category,
         description: description,
@@ -242,6 +244,30 @@ class AuthServices {
       showSnackBar(context, e.toString());
     }
     return achievementList;
+  }
+
+  void deleteAchievement({
+    required BuildContext context,
+    required Achievement achievement,
+  }) async {
+    try {
+      http.Response res = await http.post(Uri.parse("$uri/delete-achievement"),
+          headers: <String, String>{
+            "Content-Type": 'application/json; charset=UTF-8',
+          },
+          body: jsonEncode({'id': achievement.id}));
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "Achievement deleted");
+          Navigator.pop(context);
+          Navigator.pushNamed(context, ViewUpdateAchievementScreen.routeName);
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
   }
 
   Future<List<Post>> fetchAllPost(BuildContext context) async {

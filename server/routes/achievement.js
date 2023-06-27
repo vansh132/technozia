@@ -32,4 +32,15 @@ achievementRouter.get("/api/achievement", async (req, res) => {
   }
 });
 
+achievementRouter.post("/delete-achievement", async (req, res) => {
+  try {
+    const { id } = req.body;
+    let achievement = await Achievement.findByIdAndDelete(id);
+   
+    res.json(achievement);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 module.exports = achievementRouter;
