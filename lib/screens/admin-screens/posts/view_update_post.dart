@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:technozia/models/post.dart';
+import 'package:technozia/screens/admin-screens/posts/edit_post_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
-class ViewPostScreen extends StatefulWidget {
-  static const String routeName = '/view-post-screen';
-  const ViewPostScreen({super.key});
+class ViewEditPostScreen extends StatefulWidget {
+  static const String routeName = '/view-edit-post-screen';
+  const ViewEditPostScreen({super.key});
 
   @override
-  State<ViewPostScreen> createState() => _ViewPostScreenState();
+  State<ViewEditPostScreen> createState() => _ViewEditPostScreenState();
 }
 
-class _ViewPostScreenState extends State<ViewPostScreen> {
+class _ViewEditPostScreenState extends State<ViewEditPostScreen> {
   AuthServices authServices = AuthServices();
   List<Post>? post;
   @override
@@ -24,19 +25,19 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
     setState(() {});
   }
 
+  void deletePost(Post post) async {
+    authServices.deletePost(
+      context: context,
+      post: post,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
           title: const Text("Posts"),
           centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  setState(() {});
-                },
-                icon: Icon(Icons.refresh))
-          ],
         ),
         body: post == null
             ? const Center(child: CircularProgressIndicator())
@@ -156,6 +157,25 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
               fontWeight: FontWeight.w300,
             ),
           ),
+          const SizedBox(
+            height: 16,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, EditPostScreen.routeName,
+                        arguments: post);
+                  },
+                  child: Text("Edit")),
+              ElevatedButton(
+                  onPressed: () {
+                    deletePost(post);
+                  },
+                  child: Text("Delete")),
+            ],
+          )
         ],
       ),
     );

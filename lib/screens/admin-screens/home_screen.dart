@@ -4,7 +4,7 @@ import 'package:technozia/models/options.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_update_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
-import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
+import 'package:technozia/screens/admin-screens/posts/view_update_post.dart';
 import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/services/auth_services.dart';
@@ -39,7 +39,7 @@ class _AdminHomeState extends State<AdminHome> {
     Option(
         imageUrl: "imageUrl",
         title: "View Post",
-        routeName: ViewPostScreen.routeName),
+        routeName: ViewEditPostScreen.routeName),
     Option(
         imageUrl: "imageUrl",
         title: "View Users",

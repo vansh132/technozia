@@ -17,6 +17,7 @@ import 'package:technozia/models/post.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_update_achievement.dart';
+import 'package:technozia/screens/admin-screens/posts/view_update_post.dart';
 
 class AuthServices {
   void signUpUser({
@@ -270,6 +271,30 @@ class AuthServices {
     }
   }
 
+  void deletePost({
+    required BuildContext context,
+    required Post post,
+  }) async {
+    try {
+      http.Response res = await http.post(Uri.parse("$uri/delete-post"),
+          headers: <String, String>{
+            "Content-Type": 'application/json; charset=UTF-8',
+          },
+          body: jsonEncode({'id': post.id}));
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "Post deleted");
+          Navigator.pop(context);
+          Navigator.pushNamed(context, ViewEditPostScreen.routeName);
+        },
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
   Future<List<Post>> fetchAllPost(BuildContext context) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Post> postList = [];
@@ -382,6 +407,7 @@ class AuthServices {
   }) async {
     try {
       Post post = Post(
+        id: '',
         username: username,
         type: type,
         title: title,
@@ -395,6 +421,45 @@ class AuthServices {
           "Content-Type": 'application/json; charset=UTF-8',
         },
         body: post.toJson(),
+      );
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  void updatePost({
+    required BuildContext context,
+    required String id,
+    required String title,
+    required String description,
+    required String date,
+  }) async {
+    final user = Provider.of<UserProvider>(context, listen: false).user;
+    final postData = {
+      "_id": id,
+      "username": user.fullName,
+      "type": user.type,
+      "title": title,
+      "description": description,
+      "date": date,
+    };
+
+    try {
+      http.Response res = await http.post(Uri.parse("$uri/update/post"),
+          headers: <String, String>{
+            "Content-Type": 'application/json; charset=UTF-8',
+            // 'x-auth-token': userProvider.user.token,
+          },
+          body: jsonEncode(postData));
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "Post updated...");
+          Navigator.pop(context);
+          Navigator.pop(context);
+          Navigator.pushNamed(context, ViewEditPostScreen.routeName);
+        },
       );
     } catch (e) {
       showSnackBar(context, e.toString());

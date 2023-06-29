@@ -10,9 +10,10 @@ const reportsRouter = require("./routes/reports");
 const app = express();
 
 const PORT = 3000;
-const DB = "mongodb+srv://vansh:vansh@club.pedomyy.mongodb.net/test";
+const DB = "mongodb://0.0.0.0:27017";
 
 app.use(express.json());
+app.use(express.static("public"));
 app.use(authRouter);
 app.use(achievementRouter);
 app.use(postRoute);

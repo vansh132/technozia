@@ -2,22 +2,25 @@
 import 'dart:convert';
 
 class Post {
+  final String id;
   final String username;
   final String type;
   final String title;
   final String description;
   final String date;
   Post({
+    required this.id,
     required this.username,
     required this.type,
     required this.title,
     required this.description,
     required this.date,
   });
- 
+  
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      '_id': id,
       'username': username,
       'type': type,
       'title': title,
@@ -28,6 +31,7 @@ class Post {
 
   factory Post.fromMap(Map<String, dynamic> map) {
     return Post(
+      id: map['_id'] as String,
       username: map['username'] as String,
       type: map['type'] as String,
       title: map['title'] as String,
