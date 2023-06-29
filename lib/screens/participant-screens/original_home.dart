@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/admin-screens/achievements/participant_achievement.dart';
 import 'package:technozia/screens/participant-screens/events/coding_screen.dart';
 import 'package:technozia/screens/participant-screens/events/fast_typing.dart';
 import 'package:technozia/screens/participant-screens/events/gaming_screen.dart';
@@ -404,7 +405,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
           )),
           onPressed: () {
             //To-Do: Create achievement Screen 
-            // Navigator.pushNamed(context, ViewAchievementScreen.routeName);
+            Navigator.pushNamed(context, ParticipantAchievementScreen.routeName);
           },
           icon: const Icon(
             Icons.wine_bar,
