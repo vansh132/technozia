@@ -51,6 +51,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       paymentMode: _character.toString(),
       paymentId: _paymentId.text,
       date: DateTime.now().toString(),
+       
     );
   }
 

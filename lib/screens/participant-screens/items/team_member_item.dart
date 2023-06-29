@@ -32,7 +32,11 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
         context: context,
         teamMember: widget.teamMember,
         onSuccess: () {
-          showAboutDialog(context: context);
+          showAboutDialog(context: context, children: [
+            Container(
+              child: Text("deleted"),
+            )
+          ]);
         });
   }
 

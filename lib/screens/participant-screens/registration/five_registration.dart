@@ -49,6 +49,7 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
       paymentMode: _character.toString(),
       paymentId: _paymentId.text,
       date: DateTime.now().toString(),
+      
     );
   }
 

@@ -57,8 +57,8 @@ class RegistrationServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, 'Payment Successfull');
-          Navigator.of(context).pop();
+          showSnackBar(context, "Registered Successfully");
+          Navigator.pop(context);
         },
       );
     } catch (e) {

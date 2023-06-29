@@ -24,6 +24,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
     duoRegistrationsList =
         await registrationServices.fetchAllRegistrations(context);
     setState(() {});
+    print(duoRegistrationsList);
     return duoRegistrationsList;
   }
 
@@ -31,6 +32,23 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
+          leadingWidth: 172,
+          elevation: 2,
+          centerTitle: true,
+          title: Container(
+            alignment: Alignment.center,
+            child: const Text(
+              "Registrations",
+              style: TextStyle(
+                fontSize: 20,
+                color: Color(0xff03071e),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+        /* appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 2, //0xffe9ecef
           // leading: ,
@@ -66,104 +84,119 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
               ],
             ),
           ),
-        ),
+        ), */
         body: duoRegistrationsList == null
             ? const Center(
                 child: CircularProgressIndicator(
                   color: Color(0xff03071e),
                 ),
               )
-            : Column(
-                children: [
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const Text(
-                    "Confirmed Registrations",
-                    style: TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.all(16.0),
-                    height: MediaQuery.of(context).size.height * 0.7,
-                    width: double.infinity,
-                    child: SingleChildScrollView(
-                      child: Table(
-                        border: TableBorder.all(
-                          color: Colors.grey[300]!,
-                          width: 1.0,
+            : duoRegistrationsList!.isEmpty
+                ? SizedBox(
+                    // color: Colors.red,
+                    height: MediaQuery.of(context).size.height * 0.8,
+                    child: const Center(
+                      child: Text(
+                        "No Registrations are made yet",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
                         ),
-                        defaultColumnWidth: const IntrinsicColumnWidth(),
-                        columnWidths: const {
-                          0: FlexColumnWidth(2),
-                          1: FlexColumnWidth(3),
-                          2: FlexColumnWidth(2),
-                        },
-                        children: [
-                          TableRow(
-                            decoration: BoxDecoration(
-                              // color: Colors.black,
-                              color: Colors.grey[200],
+                      ),
+                    ),
+                  )
+                : Column(
+                    children: [
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      const Text(
+                        "Confirmed Registrations",
+                        style: TextStyle(
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Container(
+                        margin: const EdgeInsets.all(16.0),
+                        height: MediaQuery.of(context).size.height * 0.7,
+                        width: double.infinity,
+                        child: SingleChildScrollView(
+                          child: Table(
+                            border: TableBorder.all(
+                              color: Colors.grey[300]!,
+                              width: 1.0,
                             ),
-                            children: const [
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Name',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                            defaultColumnWidth: const IntrinsicColumnWidth(),
+                            columnWidths: const {
+                              0: FlexColumnWidth(2),
+                              1: FlexColumnWidth(3),
+                              2: FlexColumnWidth(2),
+                            },
+                            children: [
+                              TableRow(
+                                decoration: BoxDecoration(
+                                  // color: Colors.black,
+                                  color: Colors.grey[200],
+                                ),
+                                children: const [
+                                  TableCell(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'Name',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Email',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black),
-                                  ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Phone',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                  TableCell(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'Email',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black),
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ),
-                              TableCell(
-                                child: Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'Event',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
+                                  TableCell(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'Phone',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      ),
                                     ),
                                   ),
-                                ),
+                                  TableCell(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(8.0),
+                                      child: Text(
+                                        'Event',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
-                          ...duoRegistrationsList!
-                              .map((registration) => TableRow(
+                              ...duoRegistrationsList!.map((registration) =>
+                                  TableRow(
                                     decoration: const BoxDecoration(
                                       color: Colors.white,
                                     ),
@@ -220,11 +253,11 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                       ),
                                     ],
                                   )),
-                        ],
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ],
-              ));
+                    ],
+                  ));
   }
 }

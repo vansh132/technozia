@@ -37,11 +37,13 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
     final user = Provider.of<UserProvider>(context, listen: true).user;
     List<Widget> carouselImages = [
       banners(
-          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1685103467/banners/zva85xgtcyhw7vuqmadq.jpg"),
+          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036478/events%20-%20static%20images/banners/cgh0lzkvwg4wdxek1lf3.png"),
       banners(
-          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813560/events/icifzlplvqbyhuyvcokm.webp"),
+          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036478/events%20-%20static%20images/banners/gpf5deqogngf3n3g871d.png"),
       banners(
-          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp"),
+          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036477/events%20-%20static%20images/banners/j4gvc7bznotfq6xzyy0p.png"),
+      banners(
+          "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036477/events%20-%20static%20images/banners/lxfwtgbvgxpoxhdcis40.png"),
     ];
 
     return Scaffold(
@@ -131,37 +133,37 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                     children: [
                       event(
                         "IT Quiz",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683809174/events/nu6hspklthqq0jaejxsy.jpg",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036582/events%20-%20static%20images/events/ld8a7zhnbwokox3gl1oi.jpg",
                         ItQuizScreen.routeName,
                       ),
                       event(
-                        "IT Manager",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683812722/events/ags2hqbvf6xs6dbo6ty7.webp",
-                        ItManagerScreen.routeName,
-                      ),
-                      event(
                         "Coding",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813560/events/icifzlplvqbyhuyvcokm.webp",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036582/events%20-%20static%20images/events/idc3h0bssy81g21rdfwo.jpg",
                         CodingScreen.routeName,
                       ),
                       event(
                         "Web Design",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036583/events%20-%20static%20images/events/ujehxn5cinjbanjmvnom.jpg",
                         WebDesignScreen.routeName,
                       ),
                       event(
+                        "IT Manager",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036582/events%20-%20static%20images/events/mjrvep6yj2ooobzz5mup.jpg",
+                        ItManagerScreen.routeName,
+                      ),
+                      event(
                         "Gaming",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813746/events/i8lojrttff6g74cmq0rc.jpg",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036584/events%20-%20static%20images/events/smpxorrr8umfl8vwpdlr.jpg",
                         GamingScreen.routeName,
                       ),
                       event(
                         "Fast Typing",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813798/events/cyovm80a17vplxphrwpm.jpg",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036582/events%20-%20static%20images/events/pgwey4fb3i4wc1fiw37r.jpg",
                         FastTyping.routeName,
                       ),
                       event(
                         "Treasure Hunt",
-                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813865/events/iasdu1fe2judf4toqrux.jpg",
+                        "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1688036583/events%20-%20static%20images/events/yhg4zkbj8ay3phtkmfjg.jpg",
                         TreasureHuntScreen.routeName,
                       ),
                     ]),
@@ -400,7 +402,10 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
               backgroundColor: MaterialStatePropertyAll(
             Color(0xffF5F7FA),
           )),
-          onPressed: _launchUrl,
+          onPressed: () {
+            //To-Do: Create achievement Screen 
+            // Navigator.pushNamed(context, ViewAchievementScreen.routeName);
+          },
           icon: const Icon(
             Icons.wine_bar,
             color: Color(0xff03071e),
