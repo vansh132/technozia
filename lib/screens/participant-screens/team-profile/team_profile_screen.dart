@@ -15,6 +15,8 @@ class TeamProfileScreen extends StatefulWidget {
 
 class _TeamProfileScreenState extends State<TeamProfileScreen> {
   ParticipantServices participantServices = ParticipantServices();
+  final _addFormKey = GlobalKey<FormState>();
+
   final TextEditingController _name = TextEditingController();
   final TextEditingController _phoneNo = TextEditingController();
   final TextEditingController _email = TextEditingController();
@@ -208,6 +210,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                     content: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Form(
+                        key: _addFormKey,
                         child: Column(
                           children: <Widget>[
                             TextFormField(
@@ -216,6 +219,12 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                                 labelText: 'Name',
                                 icon: Icon(Icons.label),
                               ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please Enter Name';
+                                }
+                                return null;
+                              },
                             ),
                             TextFormField(
                               controller: _email,
@@ -223,6 +232,12 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                                 labelText: 'Email',
                                 icon: Icon(Icons.email),
                               ),
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please Enter Email';
+                                }
+                                return null;
+                              },
                             ),
                             TextFormField(
                               controller: _phoneNo,
@@ -231,51 +246,13 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                                 labelText: 'Phone Number',
                                 icon: Icon(Icons.perm_contact_cal),
                               ),
+                              validator: (value) {
+                                if (value!.length != 10) {
+                                  return 'Phone No must be 10 digits';
+                                }
+                                return null;
+                              },
                             ),
-                            //Modern Textform field by Chatgpt
-                            /* TextFormField(
-                                obscureText: true,
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.black,
-                                ),
-                                decoration: InputDecoration(
-                                  labelText: "labelText",
-                                  hintText: "hintText",
-                                  prefixIcon:
-                                      Icon(Icons.production_quantity_limits),
-                                  filled: true,
-                                  fillColor: Colors.grey[200],
-                                  enabledBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide(
-                                      color: Colors.grey[300]!,
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                  focusedBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide(
-                                      color: Theme.of(context).primaryColor,
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                  errorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide(
-                                      color: Colors.red,
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                  focusedErrorBorder: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    borderSide: BorderSide(
-                                      color: Colors.red,
-                                      width: 1.5,
-                                    ),
-                                  ),
-                                ),
-                              ), */
                           ],
                         ),
                       ),

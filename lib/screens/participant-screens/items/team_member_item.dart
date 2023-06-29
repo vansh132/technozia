@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/team_member.dart';
 import 'package:technozia/services/participant_services.dart';
 
@@ -12,6 +13,7 @@ class TeamMemberItem extends StatefulWidget {
 
 class _TeamMemberItemState extends State<TeamMemberItem> {
   ParticipantServices participantServices = ParticipantServices();
+  final _updateFormKey = GlobalKey<FormState>();
   final TextEditingController _name = TextEditingController();
   final TextEditingController _phoneNo = TextEditingController();
   final TextEditingController _email = TextEditingController();
@@ -32,11 +34,8 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
         context: context,
         teamMember: widget.teamMember,
         onSuccess: () {
-          showAboutDialog(context: context, children: [
-            Container(
-              child: Text("deleted"),
-            )
-          ]);
+          showSnackBar(
+              context, "Team Member Deleted Successfully!! Please Refresh.");
         });
   }
 
@@ -105,6 +104,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                           content: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Form(
+                              key: _updateFormKey,
                               child: Column(
                                 children: <Widget>[
                                   TextFormField(
@@ -113,6 +113,12 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                                       labelText: 'Name',
                                       icon: Icon(Icons.label),
                                     ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please Enter Name';
+                                      }
+                                      return null;
+                                    },
                                   ),
                                   TextFormField(
                                     controller: _email,
@@ -120,6 +126,12 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                                       labelText: 'Email',
                                       icon: Icon(Icons.email),
                                     ),
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return 'Please Enter Email';
+                                      }
+                                      return null;
+                                    },
                                   ),
                                   TextFormField(
                                     controller: _phoneNo,
@@ -128,6 +140,12 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                                       labelText: 'Phone Number',
                                       icon: Icon(Icons.perm_contact_cal),
                                     ),
+                                    validator: (value) {
+                                      if (value!.length != 10) {
+                                        return 'Phone Number must be 10 digits';
+                                      }
+                                      return null;
+                                    },
                                   ),
                                 ],
                               ),
@@ -142,7 +160,9 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                                 ),
                                 child: const Text("Update"),
                                 onPressed: () {
-                                  updateTeamMember();
+                                  if (_updateFormKey.currentState!.validate()) {
+                                    updateTeamMember();
+                                  }
                                 })
                           ],
                         );
