@@ -41,6 +41,10 @@ class _LeaderProfileState extends State<UserProfile> {
     );
   }
 
+  void _refresh() {
+    authServices.getUserData(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
@@ -84,6 +88,16 @@ class _LeaderProfileState extends State<UserProfile> {
             ],
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                _refresh();
+              },
+              icon: Icon(
+                Icons.refresh,
+                color: Color(0xff03071e),
+              ))
+        ],
       ),
       body: SingleChildScrollView(
         child: Form(

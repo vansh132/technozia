@@ -140,7 +140,7 @@ class ParticipantServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "user updated...");
+          showSnackBar(context, "Team Member Updated!! Please Refresh.");
           Navigator.pop(context);
         },
       );

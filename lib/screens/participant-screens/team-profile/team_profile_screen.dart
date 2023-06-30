@@ -266,7 +266,9 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                           ),
                           child: const Text("Add"),
                           onPressed: () {
-                            addTeamMember();
+                            if (_addFormKey.currentState!.validate()) {
+                              addTeamMember();
+                            }
                           })
                     ],
                   );

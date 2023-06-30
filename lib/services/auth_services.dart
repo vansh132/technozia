@@ -532,7 +532,7 @@ class AuthServices {
         response: res,
         context: context,
         onSuccess: () {
-          showSnackBar(context, "user updated...");
+          showSnackBar(context, "User details updated. Please Refresh!!");
         },
       );
     } catch (e) {
