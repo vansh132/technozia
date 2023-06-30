@@ -14,6 +14,7 @@ import 'package:technozia/screens/admin-screens/posts/edit_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_update_post.dart';
 import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
+import 'package:technozia/screens/admin-screens/users/modify_user_role_screen.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/screens/coreteam-screens/home_screen.dart';
 import 'package:technozia/screens/coreteam-screens/original_core_home.dart';
@@ -89,7 +90,6 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       );
     case EditDeleteVolunteerScreen.routeName:
       var volunteer = routeSettings.arguments as Volunteer;
-
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => EditDeleteVolunteerScreen(
@@ -110,6 +110,11 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const AdminHome(),
+      );
+    case ModifyUserRoleScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ModifyUserRoleScreen(),
       );
     case AddAchievementScreen.routeName:
       return MaterialPageRoute(

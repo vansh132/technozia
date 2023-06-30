@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
+import 'package:provider/provider.dart';
 import 'package:technozia/models/options.dart';
+import 'package:technozia/models/user.dart';
+import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_update_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
@@ -58,6 +61,10 @@ class _AdminHomeState extends State<AdminHome> {
         imageUrl: "imageUrl",
         title: "View Registrations",
         routeName: ViewRegistrations.routeName),
+    // Option(
+    //     imageUrl: "imageUrl",
+    //     title: "Modify User Roles",
+    //     routeName: ModifyUserRoleScreen.routeName),
   ];
 
   @override
@@ -97,6 +104,7 @@ class _AdminHomeState extends State<AdminHome> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     Map<String, double> dataMap = {
       "Coding": countList.elementAt(0).toDouble(),
       "Web": countList.elementAt(1).toDouble(),
@@ -119,14 +127,16 @@ class _AdminHomeState extends State<AdminHome> {
     ];
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Admin"),
+        title: const Text("Technozia"),
         centerTitle: true,
         actions: [
-          TextButton(
+          IconButton(
               onPressed: () {
-                authServices.logOut(context);
+                getCount(context);
+                getPaymentCount(context);
+                getUserCount(context);
               },
-              child: const Text("Log out"))
+              icon: const Icon(Icons.refresh_rounded))
         ],
       ),
       body: SingleChildScrollView(
@@ -135,6 +145,13 @@ class _AdminHomeState extends State<AdminHome> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              const SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: topBar(user),
+              ),
               Container(
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(8),
@@ -417,6 +434,57 @@ class _AdminHomeState extends State<AdminHome> {
             Text(title),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget topBar(User user) {
+    return Container(
+      width: double.infinity,
+      height: 48,
+      decoration: BoxDecoration(
+        color: const Color(0xff03071e),
+        borderRadius: BorderRadius.circular(24),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(left: 24, top: 2),
+            child: Text(
+              "${user.fullName} - Admin",
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(right: 20),
+            child: GestureDetector(
+              onTap: () {
+                authServices.logOut(context);
+              },
+              child: Row(
+                children: const [
+                  Text(
+                    "Log out",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Icon(
+                    Icons.logout_rounded,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
