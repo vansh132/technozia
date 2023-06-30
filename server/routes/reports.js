@@ -4,6 +4,7 @@ const User = require("../models/user");
 const Post = require("../models/post");
 const TeamMember = require("../models/team_members");
 const Achievement = require("../models/achievement");
+const Volunteer = require('../models/volunteer')
 
 const reportsRouter = express.Router();
 
@@ -61,11 +62,13 @@ reportsRouter.get("/api/report/payment-count", async (req, res) => {
 reportsRouter.get("/api/report/user-count", async (req, res) => {
   const users = await User.find({});
   const userCount = users.length;
+  const volunteers = await Volunteer.find({});
+  const volunteersCount = volunteers.length;
   const achievement = await Achievement.find({});
   const achievementCount = achievement.length;
   const posts = await Post.find({});
   const postCount = posts.length;
-  res.json([userCount, postCount, achievementCount]);
+  res.json([userCount, volunteersCount, postCount, achievementCount]);
 });
 
 module.exports = reportsRouter;

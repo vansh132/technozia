@@ -7,6 +7,8 @@ import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/admin-screens/posts/view_update_post.dart';
 import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/add_volunteer_screen.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/view_volunteer_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
 class AdminHome extends StatefulWidget {
@@ -22,7 +24,7 @@ class _AdminHomeState extends State<AdminHome> {
   AuthServices authServices = AuthServices();
   List<num> countList = [0, 0, 0, 0, 0, 0, 0, 0, 0];
   List<num> paymentCount = [0, 0];
-  List<num> userCount = [0, 0, 0];
+  List<num> userCount = [0, 0, 0, 0];
   List<Option> optionsList = [
     Option(
         imageUrl: "imageUrl",
@@ -40,6 +42,14 @@ class _AdminHomeState extends State<AdminHome> {
         imageUrl: "imageUrl",
         title: "View Post",
         routeName: ViewEditPostScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "Add Volunteer",
+        routeName: AddVolunteerScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "View Volunteers",
+        routeName: ViewVolunteerListScreen.routeName),
     Option(
         imageUrl: "imageUrl",
         title: "View Users",
@@ -304,7 +314,7 @@ class _AdminHomeState extends State<AdminHome> {
                     ),
                     RichText(
                       text: TextSpan(
-                        text: "Total Posts: ",
+                        text: "Total Volunteers: ",
                         style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
@@ -323,7 +333,7 @@ class _AdminHomeState extends State<AdminHome> {
                     ),
                     RichText(
                       text: TextSpan(
-                        text: "Total Achievement: ",
+                        text: "Total Posts: ",
                         style: const TextStyle(
                           color: Colors.black,
                           fontWeight: FontWeight.w500,
@@ -337,11 +347,30 @@ class _AdminHomeState extends State<AdminHome> {
                         ],
                       ),
                     ),
+                    const SizedBox(
+                      height: 6,
+                    ),
+                    RichText(
+                      text: TextSpan(
+                        text: "Total Achievement: ",
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          letterSpacing: 0.2,
+                          fontSize: 18,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: userCount.elementAt(3).toString(),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(
-                height: 16,
+                height: 8,
               ),
               Container(
                 height: 425,
