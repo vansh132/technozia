@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/utils.dart';
 import 'package:technozia/main-screens/signup_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -104,6 +105,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           color: Color(0xff03071e),
                           fontWeight: FontWeight.bold,
                         ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Please Enter Email';
+                          }
+                          return null;
+                        },
                         decoration: const InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Email',
@@ -143,6 +150,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             color: Color(0xff03071e),
                           ),
                         ),
+                        validator: (val) {
+                          if (val == null || val.isEmpty) {
+                            return 'Please Enter Password';
+                          }
+                          return null;
+                        },
                       ),
                     ),
                     const SizedBox(
@@ -158,7 +171,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        signIn();
+                        if (signInForm.currentState!.validate()) {
+                          signIn();
+                        }
                       },
                       child: const Icon(
                         size: 48,
@@ -175,7 +190,10 @@ class _LoginScreenState extends State<LoginScreen> {
                             letterSpacing: 2,
                             color: Color(0xffACC8E4)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        showSnackBar(context,
+                            "Under maintainance, contact admin@presidency.edu.in for further procedure");
+                      },
                     ),
                   ],
                 ),
