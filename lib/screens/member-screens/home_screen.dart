@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
-import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
+import 'package:technozia/screens/admin-screens/achievements/participant_achievement.dart';
 import 'package:technozia/screens/member-screens/member_proflie_screen.dart';
 import 'package:technozia/screens/member-screens/original_member_home.dart';
 import 'package:technozia/services/auth_services.dart';
@@ -20,7 +19,7 @@ class _MemberHomeScreenState extends State<MemberHomeScreen> {
 
   static final List<Widget> _screens = [
     const OriginalMemberHome(),
-    const ViewAchievementScreen(),
+    const ParticipantAchievementScreen(),
     const MemberProfileScreen(),
   ];
 

@@ -31,7 +31,6 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
   Future<List<Volunteer>?> getRegistrations() async {
     duoRegistrationsList = await volunteerServices.fetchAllTeamMembers(context);
     setState(() {});
-    print(duoRegistrationsList);
     return duoRegistrationsList;
   }
 
@@ -81,7 +80,7 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
                         context, EditDeleteVolunteerScreen.routeName,
                         arguments: item);
                   },
-                  child: Text("update"),
+                  child: const Text("update"),
                 )),
               ],
             );

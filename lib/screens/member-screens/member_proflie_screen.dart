@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -84,6 +85,16 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
             ],
           ),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                authServices.getUserData(context);
+              },
+              icon: Icon(
+                Icons.refresh,
+                color: GlobalVariables.primaryColor,
+              ))
+        ],
       ),
       body: SingleChildScrollView(
         child: Form(

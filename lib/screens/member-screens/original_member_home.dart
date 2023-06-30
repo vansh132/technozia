@@ -101,16 +101,31 @@ class _OriginalMemberHomeState extends State<OriginalMemberHome> {
                     ),
                     post == null
                         ? const Center(child: CircularProgressIndicator())
-                        : Container(
-                            padding: const EdgeInsets.all(16),
-                            height: MediaQuery.of(context).size.height,
-                            child: ListView.builder(
-                              itemBuilder: (context, index) {
-                                return postItem(post![index]);
-                              },
-                              itemCount: post?.length,
-                            ),
-                          )
+                        : post!.isEmpty
+                            ? SizedBox(
+                                height: 550,
+                                child: const Center(
+                                  child: Text(
+                                    "No Posts !!",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            : Container(
+                                padding: const EdgeInsets.all(16),
+                                height: MediaQuery.of(context).size.height,
+                                child: ListView.builder(
+                                  itemBuilder: (context, index) {
+                                    return postItem(post![index]);
+                                  },
+                                  itemCount: post?.length,
+                                ),
+                              )
                   ],
                 ),
               ),
