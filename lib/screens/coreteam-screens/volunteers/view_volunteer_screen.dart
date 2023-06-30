@@ -109,7 +109,7 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Registrations'),
+        title: const Text('Volunteers List'),
         centerTitle: true,
       ),
       body: Column(
@@ -119,7 +119,7 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
               : Padding(
                   padding: const EdgeInsets.only(top: 16.0),
                   child: Text(
-                    "Total Registrations: ${duoRegistrationsList!.length}",
+                    "Total Volunteers: ${duoRegistrationsList!.length}",
                     style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.w500,
@@ -182,7 +182,7 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
                   DataColumn(label: Text('Event')),
                   DataColumn(label: Text('Phone No')),
                   DataColumn(label: Text('Added By')),
-                  DataColumn(label: Text('Update')),
+                  DataColumn(label: Text('Modify')),
                 ],
                 rows: _tableRows,
                 decoration: BoxDecoration(

@@ -7,7 +7,6 @@ import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
 import 'package:technozia/screens/coreteam-screens/volunteers/add_volunteer_screen.dart';
-import 'package:technozia/screens/coreteam-screens/volunteers/view_volunteer_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -28,10 +27,6 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
         imageUrl: "imageUrl",
         title: "Add Volunteer",
         routeName: AddVolunteerScreen.routeName),
-    Option(
-        imageUrl: "imageUrl",
-        title: "View Volunteer",
-        routeName: ViewVolunteerListScreen.routeName),
     Option(
         imageUrl: "imageUrl",
         title: "Add Post",

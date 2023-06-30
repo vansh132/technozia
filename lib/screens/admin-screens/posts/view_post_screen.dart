@@ -40,16 +40,28 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
         ),
         body: post == null
             ? const Center(child: CircularProgressIndicator())
-            : Container(
-                padding: const EdgeInsets.all(16),
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return postItem(post![index]);
-                  },
-                  itemCount: post?.length,
-                ),
-              ));
+            : post!.isEmpty
+                ? const Center(
+                    child: Text(
+                      "Updated will be posted soon, stay tuned !!",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  )
+                : Container(
+                    padding: const EdgeInsets.all(16),
+                    height: MediaQuery.of(context).size.height,
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return postItem(post![index]);
+                      },
+                      itemCount: post?.length,
+                    ),
+                  ));
   }
 
   Widget postItem(Post post) {
