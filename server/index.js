@@ -7,6 +7,7 @@ const teamMemberRouter = require("./routes/team_member");
 const duoRegistrationRouter = require("./routes/duo_registartion");
 const userRouter = require("./routes/user");
 const reportsRouter = require("./routes/reports");
+const volunteerRouter = require("./routes/volunteer");
 const app = express();
 
 const PORT = 3000;
@@ -21,6 +22,7 @@ app.use(teamMemberRouter);
 app.use(duoRegistrationRouter);
 app.use(userRouter);
 app.use(reportsRouter);
+app.use(volunteerRouter);
 
 mongoose
   .connect(DB)

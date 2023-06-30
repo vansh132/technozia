@@ -3,6 +3,7 @@ import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/main-screens/signup_screen.dart';
 import 'package:technozia/models/events.dart';
 import 'package:technozia/models/post.dart';
+import 'package:technozia/models/volunteer.dart';
 import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
 import 'package:technozia/screens/admin-screens/achievements/participant_achievement.dart';
 import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
@@ -16,6 +17,9 @@ import 'package:technozia/screens/admin-screens/registrations/view_registrations
 import 'package:technozia/screens/admin-screens/users/view_users_screen.dart';
 import 'package:technozia/screens/coreteam-screens/home_screen.dart';
 import 'package:technozia/screens/coreteam-screens/original_core_home.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/add_volunteer_screen.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/edit_delete_volunteer_screen.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/view_volunteer_screen.dart';
 import 'package:technozia/screens/member-screens/home_screen.dart';
 import 'package:technozia/screens/member-screens/member_proflie_screen.dart';
 import 'package:technozia/screens/member-screens/original_member_home.dart';
@@ -77,6 +81,25 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
       return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => const CoreTeamHome(),
+      );
+    case AddVolunteerScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const AddVolunteerScreen(),
+      );
+    case EditDeleteVolunteerScreen.routeName:
+      var volunteer = routeSettings.arguments as Volunteer;
+
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => EditDeleteVolunteerScreen(
+          volunteer: volunteer,
+        ),
+      );
+    case ViewVolunteerListScreen.routeName:
+      return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => const ViewVolunteerListScreen(),
       );
     case OriginalCoreHome.routeName:
       return MaterialPageRoute(

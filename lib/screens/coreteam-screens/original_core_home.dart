@@ -4,8 +4,10 @@ import 'package:provider/provider.dart';
 import 'package:technozia/models/options.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
-import 'package:technozia/screens/admin-screens/achievements/add_achievements_screen.dart';
+import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/add_post_screen.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/add_volunteer_screen.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/view_volunteer_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -24,8 +26,12 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
   List<Option> optionsList = [
     Option(
         imageUrl: "imageUrl",
-        title: "Add Achievement",
-        routeName: AddAchievementScreen.routeName),
+        title: "Add Volunteer",
+        routeName: AddVolunteerScreen.routeName),
+    Option(
+        imageUrl: "imageUrl",
+        title: "View Volunteer",
+        routeName: ViewVolunteerListScreen.routeName),
     Option(
         imageUrl: "imageUrl",
         title: "Add Post",
@@ -79,7 +85,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
       Colors.pink,
       Colors.teal,
     ];
-    
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -334,7 +340,9 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
               backgroundColor: MaterialStatePropertyAll(
             Color(0xffF5F7FA),
           )),
-          onPressed: _launchUrl,
+          onPressed: () {
+            Navigator.pushNamed(context, ViewAchievementScreen.routeName);
+          },
           icon: const Icon(
             Icons.wine_bar,
             color: Color(0xff03071e),

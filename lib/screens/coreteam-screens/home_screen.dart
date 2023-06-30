@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:technozia/screens/admin-screens/achievements/view_achievement.dart';
 import 'package:technozia/screens/admin-screens/posts/view_post_screen.dart';
 import 'package:technozia/screens/admin-screens/registrations/view_registrations.dart';
 import 'package:technozia/screens/coreteam-screens/original_core_home.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/view_volunteer_screen.dart';
 import 'package:technozia/services/auth_services.dart';
 
 class CoreTeamHome extends StatefulWidget {
@@ -22,7 +22,7 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
     const OriginalCoreHome(),
     const ViewRegistrations(),
     const ViewPostScreen(),
-    const ViewAchievementScreen(),
+    const ViewVolunteerListScreen(),
   ];
 
   void _onTabSelected(int index) {
@@ -65,7 +65,6 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
         ],
       ),
       body: SafeArea(
-      
         child: _screens[_selectedIndex],
       ),
     );
