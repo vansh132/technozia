@@ -30,15 +30,19 @@ class _AddPostScreenState extends State<AddPostScreen> {
       date: DateTime.now(),
     );
 
-    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         appBar: AppBar(
-          title: const Text("Add your Post"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Add your Post",
+            style: TextStyle(color: GlobalVariables.appBarContentColor),
+          ),
           centerTitle: true,
         ),
         body: Container(
@@ -47,9 +51,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
             key: _addPostFormKey,
             child: Column(
               children: [
-                SizedBox(
-                  width: double.infinity,
+                Container(
+                  decoration: BoxDecoration(
+                    color: GlobalVariables.secondaryColor,
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  padding: EdgeInsets.all(8),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
                         "Author : ",
@@ -67,17 +76,11 @@ class _AddPostScreenState extends State<AddPostScreen> {
                           fontSize: 22,
                         ),
                       ),
-                      /* Text(
-                        user.type,
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
-                      ), */
                     ],
                   ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 20,
                 ),
                 TextFormField(
                   controller: _title,

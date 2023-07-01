@@ -41,8 +41,12 @@ class _EditPostScreenState extends State<EditPostScreen> {
     final user = Provider.of<UserProvider>(context).user;
     // _title.text = post.
     return Scaffold(
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         appBar: AppBar(
-          title: const Text("Add your Post"),
+          title: Text(
+            "Add your Post",
+            style: TextStyle(color: GlobalVariables.appBarContentColor),
+          ),
           centerTitle: true,
         ),
         body: Container(

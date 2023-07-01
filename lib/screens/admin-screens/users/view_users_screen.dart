@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -28,7 +29,15 @@ class _ViewUserScreenState extends State<ViewUserScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: GlobalVariables.secondaryTextColor,
+      appBar: AppBar(
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          "User Details",
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
+        centerTitle: true,
+      ),
       body: userList == null
           ? const Center(
               child: CircularProgressIndicator(),

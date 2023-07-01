@@ -41,8 +41,15 @@ class _AddVolunteerScreenState extends State<AddVolunteerScreen> {
     final user = Provider.of<UserProvider>(context).user;
 
     return Scaffold(
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         appBar: AppBar(
-          title: const Text("Add Volunteer"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Add Volunteer",
+            style: TextStyle(
+              color: GlobalVariables.appBarContentColor,
+            ),
+          ),
           centerTitle: true,
         ),
         body: Container(
@@ -51,12 +58,17 @@ class _AddVolunteerScreenState extends State<AddVolunteerScreen> {
             key: _addVolunteerFormKey,
             child: Column(
               children: [
-                SizedBox(
-                  width: double.infinity,
+                Container(
+                  decoration: BoxDecoration(
+                    color: GlobalVariables.secondaryColor,
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                  padding: EdgeInsets.all(8),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Added by : ",
+                        "Added By : ",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
@@ -71,17 +83,11 @@ class _AddVolunteerScreenState extends State<AddVolunteerScreen> {
                           fontSize: 22,
                         ),
                       ),
-                      /* Text(
-                        user.type,
-                        style: const TextStyle(
-                          color: Colors.black,
-                        ),
-                      ), */
                     ],
                   ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 28,
                 ),
                 TextFormField(
                   controller: _name,

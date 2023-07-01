@@ -10,6 +10,7 @@ import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/constants/utils.dart';
 import 'package:technozia/models/volunteer.dart';
 import 'package:technozia/providers/user_provider.dart';
+import 'package:technozia/screens/coreteam-screens/volunteers/view_volunteer_screen.dart';
 
 class VolunteerServices {
   Future<void> addVolunteer({
@@ -42,7 +43,7 @@ class VolunteerServices {
         context: context,
         onSuccess: () {
           showSnackBar(context, 'Volunteer Added Successfully! Please Refresh');
-          // Navigator.of(context).pop();
+          Navigator.popAndPushNamed(context, ViewVolunteerListScreen.routeName);
         },
       );
     } catch (e) {

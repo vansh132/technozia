@@ -417,12 +417,22 @@ class AuthServices {
         date: date.toString(),
       );
 
-      await http.post(
+      http.Response res = await http.post(
         Uri.parse('$uri/admin/add-post'),
         headers: <String, String>{
           "Content-Type": 'application/json; charset=UTF-8',
         },
         body: post.toJson(),
+      );
+
+      httpErrorHandle(
+        response: res,
+        context: context,
+        onSuccess: () {
+          showSnackBar(context, "Post added Successfully");
+          Navigator.pop(context);
+          Navigator.pushNamed(context, ViewEditPostScreen.routeName);
+        },
       );
     } catch (e) {
       showSnackBar(context, e.toString());

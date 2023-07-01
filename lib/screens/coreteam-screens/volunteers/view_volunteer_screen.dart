@@ -74,13 +74,24 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
                 DataCell(Text(item.event)),
                 DataCell(Text(item.phoneNo.toString())),
                 DataCell(Text(item.addedBy)),
-                DataCell(ElevatedButton(
+                DataCell(TextButton(
+                  style: ButtonStyle(
+                    padding: MaterialStatePropertyAll(EdgeInsets.all(8)),
+                    backgroundColor: MaterialStatePropertyAll(
+                      GlobalVariables.appBarColor,
+                    ),
+                  ),
                   onPressed: () {
                     Navigator.pushNamed(
                         context, EditDeleteVolunteerScreen.routeName,
                         arguments: item);
                   },
-                  child: const Text("update"),
+                  child: Text(
+                    "Update",
+                    style: TextStyle(
+                      color: GlobalVariables.secondaryTextColor,
+                    ),
+                  ),
                 )),
               ],
             );
@@ -107,9 +118,14 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalVariables.secondaryTextColor,
       appBar: AppBar(
-        title: const Text('Volunteers List'),
+        title: Text(
+          'Volunteers List',
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
         centerTitle: true,
+        backgroundColor: GlobalVariables.appBarColor,
       ),
       body: Column(
         children: [

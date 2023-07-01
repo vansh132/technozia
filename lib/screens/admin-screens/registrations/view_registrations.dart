@@ -105,25 +105,42 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalVariables.secondaryTextColor,
       appBar: AppBar(
-        title: const Text('Registrations'),
+        title: Text(
+          'Registrations',
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
         centerTitle: true,
+        backgroundColor: GlobalVariables.appBarColor,
       ),
       body: Column(
         children: [
           duoRegistrationsList == null
               ? const CircularProgressIndicator()
-              : Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Text(
-                    "Total Registrations: ${duoRegistrationsList!.length}",
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20,
+              : duoRegistrationsList!.isEmpty
+                  ? Center(
+                      child: Text(
+                        "No Registerations yet !!",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: GlobalVariables.richBlackColor,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                    )
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: Text(
+                        "Total Registrations: ${duoRegistrationsList!.length}",
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                        ),
+                      ),
                     ),
-                  ),
-                ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: TextField(

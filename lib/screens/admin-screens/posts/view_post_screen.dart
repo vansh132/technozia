@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/post.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -35,18 +36,18 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                 onPressed: () {
                   setState(() {});
                 },
-                icon: Icon(Icons.refresh))
+                icon: const Icon(Icons.refresh))
           ],
         ),
         body: post == null
             ? const Center(child: CircularProgressIndicator())
             : post!.isEmpty
-                ? const Center(
+                ? Center(
                     child: Text(
-                      "Updated will be posted soon, stay tuned !!",
+                      "Announcements are coming soon,            stay tuned !!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),

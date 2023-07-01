@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/post.dart';
 import 'package:technozia/screens/admin-screens/posts/edit_post_screen.dart';
 import 'package:technozia/services/auth_services.dart';
@@ -35,22 +36,41 @@ class _ViewEditPostScreenState extends State<ViewEditPostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         appBar: AppBar(
-          title: const Text("Posts"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Posts",
+            style: TextStyle(
+              color: GlobalVariables.appBarContentColor,
+            ),
+          ),
           centerTitle: true,
         ),
         body: post == null
             ? const Center(child: CircularProgressIndicator())
-            : Container(
-                padding: const EdgeInsets.all(16),
-                height: MediaQuery.of(context).size.height,
-                child: ListView.builder(
-                  itemBuilder: (context, index) {
-                    return postItem(post![index]);
-                  },
-                  itemCount: post?.length,
-                ),
-              ));
+            : post!.isEmpty
+                ? Center(
+                    child: Text(
+                      "Announcements are coming soon,            stay tuned !!",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: GlobalVariables.richBlackColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
+                      ),
+                    ),
+                  )
+                : Container(
+                    padding: const EdgeInsets.all(16),
+                    height: MediaQuery.of(context).size.height,
+                    child: ListView.builder(
+                      itemBuilder: (context, index) {
+                        return postItem(post![index]);
+                      },
+                      itemCount: post?.length,
+                    ),
+                  ));
   }
 
   Widget postItem(Post post) {

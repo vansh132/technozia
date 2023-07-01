@@ -75,15 +75,22 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
     final user = Provider.of<UserProvider>(context).user;
 
     return Scaffold(
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         appBar: AppBar(
-          title: const Text("Edit Volunteer"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Edit Volunteer",
+            style: TextStyle(
+              color: GlobalVariables.appBarContentColor,
+            ),
+          ),
           centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {
                   deleteVolunteer();
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.delete_forever_rounded,
                   color: Colors.white,
                 ))
@@ -157,7 +164,7 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
                   ),
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 32,
                 ),
                 TextFormField(
                   controller: _name,
@@ -254,7 +261,7 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
                   },
                 ),
                 const SizedBox(
-                  height: 18,
+                  height: 24,
                 ),
                 ElevatedButton(
                   onPressed: () {
