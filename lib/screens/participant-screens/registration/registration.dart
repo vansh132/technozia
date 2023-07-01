@@ -73,7 +73,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     List<String>? dropdownItems = teamMembers?.map((e) => e.fullName).toList();
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        
+      ),
       body: teamMembers == null
           ? const CircularProgressIndicator()
           : SingleChildScrollView(

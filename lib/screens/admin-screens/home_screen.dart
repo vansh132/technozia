@@ -116,14 +116,14 @@ class _AdminHomeState extends State<AdminHome> {
     };
 
     List<Color> colorList = [
-      Colors.blue,
-      Colors.red,
-      Colors.green,
-      Colors.orange,
-      Colors.purple,
-      Colors.yellow,
-      Colors.pink,
-      Colors.teal,
+      Color(0xff80ed99),
+      Color(0xffffb3c6),
+      Color(0xffe7bc91),
+      Color(0xff9d4edd),
+      Color(0xffaacc00),
+      Color(0xff774936),
+      Color(0xffe01e37),
+      Color(0xff98c1d9)
     ]; //a8dadc
     return Scaffold(
       appBar: AppBar(

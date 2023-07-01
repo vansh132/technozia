@@ -31,7 +31,6 @@ import 'package:technozia/screens/participant-screens/events/it_manager_screen.d
 import 'package:technozia/screens/participant-screens/events/it_quiz_screen.dart';
 import 'package:technozia/screens/participant-screens/events/treasurehunt_screen.dart';
 import 'package:technozia/screens/participant-screens/events/web_design_screen.dart';
-import 'package:technozia/screens/participant-screens/events_screen.dart';
 import 'package:technozia/screens/participant-screens/home_screen.dart';
 import 'package:technozia/screens/participant-screens/original_home.dart';
 import 'package:technozia/screens/participant-screens/profile/user_profile.dart';
@@ -169,11 +168,7 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => const ViewRegistrations(),
       );
-    case EventScreen.routeName:
-      return MaterialPageRoute(
-        settings: routeSettings,
-        builder: (_) => const EventScreen(),
-      );
+  
     case ItQuizScreen.routeName:
       return MaterialPageRoute(
         settings: routeSettings,

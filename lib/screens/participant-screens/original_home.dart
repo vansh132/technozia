@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/user.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/admin-screens/achievements/participant_achievement.dart';
@@ -35,6 +37,10 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      const SystemUiOverlayStyle(
+          statusBarColor: Color(0xff14213D)), // Set your desired color here
+    );
     final user = Provider.of<UserProvider>(context, listen: true).user;
     List<Widget> carouselImages = [
       banners(
@@ -49,10 +55,8 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2, //0xffe9ecef
-        // leading: ,
-        // centerTitle: true,
+        backgroundColor: const Color(0xff14213D),
+        elevation: 2,
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -68,7 +72,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                   height: 38,
                   filterQuality: FilterQuality.high,
                   semanticLabel: "Technozia",
-                  color: Color(0xff03071e),
+                  color: Color(0XFFbde0fe),
                 ),
               ),
               SizedBox(
@@ -77,7 +81,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
               Text(
                 "Technozia",
                 style: TextStyle(
-                  color: Color(0xff03071e),
+                  color: Color(0XFFbde0fe),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -85,7 +89,8 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
           ),
         ),
       ),
-      backgroundColor: Colors.white, //0xffa8dadc // 0xffe8eddf //
+      backgroundColor:
+          GlobalVariables.bodyBackgroundColor, //0xffa8dadc // 0xffe8eddf //
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
@@ -211,7 +216,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
       width: double.infinity,
       height: 48,
       decoration: BoxDecoration(
-        color: const Color(0xff03071e),
+        color: const Color(0xffFCA311),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -224,6 +229,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
+                color: Color(0xff010B13),
               ),
             ),
           ),
@@ -239,6 +245,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                     "Log out",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Color(0xff010B13),
                     ),
                   ),
                   SizedBox(
@@ -246,7 +253,8 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                   ),
                   Icon(
                     Icons.logout_rounded,
-                    color: Colors.white,
+                    // color: Colors.white,
+                    color: Color(0xff010B13),
                   ),
                 ],
               ),
@@ -404,8 +412,9 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
             Color(0xffF5F7FA),
           )),
           onPressed: () {
-            //To-Do: Create achievement Screen 
-            Navigator.pushNamed(context, ParticipantAchievementScreen.routeName);
+            //To-Do: Create achievement Screen
+            Navigator.pushNamed(
+                context, ParticipantAchievementScreen.routeName);
           },
           icon: const Icon(
             Icons.wine_bar,
@@ -467,9 +476,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
   }
 }
 
-
-
-// Resources 
+// Resources
 //
 // SystemChrome.setSystemUIOverlayStyle(
 //   SystemUiOverlayStyle(

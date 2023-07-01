@@ -39,16 +39,26 @@ duoRegistrationRouter.post("/api/register", async (req, res) => {
       date,
     });
 
-    /* const eventRegistrations = await DuoRegistration.find({
+    let alreadyRegistered = false;
+    const eventRegistrations = await DuoRegistration.find({
       leader,
       eventName,
     });
 
     eventRegistrations.forEach((element) => {
-      if (element.participantOne == participantOne) {
-        return res.status(400).json({ msg: "Already Registered." });
+      if (
+        element.participantOne == participantOne ||
+        element.participantTwo == participantTwo
+      ) {
+        alreadyRegistered = true;
       }
-    }); */
+    });
+
+    console.log(alreadyRegistered);
+
+    if (alreadyRegistered) {
+      return res.status(400).json({ msg: "Already Registered." });
+    }
 
     duoRegistration = await duoRegistration.save();
     res.json(duoRegistration);
