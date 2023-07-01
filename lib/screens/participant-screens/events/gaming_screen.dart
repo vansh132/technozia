@@ -625,7 +625,7 @@ class _GamingScreenState extends State<GamingScreen> {
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
-                GlobalVariables.primaryColor,
+                GlobalVariables.appBarColor,
               ),
             ),
             onPressed: () {

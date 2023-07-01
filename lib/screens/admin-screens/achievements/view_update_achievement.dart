@@ -28,7 +28,6 @@ class _ViewUpdateAchievementScreenState
       context: context,
       achievement: achievement,
     );
-    
   }
 
   void getAllAchievement() async {
@@ -40,57 +39,75 @@ class _ViewUpdateAchievementScreenState
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Achievements"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Achievements",
+            style: TextStyle(color: GlobalVariables.appBarContentColor),
+          ),
           centerTitle: true,
         ),
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         body: achievements == null
             ? const Center(child: CircularProgressIndicator())
-            : SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      width: double.infinity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Summary: ",
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Text(
-                            "Total Achievements: ${achievements!.length.toString()} ",
-                            textAlign: TextAlign.start,
-                            style: const TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          const Divider(),
-                        ],
+            : achievements!.isEmpty
+                ? Center(
+                    child: Text(
+                      "Achievemnts of Academic year 2022-23 will be posted soon",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: GlobalVariables.richBlackColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20,
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.only(top: 16, bottom: 16),
-                      // color: Colors.yellow,
-                      height: MediaQuery.of(context).size.height,
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return achievementItem(achievements![index]);
-                        },
-                        itemCount: achievements?.length,
-                      ),
+                  )
+                : SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(8),
+                          width: double.infinity,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Summary: ",
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  color: GlobalVariables.richBlackColor,
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              Text(
+                                "Total Achievements: ${achievements!.length.toString()} ",
+                                textAlign: TextAlign.start,
+                                style: TextStyle(
+                                  color: GlobalVariables.richBlackColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const Divider(),
+                            ],
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.only(
+                              top: 16, bottom: 16, right: 16, left: 16),
+                          // color: Colors.yellow,
+                          height: MediaQuery.of(context).size.height,
+                          child: ListView.builder(
+                            itemBuilder: (context, index) {
+                              return achievementItem(achievements![index]);
+                            },
+                            itemCount: achievements?.length,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ));
+                  ));
   }
 
   Widget achievementItem(Achievement achievement) {
@@ -222,7 +239,7 @@ class _ViewUpdateAchievementScreenState
                     child: Text(
                       "Delete",
                       style: TextStyle(
-                        color: GlobalVariables.primaryColor,
+                        color: GlobalVariables.appBarColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                         letterSpacing: 0.8,

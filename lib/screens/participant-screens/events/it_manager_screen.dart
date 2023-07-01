@@ -605,7 +605,7 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
-                GlobalVariables.primaryColor,
+                GlobalVariables.appBarColor,
               ),
             ),
             onPressed: () {

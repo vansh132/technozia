@@ -30,35 +30,35 @@ class _AdminHomeState extends State<AdminHome> {
   List<num> userCount = [0, 0, 0, 0];
   List<Option> optionsList = [
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.wine_bar_outlined,
         title: "Add Achievement",
         routeName: AddAchievementScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.wine_bar_outlined,
         title: "View Achievement",
         routeName: ViewUpdateAchievementScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.post_add_rounded,
         title: "Add Post",
         routeName: AddPostScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.podcasts_rounded,
         title: "View Post",
         routeName: ViewEditPostScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.person_add_alt_rounded,
         title: "Add Volunteer",
         routeName: AddVolunteerScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.person_2_outlined,
         title: "View Volunteers",
         routeName: ViewVolunteerListScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.person_3_rounded,
         title: "View Users",
         routeName: ViewUserScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.app_registration_rounded,
         title: "View Registrations",
         routeName: ViewRegistrations.routeName),
     // Option(
@@ -124,21 +124,45 @@ class _AdminHomeState extends State<AdminHome> {
       Colors.yellow,
       Colors.pink,
       Colors.teal,
-    ];
+    ]; //a8dadc
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Technozia"),
-        centerTitle: true,
-        actions: [
-          IconButton(
-              onPressed: () {
-                getCount(context);
-                getPaymentCount(context);
-                getUserCount(context);
-              },
-              icon: const Icon(Icons.refresh_rounded))
-        ],
+        backgroundColor: const Color(0xff14213D),
+        elevation: 2, //0xffe9ecef
+
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Image(
+                  image: AssetImage(
+                    "assets/technozia_logo.png",
+                  ),
+                  fit: BoxFit.cover,
+                  height: 38,
+                  filterQuality: FilterQuality.high,
+                  semanticLabel: "Technozia",
+                  color: Color(0XFFbde0fe),
+                ),
+              ),
+              SizedBox(
+                width: 8,
+              ),
+              Text(
+                "Technozia",
+                style: TextStyle(
+                  color: Color(0XFFbde0fe),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
+      backgroundColor: const Color(0xffE5E5E5),
       body: SingleChildScrollView(
         child: SizedBox(
           width: double.infinity,
@@ -152,11 +176,37 @@ class _AdminHomeState extends State<AdminHome> {
                 padding: const EdgeInsets.all(8.0),
                 child: topBar(user),
               ),
+              const SizedBox(
+                height: 8,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(
+                    Icons.refresh_outlined,
+                    color: Color(0xff000000),
+                  ),
+                  TextButton(
+                    child: const Text(
+                      "Refresh",
+                      style: TextStyle(
+                        color: Color(0xff000000),
+                        fontSize: 16,
+                      ),
+                    ),
+                    onPressed: () {
+                      getCount(context);
+                      getPaymentCount(context);
+                      getUserCount(context);
+                    },
+                  ),
+                ],
+              ),
               Container(
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: const Color(0xff1D3557),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
@@ -167,35 +217,58 @@ class _AdminHomeState extends State<AdminHome> {
                     ),
                   ],
                 ),
-                child: PieChart(
-                  dataMap: dataMap,
-                  animationDuration: const Duration(milliseconds: 800),
-                  chartLegendSpacing: 32,
-                  chartRadius: MediaQuery.of(context).size.width / 3.2,
-                  colorList: colorList,
-                  initialAngleInDegree: 0,
-                  chartType: ChartType.ring,
-                  ringStrokeWidth: 32,
-                  // centerText: "HYBRID",
-                  legendOptions: const LegendOptions(
-                    showLegendsInRow: false,
-                    legendPosition: LegendPosition.right,
-                    showLegends: true,
-                    legendShape: BoxShape.circle,
-                    legendTextStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      // color: Colors.black,
+                child: Column(
+                  children: [
+                    Container(
+                      child: const Text(
+                        "Registrations Analysis",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xffFCA311),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                  ),
-                  chartValuesOptions: const ChartValuesOptions(
-                    showChartValueBackground: true,
-                    showChartValues: true,
-                    showChartValuesInPercentage: false,
-                    showChartValuesOutside: false,
-                    decimalPlaces: 1,
-                  ),
-                  // gradientList: ---To add gradient colors---
-                  // emptyColorGradient: ---Empty Color gradient---
+                    const Divider(
+                      endIndent: 48,
+                      indent: 48,
+                      color: Color(0xffF5F5F5),
+                    ),
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    PieChart(
+                      dataMap: dataMap,
+                      animationDuration: const Duration(milliseconds: 800),
+                      chartLegendSpacing: 32,
+                      chartRadius: MediaQuery.of(context).size.width / 3.2,
+                      colorList: colorList,
+                      initialAngleInDegree: 0,
+                      chartType: ChartType.ring,
+                      ringStrokeWidth: 32,
+                      // centerText: "HYBRID",
+                      legendOptions: const LegendOptions(
+                        showLegendsInRow: false,
+                        legendPosition: LegendPosition.right,
+                        showLegends: true,
+                        legendShape: BoxShape.circle,
+                        legendTextStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          // color: Colors.black,
+                        ),
+                      ),
+                      chartValuesOptions: const ChartValuesOptions(
+                        showChartValueBackground: true,
+                        showChartValues: true,
+                        showChartValuesInPercentage: false,
+                        showChartValuesOutside: false,
+                        decimalPlaces: 1,
+                      ),
+                      // gradientList: ---To add gradient colors---
+                      // emptyColorGradient: ---Empty Color gradient---
+                    ),
+                  ],
                 ),
               ),
               Container(
@@ -203,7 +276,7 @@ class _AdminHomeState extends State<AdminHome> {
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: const Color(0xff1D3557),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
@@ -223,7 +296,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Text(
                           "Payment Summary",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Color(0xffFCA311),
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -233,15 +306,18 @@ class _AdminHomeState extends State<AdminHome> {
                     const Divider(
                       endIndent: 48,
                       indent: 48,
-                      color: Colors.black,
+                      color: Color(0xffF5F5F5),
+                    ),
+                    const SizedBox(
+                      height: 6,
                     ),
                     RichText(
                       text: TextSpan(
                         text: "Online: ",
                         style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffFEFEFA),
                           fontWeight: FontWeight.w500,
-                          letterSpacing: 0.2,
+                          letterSpacing: 0.5,
                           fontSize: 18,
                         ),
                         children: [
@@ -252,15 +328,15 @@ class _AdminHomeState extends State<AdminHome> {
                       ),
                     ),
                     const SizedBox(
-                      height: 6,
+                      height: 8,
                     ),
                     RichText(
                       text: TextSpan(
                         text: "Offline: ",
                         style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffFEFEFA),
                           fontWeight: FontWeight.w500,
-                          letterSpacing: 0.2,
+                          letterSpacing: 0.5,
                           fontSize: 18,
                         ),
                         children: [
@@ -278,7 +354,7 @@ class _AdminHomeState extends State<AdminHome> {
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: const Color(0xff1D3557),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
@@ -298,7 +374,7 @@ class _AdminHomeState extends State<AdminHome> {
                         Text(
                           "User Summary",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: Color(0xffFCA311),
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
                           ),
@@ -308,13 +384,16 @@ class _AdminHomeState extends State<AdminHome> {
                     const Divider(
                       endIndent: 48,
                       indent: 48,
-                      color: Colors.black,
+                      color: Color(0xffF5F5F5),
+                    ),
+                    const SizedBox(
+                      height: 6,
                     ),
                     RichText(
                       text: TextSpan(
                         text: "Total Registered Users: ",
                         style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffFEFEFA),
                           fontWeight: FontWeight.w500,
                           letterSpacing: 0.2,
                           fontSize: 18,
@@ -333,7 +412,7 @@ class _AdminHomeState extends State<AdminHome> {
                       text: TextSpan(
                         text: "Total Volunteers: ",
                         style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffFEFEFA),
                           fontWeight: FontWeight.w500,
                           letterSpacing: 0.2,
                           fontSize: 18,
@@ -352,7 +431,7 @@ class _AdminHomeState extends State<AdminHome> {
                       text: TextSpan(
                         text: "Total Posts: ",
                         style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffFEFEFA),
                           fontWeight: FontWeight.w500,
                           letterSpacing: 0.2,
                           fontSize: 18,
@@ -371,7 +450,7 @@ class _AdminHomeState extends State<AdminHome> {
                       text: TextSpan(
                         text: "Total Achievement: ",
                         style: const TextStyle(
-                          color: Colors.black,
+                          color: Color(0xffFEFEFA),
                           fontWeight: FontWeight.w500,
                           letterSpacing: 0.2,
                           fontSize: 18,
@@ -395,9 +474,10 @@ class _AdminHomeState extends State<AdminHome> {
                 padding: const EdgeInsets.all(16),
                 child: GridView.builder(
                   scrollDirection: Axis.horizontal,
+
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, // Number of columns
-                    mainAxisSpacing: 10, // Spacing between rows
+                    mainAxisSpacing: 20, // Spacing between rows
                     crossAxisSpacing: 10, // Spacing between columns
                   ),
                   itemCount: optionsList.length, // Number of items in the grid
@@ -414,24 +494,33 @@ class _AdminHomeState extends State<AdminHome> {
     );
   }
 
-  Widget options(String imgUrl, String title, String routeName) {
+  Widget options(IconData iconData, String title, String routeName) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, routeName);
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: const Color(0xffFCA311),
           borderRadius: BorderRadius.circular(12),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.ac_unit),
+            Icon(
+              iconData,
+              size: 40,
+            ),
             const SizedBox(
               height: 24,
             ),
-            Text(title),
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff010B13)),
+            ),
           ],
         ),
       ),
@@ -443,7 +532,7 @@ class _AdminHomeState extends State<AdminHome> {
       width: double.infinity,
       height: 48,
       decoration: BoxDecoration(
-        color: const Color(0xff03071e),
+        color: const Color(0xffFCA311),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -456,6 +545,7 @@ class _AdminHomeState extends State<AdminHome> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
+                color: Color(0xff010B13),
               ),
             ),
           ),
@@ -471,6 +561,7 @@ class _AdminHomeState extends State<AdminHome> {
                     "Log out",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Color(0xff010B13),
                     ),
                   ),
                   SizedBox(
@@ -478,7 +569,8 @@ class _AdminHomeState extends State<AdminHome> {
                   ),
                   Icon(
                     Icons.logout_rounded,
-                    color: Colors.white,
+                    // color: Colors.white,
+                    color: Color(0xff010B13),
                   ),
                 ],
               ),

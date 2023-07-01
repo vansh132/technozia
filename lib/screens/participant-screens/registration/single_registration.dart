@@ -161,7 +161,7 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: GlobalVariables.primaryColor),
+                                    color: GlobalVariables.appBarColor),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               filled: true,
@@ -194,7 +194,7 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: GlobalVariables.primaryColor),
+                                    color: GlobalVariables.appBarColor),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               filled: true,
@@ -285,7 +285,7 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color:
-                                                  GlobalVariables.primaryColor),
+                                                  GlobalVariables.appBarColor),
                                           borderRadius:
                                               BorderRadius.circular(10.0),
                                         ),
@@ -318,7 +318,7 @@ class _SingleRegistrationScreenState extends State<SingleRegistrationScreen> {
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor:
-                              GlobalVariables.primaryColor, // Text color
+                              GlobalVariables.appBarColor, // Text color
                           elevation: 8, // Elevation (shadow)
                           shape: RoundedRectangleBorder(
                             borderRadius:

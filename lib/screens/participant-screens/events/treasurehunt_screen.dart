@@ -543,7 +543,7 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
-                GlobalVariables.primaryColor,
+                GlobalVariables.appBarColor,
               ),
             ),
             onPressed: () {

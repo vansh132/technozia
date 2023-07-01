@@ -92,7 +92,7 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
               },
               icon: Icon(
                 Icons.refresh,
-                color: GlobalVariables.primaryColor,
+                color: GlobalVariables.appBarColor,
               ))
         ],
       ),

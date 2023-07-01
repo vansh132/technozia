@@ -587,7 +587,7 @@ class _CodingScreenState extends State<CodingScreen> {
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
-                GlobalVariables.primaryColor,
+                GlobalVariables.appBarColor,
               ),
             ),
             onPressed: () {

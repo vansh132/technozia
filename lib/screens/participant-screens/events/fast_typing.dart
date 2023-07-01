@@ -587,7 +587,7 @@ class _FastTypingState extends State<FastTyping> {
           child: ElevatedButton(
             style: ButtonStyle(
               backgroundColor: MaterialStatePropertyAll(
-                GlobalVariables.primaryColor,
+                GlobalVariables.appBarColor,
               ),
             ),
             onPressed: () {

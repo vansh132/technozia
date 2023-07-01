@@ -206,9 +206,11 @@ class AuthServices {
           // print("product added successfully...");
           // showSnackBar(c, "Product Added successfully.");
           // if (!context.mounted) return;
-          showSnackBar(context, 'Product Added Successfully!');
+          showSnackBar(context, 'Achievement Added Successfully!');
           // Navigator.pop(context, rootNavigator: true);
-          Navigator.of(context, rootNavigator: true).pop();
+          // Navigator.of(context, rootNavigator: true).pop();
+          Navigator.pop(context);
+          // Navigator.pushNamed(context, ViewUpdateAchievementScreen.routeName);
           // Navigator.pop(context);
         },
       );

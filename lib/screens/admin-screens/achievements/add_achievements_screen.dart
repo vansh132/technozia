@@ -59,9 +59,14 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Add your Achievements"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Add Achievements",
+            style: TextStyle(color: GlobalVariables.appBarContentColor),
+          ),
           centerTitle: true,
         ),
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(16),
@@ -135,7 +140,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: GlobalVariables.primaryColor),
+                            BorderSide(color: GlobalVariables.appBarColor),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
@@ -167,7 +172,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: GlobalVariables.primaryColor),
+                            BorderSide(color: GlobalVariables.appBarColor),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
@@ -199,7 +204,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: GlobalVariables.primaryColor),
+                            BorderSide(color: GlobalVariables.appBarColor),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
@@ -218,6 +223,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                     height: 12,
                   ),
                   TextFormField(
+                    keyboardType: TextInputType.number,
                     controller: _noOfParticipants,
                     decoration: InputDecoration(
                       labelText: 'No of Participants',
@@ -231,7 +237,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: GlobalVariables.primaryColor),
+                            BorderSide(color: GlobalVariables.appBarColor),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
@@ -263,7 +269,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderSide:
-                            BorderSide(color: GlobalVariables.primaryColor),
+                            BorderSide(color: GlobalVariables.appBarColor),
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       filled: true,
@@ -290,7 +296,7 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.white,
                       backgroundColor:
-                          GlobalVariables.primaryColor, // Text color
+                          GlobalVariables.appBarColor, // Text color
                       elevation: 8, // Elevation (shadow)
                       shape: RoundedRectangleBorder(
                         borderRadius:

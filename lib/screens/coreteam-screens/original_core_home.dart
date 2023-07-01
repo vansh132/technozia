@@ -24,11 +24,11 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
 
   List<Option> optionsList = [
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.person_add_alt_1_rounded,
         title: "Add Volunteer",
         routeName: AddVolunteerScreen.routeName),
     Option(
-        imageUrl: "imageUrl",
+        imageUrl: Icons.post_add_rounded,
         title: "Add Post",
         routeName: AddPostScreen.routeName),
   ];
@@ -351,7 +351,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
     );
   }
 
-  Widget options(String imgUrl, String title, String routeName) {
+  Widget options(IconData iconData, String title, String routeName) {
     return GestureDetector(
       onTap: () {
         Navigator.pushNamed(context, routeName);
@@ -365,7 +365,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.ac_unit),
+            Icon(iconData),
             const SizedBox(
               height: 24,
             ),

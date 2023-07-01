@@ -51,7 +51,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       paymentMode: _character.toString(),
       paymentId: _paymentId.text,
       date: DateTime.now().toString(),
-       
     );
   }
 
@@ -203,7 +202,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: GlobalVariables.primaryColor),
+                                    color: GlobalVariables.appBarColor),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               filled: true,
@@ -236,7 +235,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: GlobalVariables.primaryColor),
+                                    color: GlobalVariables.appBarColor),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               filled: true,
@@ -327,7 +326,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color:
-                                                  GlobalVariables.primaryColor),
+                                                  GlobalVariables.appBarColor),
                                           borderRadius:
                                               BorderRadius.circular(10.0),
                                         ),
@@ -360,7 +359,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor:
-                              GlobalVariables.primaryColor, // Text color
+                              GlobalVariables.appBarColor, // Text color
                           elevation: 8, // Elevation (shadow)
                           shape: RoundedRectangleBorder(
                             borderRadius:

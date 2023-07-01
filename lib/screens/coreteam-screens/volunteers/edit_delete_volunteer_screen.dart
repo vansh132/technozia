@@ -173,7 +173,7 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: GlobalVariables.primaryColor),
+                          BorderSide(color: GlobalVariables.appBarColor),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     filled: true,
@@ -206,7 +206,7 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: GlobalVariables.primaryColor),
+                          BorderSide(color: GlobalVariables.appBarColor),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     filled: true,
@@ -238,7 +238,7 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderSide:
-                          BorderSide(color: GlobalVariables.primaryColor),
+                          BorderSide(color: GlobalVariables.appBarColor),
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                     filled: true,
@@ -264,7 +264,7 @@ class _EditDeleteVolunteerScreenState extends State<EditDeleteVolunteerScreen> {
                   },
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: GlobalVariables.primaryColor, // Text color
+                    backgroundColor: GlobalVariables.appBarColor, // Text color
                     elevation: 8, // Elevation (shadow)
                     shape: RoundedRectangleBorder(
                       borderRadius:

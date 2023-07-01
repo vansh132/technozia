@@ -49,7 +49,6 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
       paymentMode: _character.toString(),
       paymentId: _paymentId.text,
       date: DateTime.now().toString(),
-      
     );
   }
 
@@ -322,7 +321,7 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: GlobalVariables.primaryColor),
+                                    color: GlobalVariables.appBarColor),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               filled: true,
@@ -355,7 +354,7 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
-                                    color: GlobalVariables.primaryColor),
+                                    color: GlobalVariables.appBarColor),
                                 borderRadius: BorderRadius.circular(10.0),
                               ),
                               filled: true,
@@ -446,7 +445,7 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                                         focusedBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color:
-                                                  GlobalVariables.primaryColor),
+                                                  GlobalVariables.appBarColor),
                                           borderRadius:
                                               BorderRadius.circular(10.0),
                                         ),
@@ -479,7 +478,7 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
                           backgroundColor:
-                              GlobalVariables.primaryColor, // Text color
+                              GlobalVariables.appBarColor, // Text color
                           elevation: 8, // Elevation (shadow)
                           shape: RoundedRectangleBorder(
                             borderRadius:

@@ -142,7 +142,7 @@ class _ViewRegistrationsState extends State<ViewRegistrations> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: GlobalVariables.primaryColor),
+                  borderSide: BorderSide(color: GlobalVariables.appBarColor),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 filled: true,
