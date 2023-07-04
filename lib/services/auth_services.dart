@@ -155,7 +155,7 @@ class AuthServices {
         userProvider.setUser(userResponse.body);
       }
     } catch (e) {
-      print(e.toString());
+      showSnackBar(context, e.toString());
     }
   }
 

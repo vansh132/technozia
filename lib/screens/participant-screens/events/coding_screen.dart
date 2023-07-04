@@ -30,9 +30,16 @@ class _CodingScreenState extends State<CodingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(event.name),
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          event.name,
+          style: TextStyle(
+            color: GlobalVariables.appBarContentColor,
+          ),
+        ),
         centerTitle: true,
       ),
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -113,10 +120,10 @@ class _CodingScreenState extends State<CodingScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "About Event",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -126,17 +133,17 @@ class _CodingScreenState extends State<CodingScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Registration Fees',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -146,12 +153,12 @@ class _CodingScreenState extends State<CodingScreen> {
                           ),
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Rs. 200/- Per Team',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -168,7 +175,7 @@ class _CodingScreenState extends State<CodingScreen> {
                               child: Text(
                                 'No. of Participants',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -181,7 +188,7 @@ class _CodingScreenState extends State<CodingScreen> {
                                 'Two Per Team',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -230,17 +237,17 @@ class _CodingScreenState extends State<CodingScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The participants are required to have a working HackerRank account before registering for the event.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -253,13 +260,13 @@ class _CodingScreenState extends State<CodingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The mail used for HackerRank and registering for the event must be the same to avoid any ambiguity.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -273,13 +280,13 @@ class _CodingScreenState extends State<CodingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The participants are not allowed to use any third-party application in searching for answers, if found, will lead to disqualification.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -293,13 +300,13 @@ class _CodingScreenState extends State<CodingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The result declared by the judge is final and will be taken in consideration.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -360,12 +367,12 @@ class _CodingScreenState extends State<CodingScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             child: Center(
                               child: Text(
                                 'Anurag',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -382,15 +389,15 @@ class _CodingScreenState extends State<CodingScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 7676924838',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -407,14 +414,14 @@ class _CodingScreenState extends State<CodingScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
                                 'Prem Sagar',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -431,15 +438,15 @@ class _CodingScreenState extends State<CodingScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 6296431485',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -490,17 +497,17 @@ class _CodingScreenState extends State<CodingScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -513,13 +520,13 @@ class _CodingScreenState extends State<CodingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -533,13 +540,13 @@ class _CodingScreenState extends State<CodingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- There is no refund policy once registered or completed with the payment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -553,13 +560,13 @@ class _CodingScreenState extends State<CodingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -597,7 +604,10 @@ class _CodingScreenState extends State<CodingScreen> {
                 arguments: event,
               );
             },
-            child: const Text('Register Now'),
+            child: Text(
+              'Register Now',
+              style: TextStyle(color: GlobalVariables.appBarContentColor),
+            ),
           ),
         ),
       ),

@@ -27,8 +27,13 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
       appBar: AppBar(
-        title: Text(event.name),
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          event.name,
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -124,17 +129,17 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Registration Fees',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -144,12 +149,12 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                           ),
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Rs. 500/- Per Team',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -166,7 +171,7 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                               child: Text(
                                 'No. of Participants',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -179,7 +184,7 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                                 'Five Per Team',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -228,17 +233,17 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- Round 1 is Puzzle Round which will be an elimination round.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -251,12 +256,12 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- Round 2 will be the hunt for the treasure and will be the final round.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -316,12 +321,12 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             child: Center(
                               child: Text(
                                 'Ameesha',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -338,15 +343,15 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 7843075725',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -363,14 +368,14 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
                                 'Vansh',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -387,15 +392,15 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 9099897859',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -446,17 +451,17 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -469,13 +474,13 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -489,13 +494,13 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- There is no refund policy once registered or completed with the payment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -509,13 +514,13 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),

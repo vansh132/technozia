@@ -75,7 +75,15 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
     final event = ModalRoute.of(context)?.settings.arguments as Event;
     List<String>? dropdownItems = teamMembers?.map((e) => e.fullName).toList();
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          "Register",
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
+      ),
       body: teamMembers == null
           ? const CircularProgressIndicator()
           : SingleChildScrollView(
@@ -86,19 +94,19 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                     const SizedBox(
                       height: 8,
                     ),
-                    const Text(
+                    Text(
                       "Select the team members and fill the details",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         wordSpacing: 0.5,
                       ),
                     ),
-                    const Text(
+                    Text(
                       "for",
                       style: TextStyle(
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
                         wordSpacing: 0.5,
@@ -106,8 +114,8 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                     ),
                     Text(
                       event.name,
-                      style: const TextStyle(
-                        color: Colors.black,
+                      style: TextStyle(
+                        color: GlobalVariables.richBlackColor,
                         fontSize: 20,
                         fontWeight: FontWeight.w600,
                         wordSpacing: 0.5,
@@ -132,13 +140,14 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                         });
                       },
                       borderRadius: BorderRadius.circular(24),
-                      style:
-                          const TextStyle(color: Colors.black, fontSize: 16.0),
+                      style: TextStyle(
+                          color: GlobalVariables.richBlackColor,
+                          fontSize: 16.0),
                       dropdownColor: Colors.white,
                       elevation: 8,
                       underline: Container(
                         height: 1,
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                       ),
                       items: dropdownItems
                           ?.map<DropdownMenuItem<String>>((String value) {
@@ -166,13 +175,14 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                           participant2 = selectedValue2;
                         });
                       },
-                      style:
-                          const TextStyle(color: Colors.black, fontSize: 16.0),
+                      style: TextStyle(
+                          color: GlobalVariables.richBlackColor,
+                          fontSize: 16.0),
                       dropdownColor: Colors.white,
                       elevation: 8,
                       underline: Container(
                         height: 1,
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                       ),
                       borderRadius: BorderRadius.circular(24),
                       items: dropdownItems
@@ -203,13 +213,14 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                           participant3 = selectedValue3;
                         });
                       },
-                      style:
-                          const TextStyle(color: Colors.black, fontSize: 16.0),
+                      style: TextStyle(
+                          color: GlobalVariables.richBlackColor,
+                          fontSize: 16.0),
                       dropdownColor: Colors.white,
                       elevation: 8,
                       underline: Container(
                         height: 1,
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                       ),
                       borderRadius: BorderRadius.circular(24),
                       items: dropdownItems
@@ -240,13 +251,14 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                           participant4 = selectedValue4;
                         });
                       },
-                      style:
-                          const TextStyle(color: Colors.black, fontSize: 16.0),
+                      style: TextStyle(
+                          color: GlobalVariables.richBlackColor,
+                          fontSize: 16.0),
                       dropdownColor: Colors.white,
                       elevation: 8,
                       underline: Container(
                         height: 1,
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                       ),
                       borderRadius: BorderRadius.circular(24),
                       items: dropdownItems
@@ -277,13 +289,14 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                           participant5 = selectedValue5;
                         });
                       },
-                      style:
-                          const TextStyle(color: Colors.black, fontSize: 16.0),
+                      style: TextStyle(
+                          color: GlobalVariables.richBlackColor,
+                          fontSize: 16.0),
                       dropdownColor: Colors.white,
                       elevation: 8,
                       underline: Container(
                         height: 1,
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                       ),
                       borderRadius: BorderRadius.circular(24),
                       items: dropdownItems
@@ -374,8 +387,8 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                           ),
                           Text(
                             "Amount to be paid: ₹${widget.event.price.toString()}",
-                            style: const TextStyle(
-                              color: Colors.black,
+                            style: TextStyle(
+                              color: GlobalVariables.richBlackColor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
@@ -384,18 +397,18 @@ class _FiveRegistrationScreenState extends State<FiveRegistrationScreen> {
                             height: 4,
                           ),
                           RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               text: 'UPI ID: ',
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color: GlobalVariables.richBlackColor,
                               ),
                               children: <TextSpan>[
                                 TextSpan(
                                   text: 'presidency@hdfc',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                   ),
                                 ),
                               ],

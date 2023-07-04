@@ -28,9 +28,14 @@ class _GamingScreenState extends State<GamingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(event.name),
+        title: Text(
+          event.name,
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
         centerTitle: true,
+        backgroundColor: GlobalVariables.appBarColor,
       ),
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -124,17 +129,17 @@ class _GamingScreenState extends State<GamingScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Registration Fees',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -144,12 +149,12 @@ class _GamingScreenState extends State<GamingScreen> {
                           ),
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Rs. 500/- Per Team',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -166,7 +171,7 @@ class _GamingScreenState extends State<GamingScreen> {
                               child: Text(
                                 'No. of Participants',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -179,7 +184,7 @@ class _GamingScreenState extends State<GamingScreen> {
                                 'Four/Five Per Team',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -228,17 +233,17 @@ class _GamingScreenState extends State<GamingScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- Game: Call of Duty Mobile &  MOD: Payout search and destroy.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -251,13 +256,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Minimum number of participants per team 4 & Maximum number of participants per team - 5',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -271,13 +276,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Participants of mobile gaming can\'t participate in any other events.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -291,13 +296,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Use of any additional attachments are prohibited.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -311,13 +316,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Any type of malpractice will lead to permanent disqualification of the team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -331,13 +336,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The result declared by the judge is final and will be taken in consideration.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -398,12 +403,12 @@ class _GamingScreenState extends State<GamingScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             child: Center(
                               child: Text(
                                 'Nikki',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -420,15 +425,15 @@ class _GamingScreenState extends State<GamingScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 9632805396',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -445,14 +450,14 @@ class _GamingScreenState extends State<GamingScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
                                 'Rizwaan',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -469,15 +474,15 @@ class _GamingScreenState extends State<GamingScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 8967458695',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -528,17 +533,17 @@ class _GamingScreenState extends State<GamingScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -551,13 +556,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -571,13 +576,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- There is no refund policy once registered or completed with the payment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -591,13 +596,13 @@ class _GamingScreenState extends State<GamingScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),

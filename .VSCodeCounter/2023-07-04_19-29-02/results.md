@@ -1,34 +1,34 @@
 # Summary
 
-Date : 2023-06-16 21:07:29
+Date : 2023-07-04 19:29:02
 
 Directory d:\\Flutter_projects\\technozia
 
-Total : 109 files,  14535 codes, 608 comments, 708 blanks, all 15851 lines
+Total : 127 files,  19723 codes, 593 comments, 891 blanks, all 21207 lines
 
 Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-details.md)
 
 ## Languages
 | language | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| Dart | 46 | 10,147 | 335 | 344 | 10,826 |
-| JSON | 6 | 2,527 | 0 | 6 | 2,533 |
-| JavaScript | 15 | 595 | 2 | 85 | 682 |
+| Dart | 59 | 13,514 | 302 | 477 | 14,293 |
+| JSON | 6 | 4,006 | 0 | 6 | 4,012 |
+| JavaScript | 19 | 868 | 20 | 134 | 1,022 |
 | C++ | 16 | 536 | 118 | 181 | 835 |
 | XML | 10 | 466 | 48 | 12 | 526 |
+| HTML | 2 | 104 | 16 | 7 | 127 |
 | Gradle | 3 | 89 | 5 | 22 | 116 |
 | Swift | 4 | 42 | 3 | 12 | 57 |
-| HTML | 1 | 38 | 16 | 6 | 60 |
+| YAML | 2 | 39 | 81 | 17 | 137 |
 | CMake | 2 | 38 | 0 | 12 | 50 |
-| YAML | 2 | 36 | 81 | 17 | 134 |
 | Markdown | 2 | 13 | 0 | 9 | 22 |
 | Properties | 2 | 8 | 0 | 2 | 10 |
 
 ## Directories
 | path | files | code | comment | blank | total |
 | :--- | ---: | ---: | ---: | ---: | ---: |
-| . | 109 | 14,535 | 608 | 708 | 15,851 |
-| . (Files) | 3 | 46 | 81 | 24 | 151 |
+| . | 127 | 19,723 | 593 | 891 | 21,207 |
+| . (Files) | 3 | 49 | 81 | 24 | 154 |
 | android | 12 | 159 | 51 | 33 | 243 |
 | android (Files) | 3 | 38 | 0 | 10 | 48 |
 | android\\app | 8 | 116 | 51 | 22 | 189 |
@@ -52,29 +52,31 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | ios\\Runner\\Assets.xcassets\\AppIcon.appiconset | 1 | 122 | 0 | 1 | 123 |
 | ios\\Runner\\Assets.xcassets\\LaunchImage.imageset | 2 | 26 | 0 | 3 | 29 |
 | ios\\Runner\\Base.lproj | 2 | 61 | 2 | 2 | 65 |
-| lib | 45 | 10,133 | 325 | 337 | 10,795 |
-| lib (Files) | 2 | 255 | 0 | 9 | 264 |
-| lib\\constants | 3 | 55 | 0 | 11 | 66 |
-| lib\\main-screens | 3 | 655 | 12 | 24 | 691 |
-| lib\\models | 6 | 240 | 12 | 34 | 286 |
+| lib | 58 | 13,500 | 292 | 470 | 14,262 |
+| lib (Files) | 2 | 323 | 0 | 10 | 333 |
+| lib\\constants | 3 | 60 | 0 | 11 | 71 |
+| lib\\main-screens | 3 | 672 | 12 | 24 | 708 |
+| lib\\models | 8 | 292 | 14 | 42 | 348 |
 | lib\\providers | 2 | 36 | 0 | 8 | 44 |
-| lib\\screens | 26 | 8,282 | 283 | 205 | 8,770 |
-| lib\\screens\\admin-screens | 7 | 1,294 | 16 | 54 | 1,364 |
-| lib\\screens\\admin-screens (Files) | 1 | 93 | 0 | 5 | 98 |
-| lib\\screens\\admin-screens\\achievements | 2 | 507 | 4 | 17 | 528 |
-| lib\\screens\\admin-screens\\posts | 2 | 309 | 11 | 16 | 336 |
-| lib\\screens\\admin-screens\\registrations | 1 | 200 | 0 | 9 | 209 |
-| lib\\screens\\admin-screens\\users | 1 | 185 | 1 | 7 | 193 |
-| lib\\screens\\coreteam-screens | 1 | 33 | 0 | 4 | 37 |
-| lib\\screens\\member-screens | 1 | 33 | 0 | 4 | 37 |
-| lib\\screens\\participant-screens | 17 | 6,922 | 267 | 143 | 7,332 |
-| lib\\screens\\participant-screens (Files) | 3 | 659 | 74 | 37 | 770 |
-| lib\\screens\\participant-screens\\events | 7 | 4,219 | 0 | 42 | 4,261 |
-| lib\\screens\\participant-screens\\items | 1 | 160 | 134 | 7 | 301 |
-| lib\\screens\\participant-screens\\profile | 1 | 196 | 3 | 8 | 207 |
-| lib\\screens\\participant-screens\\registration | 4 | 1,445 | 3 | 39 | 1,487 |
-| lib\\screens\\participant-screens\\team-profile | 1 | 243 | 53 | 10 | 306 |
-| lib\\services | 3 | 610 | 18 | 46 | 674 |
+| lib\\screens | 36 | 11,217 | 243 | 309 | 11,769 |
+| lib\\screens\\admin-screens | 12 | 2,683 | 32 | 99 | 2,814 |
+| lib\\screens\\admin-screens (Files) | 1 | 560 | 9 | 15 | 584 |
+| lib\\screens\\admin-screens\\achievements | 4 | 967 | 15 | 32 | 1,014 |
+| lib\\screens\\admin-screens\\posts | 4 | 703 | 7 | 29 | 739 |
+| lib\\screens\\admin-screens\\registrations | 1 | 216 | 0 | 9 | 225 |
+| lib\\screens\\admin-screens\\users | 2 | 237 | 1 | 14 | 252 |
+| lib\\screens\\coreteam-screens | 5 | 1,114 | 18 | 52 | 1,184 |
+| lib\\screens\\coreteam-screens (Files) | 2 | 422 | 6 | 24 | 452 |
+| lib\\screens\\coreteam-screens\\volunteers | 3 | 692 | 12 | 28 | 732 |
+| lib\\screens\\member-screens | 3 | 553 | 5 | 24 | 582 |
+| lib\\screens\\participant-screens | 16 | 6,867 | 188 | 134 | 7,189 |
+| lib\\screens\\participant-screens (Files) | 2 | 545 | 42 | 23 | 610 |
+| lib\\screens\\participant-screens\\events | 7 | 4,225 | 2 | 44 | 4,271 |
+| lib\\screens\\participant-screens\\items | 1 | 183 | 134 | 7 | 324 |
+| lib\\screens\\participant-screens\\profile | 1 | 210 | 1 | 9 | 220 |
+| lib\\screens\\participant-screens\\registration | 4 | 1,441 | 1 | 40 | 1,482 |
+| lib\\screens\\participant-screens\\team-profile | 1 | 263 | 8 | 11 | 282 |
+| lib\\services | 4 | 900 | 23 | 66 | 989 |
 | linux | 6 | 117 | 27 | 44 | 188 |
 | linux (Files) | 3 | 86 | 18 | 27 | 131 |
 | linux\\flutter | 3 | 31 | 9 | 17 | 57 |
@@ -85,11 +87,11 @@ Summary / [Details](details.md) / [Diff Summary](diff.md) / [Diff Details](diff-
 | macos\\Runner\\Assets.xcassets | 1 | 68 | 0 | 1 | 69 |
 | macos\\Runner\\Assets.xcassets\\AppIcon.appiconset | 1 | 68 | 0 | 1 | 69 |
 | macos\\Runner\\Base.lproj | 1 | 343 | 0 | 1 | 344 |
-| server | 17 | 2,874 | 2 | 87 | 2,963 |
-| server (Files) | 3 | 2,308 | 0 | 7 | 2,315 |
+| server | 22 | 4,692 | 20 | 137 | 4,849 |
+| server (Files) | 5 | 3,904 | 7 | 17 | 3,928 |
 | server\\middlewares | 3 | 74 | 0 | 15 | 89 |
-| server\\models | 5 | 215 | 2 | 16 | 233 |
-| server\\routes | 6 | 277 | 0 | 49 | 326 |
+| server\\models | 6 | 240 | 2 | 20 | 262 |
+| server\\routes | 8 | 474 | 11 | 85 | 570 |
 | test | 1 | 14 | 10 | 7 | 31 |
 | web | 2 | 73 | 16 | 7 | 96 |
 | windows | 11 | 456 | 91 | 148 | 695 |

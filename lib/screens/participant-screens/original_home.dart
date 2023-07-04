@@ -191,7 +191,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                     ]),
               ),
               const SizedBox(
-                height: 8,
+                height: 24,
               ),
               SizedBox(
                 // color: Colors.yellow,

@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/achievement.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -31,18 +32,24 @@ class _ParticipantAchievementScreenState
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Achievements"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Achievements",
+            style: TextStyle(
+              color: GlobalVariables.appBarContentColor,
+            ),
+          ),
           centerTitle: true,
         ),
         body: achievements == null
             ? const Center(child: CircularProgressIndicator())
             : achievements!.isEmpty
-                ? const Center(
+                ? Center(
                     child: Text(
                       "Achievemnts of Academic year 2022-23 will be posted soon",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.black,
+                        color: GlobalVariables.richBlackColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
@@ -115,7 +122,7 @@ class _ParticipantAchievementScreenState
                   initialPage: 0,
                   enableInfiniteScroll: true,
                   reverse: false,
-                  autoPlay: true,
+                  autoPlay: false,
                   autoPlayInterval: const Duration(seconds: 3),
                   autoPlayAnimationDuration: const Duration(milliseconds: 800),
                   autoPlayCurve: Curves.fastOutSlowIn,

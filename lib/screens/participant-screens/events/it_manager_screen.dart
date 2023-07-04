@@ -27,8 +27,15 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
       appBar: AppBar(
-        title: Text(event.name),
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          event.name,
+          style: TextStyle(
+            color: GlobalVariables.appBarContentColor,
+          ),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -111,10 +118,10 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "About Event",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -124,17 +131,17 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Registration Fees',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -144,12 +151,12 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                           ),
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Rs. 200/- Per Team',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -166,7 +173,7 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                               child: Text(
                                 'No. of Participants',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -179,7 +186,7 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                                 'Individual',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -215,10 +222,10 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "Event Guidelines",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -228,17 +235,17 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- 1st round will consist of English comprehension, aptitude, and the basics of computers.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -251,13 +258,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Panel discussion topic will be informed on the day of the event.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -271,13 +278,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Any sort of misbehaviour will lead to disqualification.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -291,13 +298,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The participants are not allowed to use any third-party application (in searching for) answers, if found, will lead to disqualification.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -311,13 +318,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The result declared by the judge is final and will be taken in consideration.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -354,10 +361,10 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "Event Co - Ordinators",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -378,12 +385,12 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             child: Center(
                               child: Text(
                                 'Ritika',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -400,15 +407,15 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 9900453406',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -425,14 +432,14 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
                                 'Nitya',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -449,15 +456,15 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 9148868708',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -495,10 +502,10 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "Registration Guidelines",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -508,17 +515,17 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -531,13 +538,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -551,13 +558,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- There is no refund policy once registered or completed with the payment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -571,13 +578,13 @@ class _ItManagerScreenState extends State<ItManagerScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),

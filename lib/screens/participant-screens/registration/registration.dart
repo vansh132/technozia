@@ -74,8 +74,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          "Register",
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
+        centerTitle: true,
       ),
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
       body: teamMembers == null
           ? const CircularProgressIndicator()
           : SingleChildScrollView(

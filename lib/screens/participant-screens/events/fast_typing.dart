@@ -29,8 +29,13 @@ class _FastTypingState extends State<FastTyping> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: GlobalVariables.bodyBackgroundColor,
       appBar: AppBar(
-        title: Text(event.name),
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          event.name,
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -126,7 +131,7 @@ class _FastTypingState extends State<FastTyping> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
@@ -136,7 +141,7 @@ class _FastTypingState extends State<FastTyping> {
                                 child: Text(
                                   'Registration Fees',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -151,7 +156,7 @@ class _FastTypingState extends State<FastTyping> {
                                 child: Text(
                                   'Rs. 200/- Per Team',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -168,7 +173,7 @@ class _FastTypingState extends State<FastTyping> {
                               child: Text(
                                 'No. of Participants',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -181,7 +186,7 @@ class _FastTypingState extends State<FastTyping> {
                                 'Individual',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -230,7 +235,7 @@ class _FastTypingState extends State<FastTyping> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
@@ -240,7 +245,7 @@ class _FastTypingState extends State<FastTyping> {
                                 '- Judgment will be done based on Words per Minute(WPM) and accuracy rate.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -259,7 +264,7 @@ class _FastTypingState extends State<FastTyping> {
                                   '- Participants are not required to bring any kind of external equipment for the event.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -279,7 +284,7 @@ class _FastTypingState extends State<FastTyping> {
                                   '- In case of a tie, the accuracy rate will be considered.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -299,7 +304,7 @@ class _FastTypingState extends State<FastTyping> {
                                   '- The result declared by the judge is final and will be taken in consideration.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -360,12 +365,12 @@ class _FastTypingState extends State<FastTyping> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             child: Center(
                               child: Text(
                                 'Arindam',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -382,7 +387,7 @@ class _FastTypingState extends State<FastTyping> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
+                                children: [
                                   Icon(Icons.phone),
                                   SizedBox(
                                     width: 4,
@@ -390,7 +395,7 @@ class _FastTypingState extends State<FastTyping> {
                                   Text(
                                     '+91 9696561656',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -407,14 +412,14 @@ class _FastTypingState extends State<FastTyping> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
                                 'Kaushal',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -431,7 +436,7 @@ class _FastTypingState extends State<FastTyping> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
+                                children: [
                                   Icon(Icons.phone),
                                   SizedBox(
                                     width: 4,
@@ -439,7 +444,7 @@ class _FastTypingState extends State<FastTyping> {
                                   Text(
                                     '+91 7645020206',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -490,7 +495,7 @@ class _FastTypingState extends State<FastTyping> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
@@ -500,7 +505,7 @@ class _FastTypingState extends State<FastTyping> {
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -519,7 +524,7 @@ class _FastTypingState extends State<FastTyping> {
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -539,7 +544,7 @@ class _FastTypingState extends State<FastTyping> {
                                   '- There is no refund policy once registered or completed with the payment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -559,7 +564,7 @@ class _FastTypingState extends State<FastTyping> {
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),

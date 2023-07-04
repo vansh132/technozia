@@ -28,7 +28,11 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(event.name),
+        backgroundColor: GlobalVariables.appBarColor,
+        title: Text(
+          event.name,
+          style: TextStyle(color: GlobalVariables.appBarContentColor),
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -51,7 +55,7 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                   )
                 ],
                 image: const DecorationImage(
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.fill,
                   image: NetworkImage(
                     "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813633/events/vuebsdqcuzbhvvfvncds.webp",
                   ),
@@ -111,10 +115,10 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "About Event",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -124,17 +128,17 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Registration Fees',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -144,12 +148,12 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                           ),
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Rs. 200/- Per Team',
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -166,7 +170,7 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                               child: Text(
                                 'No. of Participants',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -179,7 +183,7 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                                 'Two Per Team',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -215,10 +219,10 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "Event Guidelines",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -228,17 +232,17 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The round will be developing the front-end web page for a given UI design',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -251,13 +255,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The required elements will be given on the day of event.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -271,13 +275,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Website must be developed only using HTML, CSS and JS.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -291,13 +295,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Internet Connection will not be provided by the college.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -311,13 +315,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Participant has to carry all the necessary equipment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -331,13 +335,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The result declared by the judge is final and will be taken in consideration.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -374,10 +378,10 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "Event Co - Ordinators",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -398,12 +402,12 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             child: Center(
                               child: Text(
                                 'Afiq',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -420,15 +424,15 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 8884340860',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -445,14 +449,14 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                       ]),
                       TableRow(
                         children: [
-                          const TableCell(
+                          TableCell(
                             verticalAlignment:
                                 TableCellVerticalAlignment.middle,
                             child: Center(
                               child: Text(
                                 'Amr',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -469,15 +473,15 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
-                                children: const [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                children: [
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
                                     '+91 9886958910',
                                     style: TextStyle(
-                                      color: Colors.black,
+                                      color: GlobalVariables.richBlackColor,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 16,
                                     ),
@@ -515,10 +519,10 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
               ),
               child: Column(
                 children: [
-                  const Text(
+                  Text(
                     "Registration Guidelines",
                     style: TextStyle(
-                      color: Color(0xffFFFFFF),
+                      color: GlobalVariables.secondaryTextColor,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
@@ -528,17 +532,17 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                     thickness: 2,
                   ),
                   Table(
-                    children: const [
+                    children: [
                       TableRow(
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: GlobalVariables.richBlackColor,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16,
                                 ),
@@ -551,13 +555,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -571,13 +575,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- There is no refund policy once registered or completed with the payment.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
@@ -591,13 +595,13 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',
                                   textAlign: TextAlign.start,
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: GlobalVariables.richBlackColor,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16,
                                   ),
