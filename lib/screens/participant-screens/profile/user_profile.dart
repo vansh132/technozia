@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/services/auth_services.dart';
 
@@ -53,35 +54,33 @@ class _LeaderProfileState extends State<UserProfile> {
     _phoneNumber.text = user.phoneNo.toString();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2, //0xffe9ecef
-        // leading: ,
-        // centerTitle: true,
+        backgroundColor: GlobalVariables.appBarColor,
+        elevation: 2,
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Image(
-                  image: AssetImage(
+                  image: const AssetImage(
                     "assets/technozia_logo.png",
                   ),
                   fit: BoxFit.cover,
                   height: 38,
                   filterQuality: FilterQuality.high,
                   semanticLabel: "Technozia",
-                  color: Color(0xff03071e),
+                  color: GlobalVariables.appBarContentColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Text(
                 "Technozia",
                 style: TextStyle(
-                  color: Color(0xff03071e),
+                  color: GlobalVariables.appBarContentColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -95,7 +94,7 @@ class _LeaderProfileState extends State<UserProfile> {
               },
               icon: Icon(
                 Icons.refresh,
-                color: Color(0xff03071e),
+                color: GlobalVariables.appBarContentColor,
               ))
         ],
       ),
@@ -189,8 +188,8 @@ class _LeaderProfileState extends State<UserProfile> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Color(0xff03071e),
+                    backgroundColor: MaterialStatePropertyAll(
+                      GlobalVariables.appBarColor,
                     ),
                     minimumSize: MaterialStateProperty.all(const Size(150, 36)),
                     textStyle: const MaterialStatePropertyAll(

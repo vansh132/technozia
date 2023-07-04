@@ -113,6 +113,22 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                   ),
                 ),
               ),
+              Container(
+                // color: Colors.black,
+                padding: const EdgeInsets.all(8),
+                height: 216,
+                width: double.infinity,
+                child: excitingPrizes(),
+              ),
+              const SizedBox(
+                height: 4,
+              ),
+              const Divider(
+                color: Colors.grey,
+              ),
+              const SizedBox(
+                height: 16,
+              ),
               const Text(
                 "Events",
                 style: TextStyle(
@@ -173,22 +189,6 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                         TreasureHuntScreen.routeName,
                       ),
                     ]),
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-              const Divider(
-                color: Colors.transparent,
-              ),
-              const SizedBox(
-                height: 2,
-              ),
-              Container(
-                // color: Colors.black,
-                padding: const EdgeInsets.all(8),
-                height: 216,
-                width: double.infinity,
-                child: excitingPrizes(),
               ),
               const SizedBox(
                 height: 8,
@@ -320,9 +320,10 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                           child: Center(
                             child: Text(
                               name,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
+                                color: GlobalVariables.secondaryTextColor,
                               ),
                             ),
                           ),

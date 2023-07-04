@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/duoRegistration.dart';
 import 'package:technozia/services/registration_services.dart';
 
@@ -24,7 +25,6 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
     duoRegistrationsList =
         await registrationServices.fetchAllRegistrations(context);
     setState(() {});
-    print(duoRegistrationsList);
     return duoRegistrationsList;
   }
 
@@ -32,59 +32,22 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: GlobalVariables.appBarColor,
           leadingWidth: 172,
           elevation: 2,
           centerTitle: true,
           title: Container(
             alignment: Alignment.center,
-            child: const Text(
+            child: Text(
               "Registrations",
               style: TextStyle(
                 fontSize: 20,
-                color: Color(0xff03071e),
+                color: GlobalVariables.appBarContentColor,
                 fontWeight: FontWeight.bold,
               ),
             ),
           ),
         ),
-        /* appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 2, //0xffe9ecef
-          // leading: ,
-          // centerTitle: true,
-          title: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Image(
-                    image: AssetImage(
-                      "assets/technozia_logo.png",
-                    ),
-                    fit: BoxFit.cover,
-                    height: 38,
-                    filterQuality: FilterQuality.high,
-                    semanticLabel: "Technozia",
-                    color: Color(0xff03071e),
-                  ),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  "Technozia",
-                  style: TextStyle(
-                    color: Color(0xff03071e),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ), */
         body: duoRegistrationsList == null
             ? const Center(
                 child: CircularProgressIndicator(
@@ -93,14 +56,13 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
               )
             : duoRegistrationsList!.isEmpty
                 ? SizedBox(
-                    // color: Colors.red,
                     height: MediaQuery.of(context).size.height * 0.8,
-                    child: const Center(
+                    child: Center(
                       child: Text(
                         "No Registrations are made yet",
                         style: TextStyle(
                           fontSize: 20,
-                          color: Colors.black,
+                          color: GlobalVariables.richBlackColor,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -111,12 +73,12 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                       const SizedBox(
                         height: 16,
                       ),
-                      const Text(
+                      Text(
                         "Confirmed Registrations",
                         style: TextStyle(
                           fontSize: 24.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: GlobalVariables.richBlackColor,
                         ),
                       ),
                       Container(
@@ -131,17 +93,18 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                             ),
                             defaultColumnWidth: const IntrinsicColumnWidth(),
                             columnWidths: const {
-                              0: FlexColumnWidth(2),
+                              0: FlexColumnWidth(3),
                               1: FlexColumnWidth(3),
-                              2: FlexColumnWidth(2),
+                              2: FlexColumnWidth(3.5),
+                              3: FlexColumnWidth(3),
                             },
                             children: [
                               TableRow(
                                 decoration: BoxDecoration(
-                                  // color: Colors.black,
+                                  // color: GlobalVariables.richBlackColor,
                                   color: Colors.grey[200],
                                 ),
-                                children: const [
+                                children: [
                                   TableCell(
                                     child: Padding(
                                       padding: EdgeInsets.all(8.0),
@@ -150,7 +113,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.black,
+                                          color: GlobalVariables.richBlackColor,
                                         ),
                                       ),
                                     ),
@@ -163,7 +126,8 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
-                                            color: Colors.black),
+                                            color:
+                                                GlobalVariables.richBlackColor),
                                       ),
                                     ),
                                   ),
@@ -175,7 +139,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.black,
+                                          color: GlobalVariables.richBlackColor,
                                         ),
                                       ),
                                     ),
@@ -188,7 +152,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.black,
+                                          color: GlobalVariables.richBlackColor,
                                         ),
                                       ),
                                     ),
@@ -208,8 +172,9 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                             registration.participantOne,
                                             textAlign: TextAlign.center,
                                             softWrap: true,
-                                            style: const TextStyle(
-                                              color: Colors.black,
+                                            style: TextStyle(
+                                              color: GlobalVariables
+                                                  .richBlackColor,
                                               overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
@@ -221,8 +186,9 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                           child: Text(
                                             registration.email,
                                             textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              color: Colors.black,
+                                            style: TextStyle(
+                                              color: GlobalVariables
+                                                  .richBlackColor,
                                             ),
                                           ),
                                         ),
@@ -233,8 +199,9 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                           child: Text(
                                             registration.phoneNo.toString(),
                                             textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              color: Colors.black,
+                                            style: TextStyle(
+                                              color: GlobalVariables
+                                                  .richBlackColor,
                                             ),
                                           ),
                                         ),
@@ -245,8 +212,9 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                           child: Text(
                                             registration.eventName,
                                             textAlign: TextAlign.center,
-                                            style: const TextStyle(
-                                              color: Colors.black,
+                                            style: TextStyle(
+                                              color: GlobalVariables
+                                                  .richBlackColor,
                                             ),
                                           ),
                                         ),

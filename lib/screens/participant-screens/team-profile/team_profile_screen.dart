@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/team_member.dart';
 import 'package:technozia/providers/user_provider.dart';
 import 'package:technozia/screens/participant-screens/items/team_member_item.dart';
@@ -62,17 +63,16 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
       backgroundColor: const Color(0xfff8f8f8),
 
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: GlobalVariables.appBarColor,
         leadingWidth: 172,
         elevation: 2,
         leading: Container(
-          // color: Colors.red,
           alignment: Alignment.center,
-          child: const Text(
+          child: Text(
             "Team Members",
             style: TextStyle(
               fontSize: 20,
-              color: Color(0xff03071e),
+              color: GlobalVariables.appBarContentColor,
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -80,10 +80,10 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
         actions: [
           Container(
             alignment: Alignment.center,
-            child: const Text(
+            child: Text(
               "Refresh",
               style: TextStyle(
-                color: Colors.black,
+                color: GlobalVariables.appBarContentColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
               ),
@@ -94,7 +94,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
               getAllTeamMembers(context);
             },
             icon: const Icon(Icons.refresh_rounded),
-            color: Colors.black,
+            color: GlobalVariables.appBarContentColor,
           )
         ],
       ),
