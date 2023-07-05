@@ -58,8 +58,8 @@ class _CoreTeamHomeState extends State<CoreTeamHome> {
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.announcement_rounded),
-            label: 'Achievement',
+            icon: Icon(Icons.group_outlined),
+            label: 'Volunteers',
             backgroundColor: Color(0xff03071e),
           ),
         ],

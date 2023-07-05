@@ -45,12 +45,12 @@ class _MemberHomeScreenState extends State<MemberHomeScreen> {
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.announcement_rounded),
+            icon: Icon(Icons.aod_rounded),
             label: 'Achievement',
             backgroundColor: Color(0xff03071e),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.podcasts_rounded),
+            icon: Icon(Icons.person_3_rounded),
             label: 'Profile',
             backgroundColor: Color(0xff03071e),
           ),

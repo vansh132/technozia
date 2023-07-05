@@ -71,22 +71,21 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
     };
 
     List<Color> colorList = [
-      Colors.blue,
-      Colors.red,
-      Colors.green,
-      Colors.orange,
-      Colors.purple,
-      Colors.yellow,
-      Colors.pink,
-      Colors.teal,
-    ];
+      Color(0xff80ed99),
+      Color(0xffffb3c6),
+      Color(0xffe7bc91),
+      Color(0xff9d4edd),
+      Color(0xffaacc00),
+      Color(0xff774936),
+      Color(0xffe01e37),
+      Color(0xff98c1d9)
+    ]; //a8dadc
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xff14213D),
         elevation: 2, //0xffe9ecef
-        // leading: ,
-        // centerTitle: true,
+
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
@@ -102,7 +101,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
                   height: 38,
                   filterQuality: FilterQuality.high,
                   semanticLabel: "Technozia",
-                  color: Color(0xff03071e),
+                  color: Color(0XFFbde0fe),
                 ),
               ),
               SizedBox(
@@ -111,7 +110,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
               Text(
                 "Technozia",
                 style: TextStyle(
-                  color: Color(0xff03071e),
+                  color: Color(0XFFbde0fe),
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -119,7 +118,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
           ),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xffE5E5E5),
       body: SingleChildScrollView(
         child: SafeArea(
             child: Padding(
@@ -137,7 +136,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
                 margin: const EdgeInsets.all(16),
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                  color: Colors.black12,
+                  color: const Color(0xff1D3557),
                   borderRadius: BorderRadius.circular(12),
                   boxShadow: [
                     BoxShadow(
@@ -148,33 +147,58 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
                     ),
                   ],
                 ),
-                child: PieChart(
-                  dataMap: dataMap,
-                  animationDuration: const Duration(milliseconds: 800),
-                  chartLegendSpacing: 32,
-                  chartRadius: MediaQuery.of(context).size.width / 3.2,
-                  colorList: colorList,
-                  initialAngleInDegree: 0,
-                  chartType: ChartType.ring,
-                  ringStrokeWidth: 32,
-                  // centerText: "HYBRID",
-                  legendOptions: const LegendOptions(
-                    showLegendsInRow: false,
-                    legendPosition: LegendPosition.right,
-                    showLegends: true,
-                    legendShape: BoxShape.circle,
-                    legendTextStyle: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      // color: Colors.black,
+                child: Column(
+                  children: [
+                    Container(
+                      child: const Text(
+                        "Registrations Analysis",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 20,
+                          color: Color(0xffFCA311),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
                     ),
-                  ),
-                  chartValuesOptions: const ChartValuesOptions(
-                    showChartValueBackground: true,
-                    showChartValues: true,
-                    showChartValuesInPercentage: false,
-                    showChartValuesOutside: false,
-                    decimalPlaces: 1,
-                  ),
+                    const Divider(
+                      endIndent: 48,
+                      indent: 48,
+                      color: Color(0xffF5F5F5),
+                    ),
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    PieChart(
+                      dataMap: dataMap,
+                      animationDuration: const Duration(milliseconds: 800),
+                      chartLegendSpacing: 32,
+                      chartRadius: MediaQuery.of(context).size.width / 3.2,
+                      colorList: colorList,
+                      initialAngleInDegree: 0,
+                      chartType: ChartType.ring,
+                      ringStrokeWidth: 32,
+                      // centerText: "HYBRID",
+                      legendOptions: const LegendOptions(
+                        showLegendsInRow: false,
+                        legendPosition: LegendPosition.right,
+                        showLegends: true,
+                        legendShape: BoxShape.circle,
+                        legendTextStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          // color: Colors.black,
+                        ),
+                      ),
+                      chartValuesOptions: const ChartValuesOptions(
+                        showChartValueBackground: true,
+                        showChartValues: true,
+                        showChartValuesInPercentage: false,
+                        showChartValuesOutside: false,
+                        decimalPlaces: 1,
+                      ),
+                      // gradientList: ---To add gradient colors---
+                      // emptyColorGradient: ---Empty Color gradient---
+                    ),
+                  ],
                 ),
               ),
               Container(
@@ -217,7 +241,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
       width: double.infinity,
       height: 48,
       decoration: BoxDecoration(
-        color: const Color(0xff03071e),
+        color: const Color(0xffFCA311),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -230,6 +254,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
+                color: Color(0xff010B13),
               ),
             ),
           ),
@@ -245,6 +270,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
                     "Log out",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
+                      color: Color(0xff010B13),
                     ),
                   ),
                   SizedBox(
@@ -252,7 +278,8 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
                   ),
                   Icon(
                     Icons.logout_rounded,
-                    color: Colors.white,
+                    // color: Colors.white,
+                    color: Color(0xff010B13),
                   ),
                 ],
               ),
@@ -358,18 +385,26 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
       },
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black12,
+          color: const Color(0xffFCA311),
           borderRadius: BorderRadius.circular(12),
         ),
-        // color: Colors.grey[200],
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(iconData),
+            Icon(
+              iconData,
+              size: 40,
+            ),
             const SizedBox(
               height: 24,
             ),
-            Text(title),
+            Text(
+              title,
+              style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Color(0xff010B13)),
+            ),
           ],
         ),
       ),

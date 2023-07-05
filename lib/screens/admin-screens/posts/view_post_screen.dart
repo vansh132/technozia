@@ -28,15 +28,25 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: GlobalVariables.bodyBackgroundColor,
         appBar: AppBar(
-          title: const Text("Posts"),
+          backgroundColor: GlobalVariables.appBarColor,
+          title: Text(
+            "Posts",
+            style: TextStyle(color: GlobalVariables.appBarContentColor),
+          ),
           centerTitle: true,
           actions: [
             IconButton(
                 onPressed: () {
-                  setState(() {});
+                  setState(() {
+                    getAllPost();
+                  });
                 },
-                icon: const Icon(Icons.refresh))
+                icon: Icon(
+                  Icons.refresh,
+                  color: GlobalVariables.appBarContentColor,
+                ))
           ],
         ),
         body: post == null
@@ -105,17 +115,17 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                           children: [
                             Text(
                               post.username,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black,
+                                color: GlobalVariables.richBlackColor,
                                 letterSpacing: 0.5,
                               ),
                             ),
                             Text(
                               "@${post.type}",
-                              style: const TextStyle(
-                                color: Colors.black,
+                              style: TextStyle(
+                                color: GlobalVariables.richBlackColor,
                                 letterSpacing: 0.5,
                               ),
                             ),
@@ -126,8 +136,8 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
                   ),
                   Text(
                     post.date.substring(0, 10),
-                    style: const TextStyle(
-                      color: Colors.black,
+                    style: TextStyle(
+                      color: GlobalVariables.richBlackColor,
                       fontWeight: FontWeight.w500,
                       letterSpacing: 0.5,
                     ),
@@ -150,9 +160,9 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
             width: double.infinity,
             child: Text(
               post.title,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 24,
-                color: Colors.black,
+                color: GlobalVariables.richBlackColor,
                 fontWeight: FontWeight.w500,
               ),
               textAlign: TextAlign.center,
@@ -163,9 +173,9 @@ class _ViewPostScreenState extends State<ViewPostScreen> {
           ),
           Text(
             post.description,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 16,
-              color: Colors.black,
+              color: GlobalVariables.richBlackColor,
               fontWeight: FontWeight.w300,
             ),
           ),

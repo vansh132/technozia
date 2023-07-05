@@ -50,15 +50,13 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
     _phoneNumber.text = user.phoneNo.toString();
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2, //0xffe9ecef
-        // leading: ,
-        // centerTitle: true,
+        backgroundColor: GlobalVariables.appBarColor,
+        elevation: 2,
         title: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Image(
@@ -69,7 +67,7 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
                   height: 38,
                   filterQuality: FilterQuality.high,
                   semanticLabel: "Technozia",
-                  color: Color(0xff03071e),
+                  color: GlobalVariables.appBarContentColor,
                 ),
               ),
               SizedBox(
@@ -78,7 +76,7 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
               Text(
                 "Technozia",
                 style: TextStyle(
-                  color: Color(0xff03071e),
+                  color: GlobalVariables.appBarContentColor,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -92,7 +90,7 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
               },
               icon: Icon(
                 Icons.refresh,
-                color: GlobalVariables.appBarColor,
+                color: GlobalVariables.appBarContentColor,
               ))
         ],
       ),
@@ -186,8 +184,8 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                    backgroundColor: const MaterialStatePropertyAll(
-                      Color(0xff03071e),
+                    backgroundColor: MaterialStatePropertyAll(
+                      GlobalVariables.appBarColor,
                     ),
                     minimumSize: MaterialStateProperty.all(const Size(150, 36)),
                     textStyle: const MaterialStatePropertyAll(
@@ -201,10 +199,11 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
                     onSubmit();
                   }
                 },
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(8),
                   child: Text(
                     "Save",
+                    style: TextStyle(color: GlobalVariables.appBarContentColor),
                   ),
                 ),
               )
