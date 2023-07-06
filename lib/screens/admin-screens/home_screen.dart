@@ -61,10 +61,6 @@ class _AdminHomeState extends State<AdminHome> {
         imageUrl: Icons.app_registration_rounded,
         title: "View Registrations",
         routeName: ViewRegistrations.routeName),
-    // Option(
-    //     imageUrl: "imageUrl",
-    //     title: "Modify User Roles",
-    //     routeName: ModifyUserRoleScreen.routeName),
   ];
 
   @override
@@ -116,7 +112,7 @@ class _AdminHomeState extends State<AdminHome> {
     };
 
     List<Color> colorList = [
-      Color(0xff80ed99),
+      Color.fromARGB(255, 176, 232, 189),
       Color(0xffffb3c6),
       Color(0xffe7bc91),
       Color(0xff9d4edd),

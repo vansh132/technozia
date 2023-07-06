@@ -56,7 +56,7 @@ class _GamingScreenState extends State<GamingScreen> {
                   )
                 ],
                 image: const DecorationImage(
-                  fit: BoxFit.fitWidth,
+                  fit: BoxFit.cover,
                   image: NetworkImage(
                     "https://res.cloudinary.com/dq1q5mtdo/image/upload/v1683813746/events/i8lojrttff6g74cmq0rc.jpg",
                   ),

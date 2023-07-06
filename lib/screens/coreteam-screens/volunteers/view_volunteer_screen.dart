@@ -76,7 +76,7 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
                 DataCell(Text(item.addedBy)),
                 DataCell(TextButton(
                   style: ButtonStyle(
-                    padding: MaterialStatePropertyAll(EdgeInsets.all(8)),
+                    padding: const MaterialStatePropertyAll(EdgeInsets.all(8)),
                     backgroundColor: MaterialStatePropertyAll(
                       GlobalVariables.appBarColor,
                     ),
@@ -126,6 +126,13 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
         ),
         centerTitle: true,
         backgroundColor: GlobalVariables.appBarColor,
+        actions: [
+          IconButton(
+              onPressed: () {
+                getRegistrations();
+              },
+              icon: const Icon(Icons.refresh_outlined))
+        ],
       ),
       body: Column(
         children: [

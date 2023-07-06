@@ -192,6 +192,8 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
                   ),
                   TextFormField(
                     controller: _description,
+                    minLines: 4,
+                    maxLines: 100,
                     decoration: InputDecoration(
                       labelText: 'Description',
                       labelStyle: const TextStyle(
