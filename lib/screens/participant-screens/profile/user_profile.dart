@@ -188,11 +188,11 @@ class _LeaderProfileState extends State<UserProfile> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(
+                    backgroundColor: WidgetStatePropertyAll(
                       GlobalVariables.appBarColor,
                     ),
-                    minimumSize: MaterialStateProperty.all(const Size(150, 36)),
-                    textStyle: const MaterialStatePropertyAll(
+                    minimumSize: WidgetStateProperty.all(const Size(150, 36)),
+                    textStyle: const WidgetStatePropertyAll(
                       TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,

@@ -36,7 +36,7 @@ class _ModifyUserRoleScreenState extends State<ModifyUserRoleScreen> {
               children: [
                 Text(
                   userList![index].fullName,
-                  style: TextStyle(color: Colors.red),
+                  style: const TextStyle(color: Colors.red),
                 ),
               ],
             );

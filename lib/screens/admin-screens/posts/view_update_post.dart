@@ -188,12 +188,12 @@ class _ViewEditPostScreenState extends State<ViewEditPostScreen> {
                     Navigator.pushNamed(context, EditPostScreen.routeName,
                         arguments: post);
                   },
-                  child: Text("Edit")),
+                  child: const Text("Edit")),
               ElevatedButton(
                   onPressed: () {
                     deletePost(post);
                   },
-                  child: Text("Delete")),
+                  child: const Text("Delete")),
             ],
           )
         ],

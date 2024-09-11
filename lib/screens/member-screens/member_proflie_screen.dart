@@ -58,9 +58,9 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8.0),
                 child: Image(
-                  image: AssetImage(
+                  image: const AssetImage(
                     "assets/technozia_logo.png",
                   ),
                   fit: BoxFit.cover,
@@ -70,7 +70,7 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
                   color: GlobalVariables.appBarContentColor,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 8,
               ),
               Text(
@@ -184,11 +184,11 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
               ),
               ElevatedButton(
                 style: ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(
+                    backgroundColor: WidgetStatePropertyAll(
                       GlobalVariables.appBarColor,
                     ),
-                    minimumSize: MaterialStateProperty.all(const Size(150, 36)),
-                    textStyle: const MaterialStatePropertyAll(
+                    minimumSize: WidgetStateProperty.all(const Size(150, 36)),
+                    textStyle: const WidgetStatePropertyAll(
                       TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 18,
@@ -200,7 +200,7 @@ class _MemberProfileScreenState extends State<MemberProfileScreen> {
                   }
                 },
                 child: Padding(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Text(
                     "Save",
                     style: TextStyle(color: GlobalVariables.appBarContentColor),

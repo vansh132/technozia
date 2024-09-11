@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -57,11 +56,11 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xff14213D),
         elevation: 2,
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
+        title: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Image(
@@ -101,18 +100,18 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
                 height: 12,
               ),
               topBar(user),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .50,
-                width: MediaQuery.of(context).size.width,
-                child: CarouselSlider(
-                  items: carouselImages,
-                  options: CarouselOptions(
-                    viewportFraction: 1,
-                    height: 372,
-                    autoPlay: true,
-                  ),
-                ),
-              ),
+              // SizedBox(
+              //   height: MediaQuery.of(context).size.height * .50,
+              //   width: MediaQuery.of(context).size.width,
+              //   child: CarouselSlider(
+              //     items: carouselImages,
+              //     options: CarouselOptions(
+              //       viewportFraction: 1,
+              //       height: 372,
+              //       autoPlay: true,
+              //     ),
+              //   ),
+              // ),
               Container(
                 // color: Colors.black,
                 padding: const EdgeInsets.all(8),
@@ -239,8 +238,8 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
               onTap: () {
                 authServices.logOut(context);
               },
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Text(
                     "Log out",
                     style: TextStyle(
@@ -366,7 +365,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
         height: 224,
         child: ElevatedButton.icon(
           style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
             Color(0xffF5F7FA),
           )),
           onPressed: _launchUrl,
@@ -409,7 +408,7 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
         height: 224,
         child: ElevatedButton.icon(
           style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
             Color(0xffF5F7FA),
           )),
           onPressed: () {
@@ -447,9 +446,9 @@ class _OriginalHomeScreenState extends State<OriginalHomeScreen> {
         SizedBox(
           height: 250,
           width: MediaQuery.of(context).size.width * 0.4,
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Text(
                 "Conquer Competition ", //Competition Claim Victory!
                 textAlign: TextAlign.center,

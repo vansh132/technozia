@@ -629,7 +629,7 @@ class _GamingScreenState extends State<GamingScreen> {
           width: double.infinity,
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
                 GlobalVariables.appBarColor,
               ),
             ),

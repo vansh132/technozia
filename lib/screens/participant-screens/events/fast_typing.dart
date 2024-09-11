@@ -136,7 +136,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Registration Fees',
@@ -151,7 +151,7 @@ class _FastTypingState extends State<FastTyping> {
                           ),
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   'Rs. 200/- Per Team',
@@ -240,7 +240,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- Judgment will be done based on Words per Minute(WPM) and accuracy rate.',
                                 textAlign: TextAlign.start,
@@ -258,7 +258,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- Participants are not required to bring any kind of external equipment for the event.',
@@ -278,7 +278,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of a tie, the accuracy rate will be considered.',
@@ -298,7 +298,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The result declared by the judge is final and will be taken in consideration.',
@@ -388,8 +388,8 @@ class _FastTypingState extends State<FastTyping> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
@@ -437,8 +437,8 @@ class _FastTypingState extends State<FastTyping> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceAround,
                                 children: [
-                                  Icon(Icons.phone),
-                                  SizedBox(
+                                  const Icon(Icons.phone),
+                                  const SizedBox(
                                     width: 4,
                                   ),
                                   Text(
@@ -500,7 +500,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 '- The registration for events can be done both online and offline. On the spot registrations are also available.',
                                 textAlign: TextAlign.start,
@@ -518,7 +518,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- The Registration fee for each event is Rs. 200/- per team except Treasure Hunt and Gaming which is Rs. 500/- per team.',
@@ -538,7 +538,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- There is no refund policy once registered or completed with the payment.',
@@ -558,7 +558,7 @@ class _FastTypingState extends State<FastTyping> {
                         children: [
                           TableCell(
                             child: Padding(
-                              padding: EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.all(8.0),
                               child: Center(
                                 child: Text(
                                   '- In case of any queries or registration related issues, please contact Event Co - Ordinators.',

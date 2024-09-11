@@ -63,7 +63,7 @@ class _AddVolunteerScreenState extends State<AddVolunteerScreen> {
                     color: GlobalVariables.secondaryColor,
                     borderRadius: BorderRadius.circular(24),
                   ),
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

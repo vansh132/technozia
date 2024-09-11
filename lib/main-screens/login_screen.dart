@@ -55,9 +55,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 // color: Colors.red,
                 margin: const EdgeInsets.only(left: 24, top: 24),
                 padding: const EdgeInsets.all(8),
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       "Welcome, ",
                       style: TextStyle(

@@ -101,11 +101,11 @@ class _ParticipantHomeState extends State<ParticipantHome> {
   Widget topBar() {
     return Container(
       color: Colors.red,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
+      child: const Padding(
+        padding: EdgeInsets.all(8.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: const [
+          children: [
             Text("Good Morning"),
             CircleAvatar(
               backgroundImage: NetworkImage(

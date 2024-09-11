@@ -112,25 +112,25 @@ class _AdminHomeState extends State<AdminHome> {
     };
 
     List<Color> colorList = [
-      Color.fromARGB(255, 176, 232, 189),
-      Color(0xffffb3c6),
-      Color(0xffe7bc91),
-      Color(0xff9d4edd),
-      Color(0xffaacc00),
-      Color(0xff774936),
-      Color(0xffe01e37),
-      Color(0xff98c1d9)
+      const Color.fromARGB(255, 176, 232, 189),
+      const Color(0xffffb3c6),
+      const Color(0xffe7bc91),
+      const Color(0xff9d4edd),
+      const Color(0xffaacc00),
+      const Color(0xff774936),
+      const Color(0xffe01e37),
+      const Color(0xff98c1d9)
     ]; //a8dadc
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff14213D),
         elevation: 2, //0xffe9ecef
 
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
+        title: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Image(
@@ -286,9 +286,9 @@ class _AdminHomeState extends State<AdminHome> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           "Payment Summary",
                           style: TextStyle(
@@ -364,9 +364,9 @@ class _AdminHomeState extends State<AdminHome> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
+                    const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
                           "User Summary",
                           style: TextStyle(
@@ -551,8 +551,8 @@ class _AdminHomeState extends State<AdminHome> {
               onTap: () {
                 authServices.logOut(context);
               },
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Text(
                     "Log out",
                     style: TextStyle(

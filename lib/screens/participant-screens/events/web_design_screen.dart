@@ -628,7 +628,7 @@ class _WebDesignScreenState extends State<WebDesignScreen> {
           width: double.infinity,
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
                 GlobalVariables.appBarColor,
               ),
             ),

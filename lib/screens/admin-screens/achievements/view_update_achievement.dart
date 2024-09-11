@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:technozia/constants/global_variables.dart';
 import 'package:technozia/models/achievement.dart';
@@ -149,31 +148,31 @@ class _ViewUpdateAchievementScreenState
               const SizedBox(
                 height: 20,
               ),
-              CarouselSlider(
-                options: CarouselOptions(
-                  height: 200,
-                  aspectRatio: 16 / 9,
-                  viewportFraction: 0.8,
-                  initialPage: 0,
-                  enableInfiniteScroll: true,
-                  reverse: false,
-                  autoPlay: true,
-                  autoPlayInterval: const Duration(seconds: 3),
-                  autoPlayAnimationDuration: const Duration(milliseconds: 800),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                  onPageChanged: (index, reason) {
-                    // Do something when the page changes
-                  },
-                  scrollDirection: Axis.horizontal,
-                ),
-                items: achievement.images.map((url) {
-                  return SizedBox(
-                    width: double.infinity,
-                    child: Image.network(url, fit: BoxFit.cover),
-                  );
-                }).toList(),
-              ),
+              // CarouselSlider(
+              //   options: CarouselOptions(
+              //     height: 200,
+              //     aspectRatio: 16 / 9,
+              //     viewportFraction: 0.8,
+              //     initialPage: 0,
+              //     enableInfiniteScroll: true,
+              //     reverse: false,
+              //     autoPlay: true,
+              //     autoPlayInterval: const Duration(seconds: 3),
+              //     autoPlayAnimationDuration: const Duration(milliseconds: 800),
+              //     autoPlayCurve: Curves.fastOutSlowIn,
+              //     enlargeCenterPage: true,
+              //     onPageChanged: (index, reason) {
+              //       // Do something when the page changes
+              //     },
+              //     scrollDirection: Axis.horizontal,
+              //   ),
+              //   items: achievement.images.map((url) {
+              //     return SizedBox(
+              //       width: double.infinity,
+              //       child: Image.network(url, fit: BoxFit.cover),
+              //     );
+              //   }).toList(),
+              // ),
               const SizedBox(
                 height: 20,
               ),
@@ -226,7 +225,7 @@ class _ViewUpdateAchievementScreenState
                   )
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Row(

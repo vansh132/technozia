@@ -71,14 +71,14 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
     };
 
     List<Color> colorList = [
-      Color(0xff80ed99),
-      Color(0xffffb3c6),
-      Color(0xffe7bc91),
-      Color(0xff9d4edd),
-      Color(0xffaacc00),
-      Color(0xff774936),
-      Color(0xffe01e37),
-      Color(0xff98c1d9)
+      const Color(0xff80ed99),
+      const Color(0xffffb3c6),
+      const Color(0xffe7bc91),
+      const Color(0xff9d4edd),
+      const Color(0xffaacc00),
+      const Color(0xff774936),
+      const Color(0xffe01e37),
+      const Color(0xff98c1d9)
     ]; //a8dadc
 
     return Scaffold(
@@ -86,11 +86,11 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
         backgroundColor: const Color(0xff14213D),
         elevation: 2, //0xffe9ecef
 
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
+        title: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Image(
@@ -264,8 +264,8 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
               onTap: () {
                 authServices.logOut(context);
               },
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Text(
                     "Log out",
                     style: TextStyle(
@@ -316,7 +316,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
         height: 224,
         child: ElevatedButton.icon(
           style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
             Color(0xffF5F7FA),
           )),
           onPressed: _launchUrl,
@@ -359,7 +359,7 @@ class _OriginalCoreHomeState extends State<OriginalCoreHome> {
         height: 224,
         child: ElevatedButton.icon(
           style: const ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
             Color(0xffF5F7FA),
           )),
           onPressed: () {

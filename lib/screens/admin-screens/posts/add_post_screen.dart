@@ -56,7 +56,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                       color: GlobalVariables.secondaryColor,
                       borderRadius: BorderRadius.circular(24),
                     ),
-                    padding: EdgeInsets.all(8),
+                    padding: const EdgeInsets.all(8),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

@@ -547,7 +547,7 @@ class _TreasureHuntScreenState extends State<TreasureHuntScreen> {
           width: double.infinity,
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
                 GlobalVariables.appBarColor,
               ),
             ),

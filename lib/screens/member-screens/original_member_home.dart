@@ -31,8 +31,7 @@ class _OriginalMemberHomeState extends State<OriginalMemberHome> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-          statusBarColor: Color(0xff14213D)), 
+      const SystemUiOverlayStyle(statusBarColor: Color(0xff14213D)),
     );
     final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
@@ -40,11 +39,11 @@ class _OriginalMemberHomeState extends State<OriginalMemberHome> {
         backgroundColor: const Color(0xff14213D),
         elevation: 2, //0xffe9ecef
 
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
+        title: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.all(8.0),
                 child: Image(
@@ -87,12 +86,12 @@ class _OriginalMemberHomeState extends State<OriginalMemberHome> {
                 height: 12,
               ),
               Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 width: double.infinity,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Recent Posts,",
                       style: TextStyle(
                         fontSize: 22,
@@ -100,15 +99,15 @@ class _OriginalMemberHomeState extends State<OriginalMemberHome> {
                         color: Colors.black,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     post == null
                         ? const Center(child: CircularProgressIndicator())
                         : post!.isEmpty
-                            ? SizedBox(
+                            ? const SizedBox(
                                 height: 550,
-                                child: const Center(
+                                child: Center(
                                   child: Text(
                                     "No Posts !!",
                                     textAlign: TextAlign.center,
@@ -277,8 +276,8 @@ class _OriginalMemberHomeState extends State<OriginalMemberHome> {
               onTap: () {
                 authServices.logOut(context);
               },
-              child: Row(
-                children: const [
+              child: const Row(
+                children: [
                   Text(
                     "Log out",
                     style: TextStyle(

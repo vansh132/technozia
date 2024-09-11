@@ -551,7 +551,7 @@ class _ItQuizScreenState extends State<ItQuizScreen> {
           width: double.infinity,
           child: ElevatedButton(
             style: ButtonStyle(
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
                 GlobalVariables.appBarColor,
               ),
             ),

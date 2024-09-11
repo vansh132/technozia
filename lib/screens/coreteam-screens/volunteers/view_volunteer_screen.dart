@@ -76,8 +76,8 @@ class _ViewVolunteerListScreenState extends State<ViewVolunteerListScreen> {
                 DataCell(Text(item.addedBy)),
                 DataCell(TextButton(
                   style: ButtonStyle(
-                    padding: const MaterialStatePropertyAll(EdgeInsets.all(8)),
-                    backgroundColor: MaterialStatePropertyAll(
+                    padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
+                    backgroundColor: WidgetStatePropertyAll(
                       GlobalVariables.appBarColor,
                     ),
                   ),

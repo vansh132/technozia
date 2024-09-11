@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:technozia/main-screens/login_screen.dart';
 import 'package:technozia/services/auth_services.dart';
@@ -41,7 +40,6 @@ class _SignupScreenState extends State<SignupScreen> {
       email: _email.text,
       password: _password.text,
     );
-
   }
 
   @override
@@ -66,9 +64,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 16),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Create an account",
                         style: TextStyle(
@@ -85,9 +83,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 Container(
                   margin: const EdgeInsets.only(left: 17),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         "Get ready to embark on an extraordinary journey",
                         style: TextStyle(
@@ -339,9 +337,9 @@ class _SignupScreenState extends State<SignupScreen> {
           const SizedBox(
             height: 72,
           ),
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               SizedBox(
                 height: 54,
                 width: 54,

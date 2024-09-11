@@ -107,7 +107,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                 children: [
                                   TableCell(
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         'Name',
                                         textAlign: TextAlign.center,
@@ -120,7 +120,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                   ),
                                   TableCell(
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         'Email',
                                         textAlign: TextAlign.center,
@@ -133,7 +133,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                   ),
                                   TableCell(
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         'Phone',
                                         textAlign: TextAlign.center,
@@ -146,7 +146,7 @@ class _ViewRegisterScreenState extends State<ViewRegisterScreen> {
                                   ),
                                   TableCell(
                                     child: Padding(
-                                      padding: EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Text(
                                         'Event',
                                         textAlign: TextAlign.center,

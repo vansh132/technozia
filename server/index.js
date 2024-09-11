@@ -11,7 +11,8 @@ const volunteerRouter = require("./routes/volunteer");
 const app = express();
 
 const PORT = 3000;
-const DB = "mongodb://0.0.0.0:27017";
+const DB =
+  "mongodb+srv://vansh:hello132@club.pedomyy.mongodb.net/?retryWrites=true&w=majority&appName=club";
 
 app.use(express.json());
 app.use(express.static("public"));

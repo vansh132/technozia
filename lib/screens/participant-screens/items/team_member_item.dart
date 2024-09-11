@@ -154,7 +154,7 @@ class _TeamMemberItemState extends State<TeamMemberItem> {
                           actions: [
                             ElevatedButton(
                                 style: const ButtonStyle(
-                                  backgroundColor: MaterialStatePropertyAll(
+                                  backgroundColor: WidgetStatePropertyAll(
                                     Color(0xff03071e),
                                   ),
                                 ),

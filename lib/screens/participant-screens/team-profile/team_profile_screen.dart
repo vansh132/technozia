@@ -260,7 +260,7 @@ class _TeamProfileScreenState extends State<TeamProfileScreen> {
                     actions: [
                       ElevatedButton(
                           style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(
+                            backgroundColor: WidgetStatePropertyAll(
                               Color(0xff03071e),
                             ),
                           ),

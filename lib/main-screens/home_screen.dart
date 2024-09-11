@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,11 +8,11 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Padding(
-          padding: const EdgeInsets.all(8.0),
+        title: const Padding(
+          padding: EdgeInsets.all(8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Image(
                 image: AssetImage('assets/technozia_logo.png'),
                 height: 36,
@@ -35,7 +33,6 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(
-              
               width: 250,
               height: 250,
               child: Image(

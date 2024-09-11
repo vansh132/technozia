@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:technozia/constants/global_variables.dart';
@@ -75,21 +74,22 @@ class _AddAchievementScreenState extends State<AddAchievementScreen> {
               child: Column(
                 children: [
                   images.isNotEmpty
-                      ? CarouselSlider(
-                          items: images.map((i) {
-                            return Builder(
-                              builder: (context) => Image.file(
-                                i,
-                                fit: BoxFit.cover,
-                                height: 200,
-                              ),
-                            );
-                          }).toList(),
-                          options: CarouselOptions(
-                            viewportFraction: 1,
-                            height: 200,
-                          ),
-                        )
+                      // ? CarouselSlider(
+                      //     items: images.map((i) {
+                      //       return Builder(
+                      //         builder: (context) => Image.file(
+                      //           i,
+                      //           fit: BoxFit.cover,
+                      //           height: 200,
+                      //         ),
+                      //       );
+                      //     }).toList(),
+                      //     options: CarouselOptions(
+                      //       viewportFraction: 1,
+                      //       height: 200,
+                      //     ),
+                      //   )
+                      ? const SizedBox()
                       : GestureDetector(
                           onTap: selectImages,
                           child: DottedBorder(
