@@ -73,6 +73,7 @@ flutter:
   assets:
     - assets/technozia_logo.png
     - assets/login_image.png
+    - assets/login_image_2.png
     - assets/overall_trophy.png
     - assets/leader_icon.png
     - assets/profile_icon.jpg
