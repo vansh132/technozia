@@ -160,7 +160,19 @@ class _AdminHomeState extends State<AdminHome> {
       ),
       backgroundColor: const Color(0xffE5E5E5),
       body: SingleChildScrollView(
-        child: SizedBox(
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xffcad0ff),
+                Color(0xffe3e3e3),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              stops: [0.0, 1.0],
+              transform: GradientRotation(1.5708),
+            ),
+          ),
           width: double.infinity,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -526,9 +538,22 @@ class _AdminHomeState extends State<AdminHome> {
   Widget topBar(User user) {
     return Container(
       width: double.infinity,
-      height: 48,
+      // height: 72,
+      padding: EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: const Color(0xffFCA311),
+        // color: const Color(0xffFCA311),
+        gradient: const LinearGradient(
+          colors: [
+            Color(0xff1a2766),
+            Color(0xffae1b1e),
+            Color(0xfffc9f32),
+          ],
+          tileMode: TileMode.clamp,
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          stops: [0.0, 0.5, 1.0],
+          transform: GradientRotation(0.5),
+        ),
         borderRadius: BorderRadius.circular(24),
       ),
       child: Row(
@@ -541,7 +566,7 @@ class _AdminHomeState extends State<AdminHome> {
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16,
-                color: Color(0xff010B13),
+                color: Colors.white,
               ),
             ),
           ),
